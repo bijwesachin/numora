@@ -1,0 +1,101 @@
+import { defineCards } from '@/content/defineCards';
+
+export const fasSubtractLikeCards = defineCards('fas-subtract-like', ['fractions', 'subtraction', 'like-denominators'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What does it mean to subtract fractions with the same denominator?',
+    back: 'You are taking away slices that are the same size, so you count how many slices remain.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How do you subtract fractions with the same denominator?',
+    back: 'Subtract the numerators. Keep the denominator.',
+    example: '7/8 − 3/8 = 4/8 = 1/2',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'How can you check a fraction subtraction?',
+    back: 'Add the answer to the fraction you subtracted. You should get the starting fraction.',
+    example: '4/8 + 3/8 = 7/8 ✓',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 1,
+    front: '7/8 of a bar is shaded and 3/8 is taken away. How much is left?',
+    back: '4/8, which is 1/2.',
+    visual: {
+      kind: 'fraction-strip-stack',
+      strips: [{ numerator: 7, denominator: 8 }, { numerator: 3, denominator: 8 }, { numerator: 4, denominator: 8 }],
+    },
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: '4/5 − 1/5 = ?',
+    back: '3/5',
+    after: [2],
+    explanation: '4 slices take away 1 slice leaves 3 slices, all fifths.',
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: '7/9 − 4/9 = ? (Simplify.)',
+    back: '1/3',
+    steps: ['7 − 4 = 3, so 3/9.', 'Divide by 3: 1/3.'],
+    after: [2],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: '11/12 − 5/12 = ? (Simplify.)',
+    back: '1/2',
+    steps: ['11 − 5 = 6, so 6/12.', 'Divide by 6: 1/2.'],
+    after: [6],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: '1 − 3/8 = ?',
+    back: '5/8',
+    steps: ['Rename 1 as 8/8.', '8/8 − 3/8 = 5/8.'],
+    after: [5],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: '2 − 3/4 = ?',
+    back: '1 1/4',
+    steps: ['2 = 8/4.', '8/4 − 3/4 = 5/4.', '5/4 = 1 1/4.'],
+    after: [8],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'Max says 5/6 − 2/6 = 3/0 because 6 − 6 = 0. What is wrong?',
+    back: 'He subtracted the denominators too. Keep the denominator: 5/6 − 2/6 = 3/6 = 1/2.',
+    commonMistake: 'Subtracting the denominators.',
+    after: [2],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'True or False: 1 − 2/5 = 1/5.',
+    back: 'False. 1 = 5/5, so 5/5 − 2/5 = 3/5.',
+    after: [8],
+  },
+  {
+    n: 12, type: 'real-life', difficulty: 3,
+    front: 'A rope is 7/8 meter long. A 2/8-meter piece is cut off. How long is the rest?',
+    back: '5/8 meter',
+    after: [5],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'Leo ate 2/12 of a pie and Mia ate 5/12. How much of the pie is left?',
+    back: '5/12',
+    steps: ['Eaten: 2/12 + 5/12 = 7/12.', 'Left: 12/12 − 7/12 = 5/12.'],
+    after: [8],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'Find the missing numerator: 3/10 + ?/10 − 2/10 = 6/10.',
+    back: '5',
+    steps: ['3 + ? − 2 = 6.', '3 + ? = 8.', '? = 5. Check: 3 + 5 − 2 = 6 ✓'],
+    after: [7],
+  },
+]);

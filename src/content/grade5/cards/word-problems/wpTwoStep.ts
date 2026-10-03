@@ -1,0 +1,97 @@
+import { defineCards } from '@/content/defineCards';
+
+export const wpTwoStepCards = defineCards('wp-two-step', ['word-problems', 'two-step'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What is a two-step word problem?',
+    back: 'A problem that needs two calculations. The answer to the first step is used in the second step.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How do you plan a two-step problem?',
+    back: 'Ask: “What do I need to find FIRST before I can answer the question?” Do that step, then use the result.',
+    memoryHook: 'Hidden question first, real question second.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'visual', difficulty: 2,
+    front: 'Ben has $20. He buys 3 notebooks that cost $4 each. How much money is left? What are the two steps in the model?',
+    back: 'Step 1: 3 × 4 = 12 spent.\nStep 2: 20 − 12 = 8 left.',
+    visual: {
+      kind: 'bar-model',
+      total: '$20',
+      bars: [{ segments: [{ label: '$4', size: 4 }, { label: '$4', size: 4 }, { label: '$4', size: 4 }, { label: '?', size: 8, tone: 'unknown' }] }],
+    },
+    after: [2],
+  },
+  {
+    n: 4, type: 'solve', difficulty: 1,
+    front: 'Pens cost $2 each. Lia buys 5 pens and pays with a $20 bill. How much change does she get?',
+    back: '$10',
+    steps: ['Step 1: 5 × 2 = 10 spent.', 'Step 2: 20 − 10 = 10 change.'],
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 2,
+    front: 'A box holds 12 muffins. Ann buys 3 boxes and eats 5 muffins. How many muffins are left?',
+    back: '31 muffins',
+    steps: ['Step 1: 3 × 12 = 36.', 'Step 2: 36 − 5 = 31.'],
+    after: [2],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 3,
+    front: 'Tickets cost $8 for adults and $5 for children. What is the total for 2 adults and 3 children?',
+    back: '$31',
+    steps: ['Adults: 2 × 8 = 16.', 'Children: 3 × 5 = 15.', 'Total: 16 + 15 = 31.'],
+    after: [4],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'A class has 30 students. 1/3 of them are absent. How many students are present?',
+    back: '20 students',
+    steps: ['Absent: 1/3 of 30 = 10.', 'Present: 30 − 10 = 20.'],
+    after: [4],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Marco saves $15 a week for 6 weeks. Then he buys a $72 game. How much does he have left?',
+    back: '$18',
+    steps: ['Saved: 6 × 15 = 90.', 'Left: 90 − 72 = 18.'],
+    after: [5],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'Kai solves “4 bags have 6 apples each. 9 apples are eaten. How many are left?” as 4 + 6 − 9 = 1. What is wrong?',
+    back: 'He combined numbers without thinking about the story. First 4 × 6 = 24 apples, then 24 − 9 = 15.',
+    commonMistake: 'Using the numbers in the order they appear.',
+    after: [2],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'A shirt costs $18. Ana buys 2 shirts and pays with $50. She answers “$36.” Why isn’t that the final answer?',
+    back: '$36 is only the cost (step 1). The question asks for change: 50 − 36 = $14.',
+    memoryHook: 'Reread the question before you write the answer.',
+    after: [4],
+  },
+  {
+    n: 11, type: 'real-life', difficulty: 3,
+    front: 'A family buys 2 pizzas at $11.50 each and 4 drinks at $1.25 each. What is the total cost?',
+    back: '$28.00',
+    steps: ['Pizzas: 2 × 11.50 = 23.00.', 'Drinks: 4 × 1.25 = 5.00.', 'Total: 23 + 5 = 28.'],
+    after: [6],
+  },
+  {
+    n: 12, type: 'challenge', difficulty: 4,
+    front: 'A rectangular garden is 9 m by 6 m. A fence goes around it and costs $4 per meter. What is the cost of the fence?',
+    back: '$120',
+    steps: ['Perimeter: 2 × (9 + 6) = 30 m.', 'Cost: 30 × 4 = $120.'],
+    after: [6],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'Sam has twice as many cards as Dee. Dee has 15 more cards than Raj. Raj has 20 cards. How many cards does Sam have?',
+    back: '70 cards',
+    steps: ['Dee: 20 + 15 = 35.', 'Sam: 2 × 35 = 70.'],
+    after: [5],
+  },
+]);

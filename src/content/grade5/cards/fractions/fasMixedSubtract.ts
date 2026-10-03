@@ -1,0 +1,111 @@
+import { defineCards } from '@/content/defineCards';
+
+export const fasMixedSubtractCards = defineCards('fas-mixed-subtract', ['fractions', 'mixed-numbers', 'subtraction'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'How do you subtract mixed numbers?',
+    back: 'Subtract the fractions and the whole numbers separately, then combine. If the first fraction is too small, you need to regroup (borrow) — you’ll practice that next.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'What are the steps for subtracting mixed numbers when no regrouping is needed?',
+    back: '1) Give the fractions a common denominator.\n2) Subtract the fractions.\n3) Subtract the whole numbers.\n4) Simplify.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'How can you check a subtraction of mixed numbers?',
+    back: 'Add the answer to the number you subtracted. You should get the number you started with.',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 2,
+    front: 'How far apart are 2 1/2 and 3 3/4 on the number line?',
+    back: '1 1/4',
+    explanation: '3 3/4 − 2 1/2 = 3 3/4 − 2 2/4 = 1 1/4.',
+    visual: {
+      kind: 'number-line', min: 0, max: 4, partsPerWhole: 4,
+      marks: [
+        { value: { numerator: 5, denominator: 2 }, label: '2 1/2', position: 'below' },
+        { value: { numerator: 15, denominator: 4 }, label: '3 3/4', position: 'above' },
+      ],
+    },
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: '4 3/5 − 1 1/5 = ?',
+    back: '3 2/5',
+    steps: ['Wholes: 4 − 1 = 3.', 'Fractions: 3/5 − 1/5 = 2/5.'],
+    after: [2],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: '5 5/6 − 2 1/6 = ? (Simplify.)',
+    back: '3 2/3',
+    steps: ['Wholes: 3. Fractions: 4/6.', 'Simplify: 4/6 = 2/3.'],
+    after: [5],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: '6 3/4 − 2 1/2 = ?',
+    back: '4 1/4',
+    steps: ['1/2 = 2/4.', 'Wholes: 6 − 2 = 4. Fractions: 3/4 − 2/4 = 1/4.'],
+    after: [6],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: '7 5/6 − 3 1/4 = ?',
+    back: '4 7/12',
+    steps: ['LCM is 12: 5/6 = 10/12 and 1/4 = 3/12.', 'Wholes: 4. Fractions: 7/12.'],
+    after: [7],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: '9 7/8 − 4 1/3 = ?',
+    back: '5 13/24',
+    steps: ['LCM is 24: 7/8 = 21/24 and 1/3 = 8/24.', 'Wholes: 5. Fractions: 13/24.'],
+    after: [7],
+  },
+  {
+    n: 10, type: 'solve', difficulty: 3,
+    front: '5 5/6 − 2/3 = ?',
+    back: '5 1/6',
+    steps: ['2/3 = 4/6.', '5/6 − 4/6 = 1/6.', 'The whole number stays 5.'],
+    after: [6],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'Sam says 5 3/4 − 2 1/2 = 3 2/2 because he subtracted numerators (3 − 1) and denominators (4 − 2). What’s wrong?',
+    back: 'You never subtract denominators. Rename 1/2 as 2/4, then 3/4 − 2/4 = 1/4. The answer is 3 1/4.',
+    commonMistake: 'Subtracting the denominators.',
+    after: [7],
+  },
+  {
+    n: 12, type: 'misconception', difficulty: 5,
+    front: 'Liam says 6 2/3 − 1 1/6 = 5 1/3, subtracting numerators over 3. What did he skip?',
+    back: 'Renaming to a common denominator. 2/3 = 4/6, and 4/6 − 1/6 = 3/6 = 1/2. The answer is 5 1/2.',
+    after: [8],
+  },
+  {
+    n: 13, type: 'real-life', difficulty: 3,
+    front: 'A ribbon is 8 3/4 meters long. 3 1/4 meters are cut off. How long is the piece left?',
+    back: '5 1/2 meters',
+    steps: ['Wholes: 8 − 3 = 5. Fractions: 3/4 − 1/4 = 2/4.', '2/4 = 1/2.'],
+    after: [6],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'A baker has 10 7/8 lb of flour. She uses 2 1/4 lb for bread and 3 1/2 lb for cake. How much flour is left?',
+    back: '5 1/8 lb',
+    steps: ['Used: 2 2/8 + 3 4/8 = 5 6/8.', 'Left: 10 7/8 − 5 6/8 = 5 1/8.'],
+    after: [8, 9],
+  },
+  {
+    n: 15, type: 'challenge', difficulty: 4,
+    front: 'Check 7 5/6 − 3 1/4 = 4 7/12 using addition.',
+    back: '4 7/12 + 3 3/12 = 7 10/12 = 7 5/6 ✓ It is correct.',
+    steps: ['3 1/4 = 3 3/12.', '4 7/12 + 3 3/12 = 7 10/12.', 'Simplify: 10/12 = 5/6.'],
+    after: [8],
+  },
+]);

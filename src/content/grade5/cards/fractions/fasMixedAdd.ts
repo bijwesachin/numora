@@ -1,0 +1,112 @@
+import { defineCards } from '@/content/defineCards';
+
+export const fasMixedAddCards = defineCards('fas-mixed-add', ['fractions', 'mixed-numbers', 'addition'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'How do you add mixed numbers?',
+    back: 'Add the whole numbers and add the fractions separately, then combine. If the fractions add to 1 or more, regroup the extra whole.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'What are the steps for adding mixed numbers?',
+    back: '1) Give the fractions a common denominator.\n2) Add the fractions.\n3) Add the whole numbers.\n4) If the fraction is improper, change it to a mixed number and add the extra whole. Simplify.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'What is another way to add mixed numbers?',
+    back: 'Change both to improper fractions, add them, and change the answer back to a mixed number.',
+    example: '1 1/2 + 1 1/2 → 3/2 + 3/2 = 6/2 = 3',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 2,
+    front: 'The bars show 2 1/4 and 1 2/4. What is 2 1/4 + 1 2/4?',
+    back: '3 3/4',
+    explanation: 'Wholes: 2 + 1 = 3. Fractions: 1/4 + 2/4 = 3/4.',
+    visual: {
+      kind: 'bar-model',
+      bars: [
+        { label: '2 1/4', segments: [{ label: '1', size: 4 }, { label: '1', size: 4, tone: 'empty' }, { label: '1/4', size: 1 }] },
+        { label: '1 2/4', segments: [{ label: '1', size: 4 }, { label: '2/4', size: 2, tone: 'empty' }] },
+      ],
+    },
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: '1 1/5 + 2 2/5 = ?',
+    back: '3 3/5',
+    steps: ['Wholes: 1 + 2 = 3.', 'Fractions: 1/5 + 2/5 = 3/5.'],
+    after: [2],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: '2 1/3 + 1 1/3 = ?',
+    back: '3 2/3',
+    after: [5],
+    steps: ['Wholes: 2 + 1 = 3.', 'Fractions: 1/3 + 1/3 = 2/3.'],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: '3 3/4 + 2 3/4 = ?',
+    back: '6 1/2',
+    steps: ['Wholes: 3 + 2 = 5.', 'Fractions: 3/4 + 3/4 = 6/4 = 1 2/4.', '5 + 1 2/4 = 6 2/4 = 6 1/2.'],
+    after: [6],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: '2 1/2 + 1 1/3 = ?',
+    back: '3 5/6',
+    steps: ['LCM of 2 and 3 is 6.', '1/2 = 3/6 and 1/3 = 2/6.', 'Wholes: 3. Fractions: 3/6 + 2/6 = 5/6.'],
+    after: [6],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: '4 2/3 + 3 3/4 = ?',
+    back: '8 5/12',
+    steps: ['2/3 = 8/12 and 3/4 = 9/12.', 'Wholes: 4 + 3 = 7. Fractions: 8/12 + 9/12 = 17/12 = 1 5/12.', '7 + 1 5/12 = 8 5/12.'],
+    after: [7, 8],
+  },
+  {
+    n: 10, type: 'solve', difficulty: 4,
+    front: '5 5/6 + 2 7/8 = ?',
+    back: '8 17/24',
+    steps: ['LCM of 6 and 8 is 24.', '5/6 = 20/24 and 7/8 = 21/24.', 'Wholes: 7. Fractions: 41/24 = 1 17/24.', '7 + 1 17/24 = 8 17/24.'],
+    after: [9],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'Liam adds 2 3/4 + 1 3/4 and gets 3 6/4. He says he’s finished. Is he?',
+    back: 'Not yet. 6/4 is improper: 6/4 = 1 1/2, so the answer is 4 1/2.',
+    commonMistake: 'Leaving an improper fraction in a mixed number.',
+    after: [7],
+  },
+  {
+    n: 12, type: 'misconception', difficulty: 5,
+    front: 'True or False: 1 1/2 + 1 1/3 = 2 2/5.',
+    back: 'False. You need a common denominator: 1/2 + 1/3 = 5/6, so the answer is 2 5/6.',
+    after: [8],
+  },
+  {
+    n: 13, type: 'real-life', difficulty: 3,
+    front: 'Ana walked 1 3/4 miles, then 2 1/2 miles. How far did she walk in all?',
+    back: '4 1/4 miles',
+    steps: ['1/2 = 2/4.', 'Wholes: 1 + 2 = 3. Fractions: 3/4 + 2/4 = 5/4 = 1 1/4.', '3 + 1 1/4 = 4 1/4.'],
+    after: [9],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'A recipe uses 2 1/3 cups of flour and 1 3/4 cups of sugar. How many cups of these two ingredients are there altogether?',
+    back: '4 1/12 cups',
+    steps: ['1/3 = 4/12 and 3/4 = 9/12.', 'Wholes: 3. Fractions: 13/12 = 1 1/12.', '3 + 1 1/12 = 4 1/12.'],
+    after: [9],
+  },
+  {
+    n: 15, type: 'challenge', difficulty: 4,
+    front: 'Estimate first, then solve: 3 7/8 + 4 1/9. Is your exact answer close to the estimate?',
+    back: 'Estimate: 4 + 4 = 8. Exact: 7 71/72, which is just under 8, so it is reasonable.',
+    steps: ['LCM of 8 and 9 is 72.', '7/8 = 63/72 and 1/9 = 8/72.', 'Wholes: 7. Fractions: 71/72.'],
+    after: [10],
+  },
+]);

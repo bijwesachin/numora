@@ -1,0 +1,111 @@
+import { defineCards } from '@/content/defineCards';
+
+export const fmulScalingCards = defineCards('fmul-scaling', ['fractions', 'multiplication', 'scaling'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'How does multiplying by a fraction change a number?',
+    back: 'Multiplying by a number less than 1 makes the result smaller. Multiplying by 1 leaves it the same. Multiplying by a number greater than 1 makes it bigger.',
+    memoryHook: 'Multiplication doesn’t always make bigger — the factor decides.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'What is the quick rule for the size of a product?',
+    back: 'Factor < 1 → product is smaller than the other factor.\nFactor = 1 → same.\nFactor > 1 → product is bigger.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'Why does multiplying by 1/2 make a number smaller but multiplying by 2 make it bigger?',
+    back: '× 1/2 takes half of the number. × 2 takes two copies of it.',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 1,
+    front: 'Compare these bars: 8, 8 × 1/2 and 8 × 2. Which product is smaller than 8, and which is larger?',
+    back: '8 × 1/2 = 4 is smaller than 8. 8 × 2 = 16 is larger.',
+    visual: {
+      kind: 'bar-model',
+      bars: [
+        { label: '8', segments: [{ label: '8', size: 8 }] },
+        { label: '8 × 1/2', segments: [{ label: '4', size: 4, tone: 'empty' }] },
+        { label: '8 × 2', segments: [{ label: '16', size: 16 }] },
+      ],
+    },
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: 'Is 6 × 1/2 more or less than 6? What is the product?',
+    back: 'Less than 6. 6 × 1/2 = 3.',
+    after: [2],
+    explanation: '× 1/2 means half of 6, which is 3.',
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: 'Without calculating, is 3/4 × 8 greater than, less than or equal to 8?',
+    back: 'Less than 8, because 3/4 is less than 1.',
+    after: [2],
+    explanation: '3/4 is less than 1, so you take only part of 8. (3/4 × 8 = 6.)',
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Without calculating, compare 5/4 × 12 and 12.',
+    back: '5/4 × 12 is greater than 12, because 5/4 is greater than 1.',
+    after: [6],
+    explanation: '5/4 is more than 1, so you have more than one whole 12. (5/4 × 12 = 15.)',
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Order without finding exact products: 12 × 3/4, 12 × 1, 12 × 5/4.',
+    back: '12 × 3/4 < 12 × 1 < 12 × 5/4 (which are 9, 12 and 15).',
+    explanation: 'The order of the products matches the order of the factors 3/4, 1 and 5/4.',
+    after: [7],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: 'Which factor makes 20 smallest: × 1/4, × 1 or × 3/2?',
+    back: '× 1/4 (the product is 5)',
+    after: [6],
+    explanation: '1/4 of 20 is 5, 1 times 20 is 20, and 3/2 of 20 is 30. The smallest is × 1/4.',
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'True or False: Multiplication always makes a number bigger.',
+    back: 'False. Multiplying by a fraction less than 1 makes the number smaller. 8 × 1/2 = 4.',
+    commonMistake: 'Believing multiplication always increases a number.',
+    after: [2],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'True or False: 2/3 × 5/6 is greater than 5/6.',
+    back: 'False. 2/3 is less than 1, so the product is less than 5/6.',
+    after: [6],
+  },
+  {
+    n: 12, type: 'real-life', difficulty: 3,
+    front: 'A 24-inch ribbon is cut to 3/4 of its length. Is the new ribbon longer or shorter? How long is it?',
+    back: 'Shorter. 3/4 × 24 = 18 inches.',
+    after: [6],
+  },
+  {
+    n: 13, type: 'real-life', difficulty: 3,
+    front: 'A photo that is 6 inches wide is scaled by 1 1/2. Will it get bigger or smaller? What is the new width?',
+    back: 'Bigger. 1 1/2 × 6 = 9 inches.',
+    after: [7],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'Find a fraction to multiply 40 by so that the product is between 10 and 20.',
+    back: 'For example 2/5 (product 16) or 1/3 (product 13 1/3).',
+    hint: 'The fraction must be between 1/4 and 1/2.',
+    steps: ['10 ÷ 40 = 1/4 and 20 ÷ 40 = 1/2.', 'Choose a fraction between 1/4 and 1/2, such as 2/5.'],
+    after: [8],
+  },
+  {
+    n: 15, type: 'challenge', difficulty: 4,
+    front: 'Which is greater: 3/5 of 10 or 5/3 of 10? Explain without finding both.',
+    back: '5/3 of 10, because 5/3 is greater than 1 and 3/5 is less than 1. (6 versus 16 2/3.)',
+    after: [8],
+    steps: ['3/5 of 10 = 6, which is less than 10.', '5/3 of 10 = 16 2/3, which is more than 10.', 'So 5/3 of 10 is greater.'],
+  },
+]);

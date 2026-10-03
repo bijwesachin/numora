@@ -1,0 +1,86 @@
+import { defineCards } from '@/content/defineCards';
+
+export const mrFindPatternCards = defineCards('mr-find-pattern', ['math-reasoning', 'patterns'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What does “find a pattern” mean as a problem-solving strategy?',
+    back: 'Look for a repeating or growing rule in a list of numbers or shapes, then use the rule to predict later terms.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How do you describe a pattern?',
+    back: 'Find how each term changes from the one before (add, subtract, multiply) and state the rule.',
+    example: '4, 11, 18, 25 → add 7 each time',
+    after: [1],
+  },
+  {
+    n: 3, type: 'solve', difficulty: 1,
+    front: 'What number comes next? 5, 10, 15, 20, ?',
+    back: '25',
+    steps: ['Rule: add 5.', '20 + 5 = 25'],
+    after: [2],
+  },
+  {
+    n: 4, type: 'solve', difficulty: 2,
+    front: 'Find the rule and the next two terms: 3, 6, 12, 24, …',
+    back: 'Rule: multiply by 2. Next: 48, 96.',
+    steps: ['6 ÷ 3 = 2, 12 ÷ 6 = 2, 24 ÷ 12 = 2', '24 × 2 = 48 and 48 × 2 = 96'],
+    after: [3],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 3,
+    front: 'A pattern starts at 4 and adds 7 each time. What is the 6th term?',
+    back: '39',
+    steps: ['1st: 4, 2nd: 11, 3rd: 18, 4th: 25, 5th: 32, 6th: 39.', 'Shortcut: 4 + 5 × 7 = 39 (five jumps of 7).'],
+    after: [3],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 3,
+    front: 'A pattern starts at 100 and subtracts 7 each time. What is the first term below 50?',
+    back: '44',
+    steps: ['100, 93, 86, 79, 72, 65, 58, 51, 44.', '51 is still above 50; the next term, 44, is the first below 50.'],
+    after: [3],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'The square numbers go 1, 4, 9, 16, … What is the 10th term?',
+    back: '100',
+    steps: ['The 1st term is 1 × 1, the 2nd is 2 × 2, the 3rd is 3 × 3.', 'The 10th term is 10 × 10 = 100.'],
+    after: [4],
+  },
+  {
+    n: 8, type: 'misconception', difficulty: 5,
+    front: 'True or False: The list 2, 4, 8 must be followed by 16.',
+    back: 'False. It could also be followed by 14 (add 2, then 4, then 6, …). Three terms aren’t always enough to be sure of a rule.',
+    memoryHook: 'Test your rule on every term you have.',
+    after: [2],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'True or False: A pattern that adds 3 each time is the same as a pattern that multiplies by 3.',
+    back: 'False. Starting at 2: adding 3 gives 2, 5, 8, … while multiplying by 3 gives 2, 6, 18, …',
+    after: [4],
+  },
+  {
+    n: 10, type: 'real-life', difficulty: 3,
+    front: 'Mia saves $2 in week 1, $4 in week 2, $6 in week 3, and keeps going. How much does she save in week 10?',
+    back: '$20',
+    steps: ['Rule: week number × 2.', 'Week 10: 10 × 2 = 20.'],
+    after: [5],
+  },
+  {
+    n: 11, type: 'challenge', difficulty: 4,
+    front: 'Find the next two terms: 1, 3, 6, 10, 15, …',
+    back: '21 and 28',
+    hint: 'Look at the differences between terms.',
+    steps: ['Differences: 2, 3, 4, 5, …', 'Next differences are 6 and 7.', '15 + 6 = 21, 21 + 7 = 28.'],
+    after: [4],
+  },
+  {
+    n: 12, type: 'challenge', difficulty: 4,
+    front: 'Figure 1 uses 4 tiles, figure 2 uses 7 tiles and figure 3 uses 10 tiles. How many tiles does figure 8 use?',
+    back: '25 tiles',
+    steps: ['Each figure adds 3 tiles.', 'Figure 8 = 4 + 7 × 3 = 25.'],
+    after: [5],
+  },
+]);

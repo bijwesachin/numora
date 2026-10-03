@@ -1,0 +1,85 @@
+import { defineCards } from '@/content/defineCards';
+
+export const wpAddSubtractCards = defineCards('wp-add-subtract', ['word-problems', 'addition', 'subtraction'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What kinds of stories use addition and subtraction?',
+    back: 'Add when parts join to make a whole. Subtract when something is taken away, when you compare two amounts, or when you look for a missing part.',
+    memoryHook: 'Parts + parts = whole. Whole − part = other part.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How do you find “how many more” or “how many fewer” between two amounts?',
+    back: 'Subtract the smaller amount from the larger. The answer is the difference.',
+    example: 'Ana has 15 stickers, Ben has 9. Ana has 15 − 9 = 6 more.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'visual', difficulty: 1,
+    front: 'A school has 27 boys and 15 girls. How many students? Read the model.',
+    back: '42 students',
+    explanation: 'Two parts make one whole. Add the parts: 27 + 15 = 42.',
+    visual: {
+      kind: 'bar-model',
+      total: '?',
+      bars: [{ segments: [{ label: '27 boys', size: 27 }, { label: '15 girls', size: 15, tone: 'empty' }] }],
+    },
+    after: [1],
+  },
+  {
+    n: 4, type: 'solve', difficulty: 1,
+    front: 'Jen read 23 pages on Monday and 18 pages on Tuesday. How many pages did she read?',
+    back: '41 pages',
+    steps: ['Two parts are joined → add.', '23 + 18 = 41'],
+    after: [1],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 2,
+    front: 'A tank holds 150 liters. 68 liters are used. How many liters are left?',
+    back: '82 liters',
+    steps: ['Some is taken away → subtract.', '150 − 68 = 82', 'CHECK: 82 + 68 = 150 ✓'],
+    after: [1],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 3,
+    front: 'Stadium A seats 12,450 people. Stadium B seats 9,875. How many more seats does A have?',
+    back: '2,575 seats',
+    steps: ['“How many more” → find the difference.', '12,450 − 9,875 = 2,575', 'CHECK: 9,875 + 2,575 = 12,450 ✓'],
+    after: [2],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Lia has $52. A bike costs $85. How much more money does she need?',
+    back: '$33',
+    steps: ['She needs the gap between $52 and $85.', '85 − 52 = 33'],
+    after: [2],
+  },
+  {
+    n: 8, type: 'misconception', difficulty: 5,
+    front: 'True or False: The words “how many more” mean you should add.',
+    back: 'False. “How many more” compares two amounts, so you find the difference by subtracting.',
+    commonMistake: 'Adding because the word “more” sounds like adding.',
+    after: [2],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'Zoe had some marbles, lost 8, and now has 17. She solves 17 − 8 = 9. What went wrong?',
+    back: 'The start is unknown. Undo the loss by adding: 17 + 8 = 25 marbles at the start.',
+    explanation: 'CHECK: 25 − 8 = 17 ✓. Picture the story before choosing the operation.',
+    after: [5],
+  },
+  {
+    n: 10, type: 'real-life', difficulty: 3,
+    front: 'A hiker walked 3,420 meters in the morning and 2,785 meters in the afternoon. How far did the hiker walk in all?',
+    back: '6,205 meters',
+    steps: ['Two parts of a trip → add.', '3,420 + 2,785 = 6,205', 'CHECK: about 3,400 + 2,800 = 6,200 ✓'],
+    after: [4],
+  },
+  {
+    n: 11, type: 'challenge', difficulty: 4,
+    front: 'Town A has 8,364 people. Town B has 2,950 fewer people than Town A. Town C has 1,200 more people than Town B. How many people live in Town C?',
+    back: '6,614 people',
+    steps: ['Town B: 8,364 − 2,950 = 5,414', 'Town C: 5,414 + 1,200 = 6,614', 'CHECK: C is less than A, which makes sense since B is 2,950 less and C only gets 1,200 back.'],
+    after: [6, 10],
+  },
+]);

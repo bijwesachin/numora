@@ -1,0 +1,115 @@
+import { defineCards } from '@/content/defineCards';
+
+export const fractionsNumberLineCards = defineCards('fractions-number-line', ['fractions', 'number-line'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'How do you show a fraction on a number line?',
+    back: 'Cut the space from 0 to 1 into equal parts (the denominator). Then count that many parts from 0 as the numerator says.',
+    memoryHook: 'Count the jumps, not the tick marks.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How do you find 3/4 on a number line?',
+    back: 'Cut 0 to 1 into 4 equal parts. Start at 0 and make 3 jumps of 1/4.',
+    explanation: 'The denominator tells you the size of each jump; the numerator tells you how many jumps.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'Where are fractions like 5/4 on a number line?',
+    back: 'Past 1. 4/4 is exactly at 1, and 5/4 is one more fourth beyond it.',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 1,
+    front: 'What fraction is marked on this number line?',
+    back: '3/5',
+    explanation: 'Between 0 and 1 there are 5 equal parts, and the point is 3 jumps from 0.',
+    visual: {
+      kind: 'number-line', min: 0, max: 1, partsPerWhole: 5,
+      marks: [{ value: { numerator: 3, denominator: 5 }, label: '', position: 'above' }],
+    },
+    answerVisual: {
+      kind: 'number-line', min: 0, max: 1, partsPerWhole: 5,
+      marks: [{ value: { numerator: 3, denominator: 5 }, label: '3/5', position: 'above' }],
+    },
+    after: [2],
+  },
+  {
+    n: 5, type: 'visual', difficulty: 2,
+    front: 'This point is past 1. What fraction is it, and what is another name for it?',
+    back: '5/4, which is also 1 1/4.',
+    explanation: 'It is 5 jumps of 1/4 from 0: one whole (4 jumps) plus one more.',
+    visual: {
+      kind: 'number-line', min: 0, max: 2, partsPerWhole: 4,
+      marks: [{ value: { numerator: 5, denominator: 4 }, label: '', position: 'above' }],
+    },
+    answerVisual: {
+      kind: 'number-line', min: 0, max: 2, partsPerWhole: 4,
+      marks: [{ value: { numerator: 5, denominator: 4 }, label: '5/4', position: 'above' }],
+    },
+    after: [3],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 1,
+    front: 'A number line from 0 to 1 is cut into 8 equal parts. Where is 5/8?',
+    back: 'At the 5th mark after 0.',
+    steps: ['Each jump is 1/8.', '5/8 is 5 jumps from 0.'],
+    after: [2],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 2,
+    front: 'The marks on a number line are 0, 1/6, 2/6, 3/6, 4/6, … What mark comes after 4/6?',
+    back: '5/6',
+    after: [2],
+    explanation: 'Each jump is 1/6, so after 4/6 comes one more jump: 5/6.',
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Which marks halfway between 0 and 1 when the line is cut into fourths? Into eighths?',
+    back: '2/4 for fourths and 4/8 for eighths. Both equal 1/2.',
+    steps: ['Halfway is half of the total jumps.', 'Fourths: half of 4 is 2 → 2/4.', 'Eighths: half of 8 is 4 → 4/8.'],
+    after: [6],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: 'What fraction is exactly halfway between 1/4 and 3/4?',
+    back: '2/4, which is 1/2.',
+    steps: ['The jump from 1/4 to 3/4 is 2 fourths.', 'Halfway is 1 fourth from 1/4: 1/4 + 1/4 = 2/4.'],
+    after: [7],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'A number line from 0 to 1 has 4 tick marks BETWEEN 0 and 1. Maya says each part is 1/4. Is she right?',
+    back: 'No. 4 tick marks make 5 equal spaces, so each part is 1/5.',
+    commonMistake: 'Counting tick marks instead of the spaces between them.',
+    memoryHook: 'Count the jumps, not the ticks.',
+    after: [2],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'True or False: 1/3 is farther from 0 than 1/2 because 3 is bigger than 2.',
+    back: 'False. Thirds are smaller jumps than halves, so 1/3 is closer to 0 than 1/2.',
+    after: [8],
+  },
+  {
+    n: 12, type: 'real-life', difficulty: 3,
+    front: 'A trail is 1 mile long with markers every 1/8 mile. You are at the 5th marker. How far have you walked?',
+    back: '5/8 mile',
+    after: [6],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'A number line from 0 to 2 is cut into fourths. Order these from least to greatest: 7/4, 3/4, 1 1/4.',
+    back: '3/4, 1 1/4, 7/4',
+    steps: ['1 1/4 = 5/4.', 'On the line: 3/4 is before 1, 5/4 just after 1, 7/4 near 2.'],
+    after: [8],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'Point A is at 2/3 on a number line. Point B is 1/3 farther from 0. Where is B?',
+    back: 'At 3/3, which is 1.',
+    steps: ['2/3 + 1/3 = 3/3.', '3/3 is one whole, at the mark labeled 1.'],
+    after: [9],
+  },
+]);

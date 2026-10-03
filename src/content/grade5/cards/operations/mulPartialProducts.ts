@@ -1,0 +1,98 @@
+import { defineCards } from '@/content/defineCards';
+
+export const mulPartialProductsCards = defineCards('mul-partial-products', ['multiplication', 'partial-products'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What are partial products?',
+    back: 'The smaller products you get by multiplying one factor by each place-value part of the other factor. Add them to get the final product.',
+    example: '23 × 14 = 23 × 4 + 23 × 10 = 92 + 230 = 322',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How do you find the partial products for 34 × 26?',
+    back: 'Multiply 34 by the ones digit (6) and by the tens digit (20), then add: 34 × 6 = 204 and 34 × 20 = 680, so 884.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'In 34 × 26, why do we multiply 34 by 20 and not by 2?',
+    back: 'The 2 in 26 is in the tens place, so it is worth 20.',
+    memoryHook: 'Value of the digit, not just the digit.',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 2,
+    front: 'These four pieces are the partial products of 34 × 26. What is the product?',
+    back: '884',
+    explanation: '600 + 80 + 180 + 24 = 884.',
+    visual: {
+      kind: 'area-model',
+      cols: [{ label: '30', size: 30 }, { label: '4', size: 4 }],
+      rows: [{ label: '20', size: 20 }, { label: '6', size: 6 }],
+      cells: [['600', '80'], ['180', '24']],
+    },
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: 'Use partial products to find 12 × 5.',
+    back: '60',
+    steps: ['12 × 5 = (10 × 5) + (2 × 5)', '50 + 10 = 60'],
+    after: [1],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: 'Use partial products to find 23 × 14.',
+    back: '322',
+    steps: ['23 × 4 = 92', '23 × 10 = 230', '92 + 230 = 322'],
+    after: [2],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Use partial products to find 45 × 32.',
+    back: '1,440',
+    steps: ['45 × 2 = 90', '45 × 30 = 1,350', '90 + 1,350 = 1,440'],
+    after: [6],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Use partial products to find 67 × 41.',
+    back: '2,747',
+    steps: ['67 × 1 = 67', '67 × 40 = 2,680', '67 + 2,680 = 2,747'],
+    after: [6],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 4,
+    front: 'Use partial products to find 134 × 12.',
+    back: '1,608',
+    steps: ['134 × 2 = 268', '134 × 10 = 1,340', '268 + 1,340 = 1,608'],
+    after: [7],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'True or False: The partial products of 23 × 14 are 20 × 10 = 200 and 3 × 4 = 12, so the answer is 212.',
+    back: 'False. Two pieces are missing: 20 × 4 = 80 and 3 × 10 = 30. The correct total is 322.',
+    commonMistake: 'Multiplying only tens by tens and ones by ones.',
+    after: [6],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'Zoe finds 45 × 32 as 45 × 2 = 90 plus 45 × 3 = 135, giving 225. What is wrong?',
+    back: 'The 3 in 32 is worth 30. It should be 45 × 30 = 1,350, so the answer is 1,440.',
+    after: [7],
+  },
+  {
+    n: 12, type: 'real-life', difficulty: 3,
+    front: 'A school buys 24 boxes of pencils. Each box has 36 pencils. How many pencils is that? Use partial products.',
+    back: '864 pencils',
+    steps: ['36 × 4 = 144', '36 × 20 = 720', '144 + 720 = 864'],
+    after: [7],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'Find the missing partial product: 52 × 31 = 52 + ___ = 1,612.',
+    back: '1,560 (which is 52 × 30)',
+    steps: ['52 × 1 = 52.', '1,612 − 52 = 1,560.', 'CHECK: 52 × 30 = 1,560 ✓'],
+    after: [8],
+  },
+]);

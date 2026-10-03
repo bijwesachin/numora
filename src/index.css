@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Lexend', ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #1e293b;
+  --color-paper: #f8fafc;
+}
+
+@layer base {
+  html {
+    font-size: 17px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-3 outline-offset-2 outline-indigo-500;
+  }
+}
+
+/* Flip: only the visible face is rendered, so the card always fits its content. */
+@keyframes flip-in {
+  from {
+    transform: perspective(1600px) rotateY(-90deg);
+    opacity: 0.4;
+  }
+  to {
+    transform: perspective(1600px) rotateY(0);
+    opacity: 1;
+  }
+}
+.flip-in {
+  animation: flip-in 0.32s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .flip-in {
+    animation: none;
+  }
+}
+
+/* Stacked fraction for inline math. */
+.frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 1.05;
+  margin: 0 0.12em;
+  font-variant-numeric: tabular-nums;
+}
+.frac > .frac-num {
+  border-bottom: 0.08em solid currentColor;
+  padding: 0 0.15em;
+}
+.frac > .frac-den {
+  padding: 0 0.15em;
+}
+.frac.frac-sm {
+  font-size: 0.8em;
+}

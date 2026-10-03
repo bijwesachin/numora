@@ -1,0 +1,92 @@
+import { defineCards } from '@/content/defineCards';
+
+export const wpMultiStepCards = defineCards('wp-multi-step', ['word-problems', 'multi-step'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What is a multi-step problem, and how is it different from a two-step problem?',
+    back: 'It needs three or more calculations. Break it into a chain of small questions and answer them one at a time.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'What is a good routine for multi-step problems?',
+    back: 'Write a plan of mini-questions in order. Solve each one and label the answer. Then answer the real question and CHECK.',
+    example: 'Q1: How much did she spend? Q2: How much is left?',
+    memoryHook: 'Small questions, labeled answers.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'visual', difficulty: 2,
+    front: 'Tara had $100. She spent $45 on shoes and $30 on a shirt. What does the model show, and how much is left?',
+    back: 'The whole is $100 split into spent-on-shoes, spent-on-shirt and what is left. $100 − $45 − $30 = $25.',
+    visual: {
+      kind: 'bar-model',
+      total: '$100',
+      bars: [{ segments: [{ label: '$45', size: 45 }, { label: '$30', size: 30, tone: 'empty' }, { label: '?', size: 25, tone: 'unknown' }] }],
+    },
+    after: [2],
+  },
+  {
+    n: 4, type: 'solve', difficulty: 3,
+    front: 'A school buys 4 boxes of 25 markers and 3 boxes of 12 crayons. How many items does it buy in all?',
+    back: '136 items',
+    steps: ['Markers: 4 × 25 = 100.', 'Crayons: 3 × 12 = 36.', 'Total: 100 + 36 = 136.'],
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 3,
+    front: 'Adult tickets cost $12 and child tickets cost $7. A family of 2 adults and 3 children pays with a $60 bill. How much change do they get?',
+    back: '$15',
+    steps: ['Adults: 2 × 12 = 24.', 'Children: 3 × 7 = 21.', 'Cost: 24 + 21 = 45.', 'Change: 60 − 45 = 15.'],
+    after: [4],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 3,
+    front: 'Rosa read 24 pages on Monday, twice as many on Tuesday, and 10 fewer than Tuesday on Wednesday. How many pages did she read in all?',
+    back: '110 pages',
+    steps: ['Tuesday: 2 × 24 = 48.', 'Wednesday: 48 − 10 = 38.', 'Total: 24 + 48 + 38 = 110.'],
+    after: [4],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'A farmer picks 180 apples and sells 1/3 of them at a market. The rest are packed in bags of 6. How many bags are packed?',
+    back: '20 bags',
+    steps: ['Sold: 1/3 of 180 = 60.', 'Left: 180 − 60 = 120.', 'Bags: 120 ÷ 6 = 20.'],
+    after: [4],
+  },
+  {
+    n: 8, type: 'misconception', difficulty: 5,
+    front: 'True or False: You must do the steps in the same order that the numbers appear in the story.',
+    back: 'False. The order depends on what you need first, not on where the numbers appear.',
+    memoryHook: 'Ask: what do I need first?',
+    after: [2],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'From $100, Leo spends $45 and then $30. He writes 100 − 45 + 30. What is the correct equation?',
+    back: '100 − 45 − 30 = 25 (or 100 − (45 + 30) = 25).',
+    explanation: 'Both purchases are taken away from the money. Adding 30 would give him more money, not less.',
+    after: [3],
+  },
+  {
+    n: 10, type: 'real-life', difficulty: 3,
+    front: 'A party has 18 guests. Each guest eats 2 slices of pizza. A pizza has 8 slices and costs $10. How much do the pizzas cost?',
+    back: '$50',
+    steps: ['Slices needed: 18 × 2 = 36.', 'Pizzas: 36 ÷ 8 = 4 with 4 slices extra, so you need 5 pizzas.', 'Cost: 5 × 10 = $50.'],
+    explanation: 'You can’t buy part of a pizza, so round up.',
+    after: [4],
+  },
+  {
+    n: 11, type: 'challenge', difficulty: 4,
+    front: 'A room is 5 m by 4 m. Tile costs $6 per square meter, and delivery costs $15. What is the total cost?',
+    back: '$135',
+    steps: ['Area: 5 × 4 = 20 square meters.', 'Tile: 20 × 6 = $120.', 'Plus delivery: 120 + 15 = $135.'],
+    after: [5],
+  },
+  {
+    n: 12, type: 'challenge', difficulty: 5,
+    front: 'A bus starts with 46 passengers. At stop 1, 12 get off and 8 get on. At stop 2, 1/3 of the passengers get off. How many are on the bus after stop 2?',
+    back: '28 passengers',
+    steps: ['After stop 1: 46 − 12 + 8 = 42.', 'Stop 2: 1/3 of 42 = 14 get off.', 'After stop 2: 42 − 14 = 28.'],
+    after: [6, 7],
+  },
+]);

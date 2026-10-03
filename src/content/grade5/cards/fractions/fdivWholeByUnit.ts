@@ -1,0 +1,112 @@
+import { defineCards } from '@/content/defineCards';
+
+export const fdivWholeByUnitCards = defineCards('fdiv-whole-by-unit', ['fractions', 'division', 'unit-fractions'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What does 3 ÷ 1/4 mean?',
+    back: 'How many 1/4s fit into 3? It is a “how many pieces fit?” question.',
+    memoryHook: 'Fraction division asks: how many pieces fit?',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How do you divide a whole number by a unit fraction like 1/4?',
+    back: 'Multiply the whole number by the denominator.',
+    example: '3 ÷ 1/4 = 3 × 4 = 12',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'Why does that rule work?',
+    back: 'Each whole holds as many unit fractions as the denominator says. 1 whole holds four 1/4s, so 3 wholes hold 3 × 4.',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 1,
+    front: 'Two wholes are each cut into thirds. How many thirds are there? What is 2 ÷ 1/3?',
+    back: '6 thirds, so 2 ÷ 1/3 = 6.',
+    visual: {
+      kind: 'row',
+      items: [
+        { kind: 'fraction-strip', numerator: 3, denominator: 3, label: '1 whole = 3 thirds' },
+        { kind: 'fraction-strip', numerator: 3, denominator: 3, label: '1 whole = 3 thirds' },
+      ],
+    },
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: '2 ÷ 1/2 = ?',
+    back: '4',
+    steps: ['How many halves fit in 2?', '2 × 2 = 4.'],
+    after: [2],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: '5 ÷ 1/3 = ?',
+    back: '15',
+    steps: ['5 × 3 = 15.'],
+    after: [5],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: '4 ÷ 1/8 = ?',
+    back: '32',
+    steps: ['4 × 8 = 32.', 'CHECK: 32 × 1/8 = 4 ✓'],
+    after: [6],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: '6 ÷ 1/5 = ?',
+    back: '30',
+    steps: ['6 × 5 = 30.'],
+    after: [6],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: '10 ÷ 1/6 = ?',
+    back: '60',
+    steps: ['10 × 6 = 60.'],
+    after: [7],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'True or False: 4 ÷ 1/2 = 2, because dividing makes things smaller.',
+    back: 'False. 4 ÷ 1/2 = 8. Eight halves fit in 4 wholes. Dividing by a fraction less than 1 makes the result bigger.',
+    commonMistake: 'Thinking division always makes a number smaller.',
+    after: [2],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'True or False: 3 ÷ 1/4 = 3/4.',
+    back: 'False. 3 ÷ 1/4 = 12. The answer 3/4 would be 3 ÷ 4 or 3 × 1/4.',
+    after: [3],
+  },
+  {
+    n: 12, type: 'real-life', difficulty: 3,
+    front: 'A baker has 3 cups of flour. Each batch uses 1/4 cup. How many batches can she make?',
+    back: '12 batches',
+    steps: ['How many 1/4s fit in 3?', '3 × 4 = 12.'],
+    after: [3],
+  },
+  {
+    n: 13, type: 'real-life', difficulty: 3,
+    front: 'A ribbon is 5 meters long. It is cut into pieces that are 1/2 meter long. How many pieces?',
+    back: '10 pieces',
+    steps: ['5 ÷ 1/2 = 5 × 2 = 10.'],
+    after: [5],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'How many 1/6-cup scoops fill a 4-cup jar? How many 1/3-cup scoops? What do you notice?',
+    back: '24 scoops of 1/6 cup and 12 scoops of 1/3 cup. The 1/3 scoop is twice as big, so you need half as many.',
+    steps: ['4 ÷ 1/6 = 4 × 6 = 24.', '4 ÷ 1/3 = 4 × 3 = 12.'],
+    after: [7],
+  },
+  {
+    n: 15, type: 'challenge', difficulty: 4,
+    front: 'Make up a story problem for 2 ÷ 1/3 and give the answer.',
+    back: 'For example: “You have 2 pizzas and cut each into thirds. How many slices?” 6 slices.',
+    hint: 'Think about cutting wholes into pieces.',
+    after: [6],
+  },
+]);

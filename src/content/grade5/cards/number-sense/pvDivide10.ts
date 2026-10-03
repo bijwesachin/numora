@@ -1,0 +1,105 @@
+import { defineCards } from '@/content/defineCards';
+import { wholeChart, decimalChart } from './charts';
+
+const HOOK = 'Place Value Elevator: ÷ 10 sends every digit DOWN one floor (one place right).';
+
+export const pvDivide10Cards = defineCards('pv-divide-10', ['number-sense', 'place-value', 'divide-by-10'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What happens to the digits when you divide a number by 10?',
+    back: 'Every digit moves one place to the right.',
+    example: '450 ÷ 10 = 45',
+    memoryHook: HOOK,
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How does dividing by 100 or by 1,000 change a number?',
+    back: 'Digits move 2 places right for 100 and 3 places right for 1,000. Digits that cross the ones place become decimals.',
+    rule: 'The number of zeros in the divisor = the number of places the digits move right.',
+    example: '7,000 ÷ 1,000 = 7\n45 ÷ 10 = 4.5',
+    memoryHook: HOOK,
+    after: [1],
+  },
+  {
+    n: 3, type: 'visual', difficulty: 1,
+    front: 'Here is 45 before and after dividing by 10. What happened to the digits?',
+    back: 'Each digit moved one place right. The 5 landed in the tenths place: 45 ÷ 10 = 4.5.',
+    visual: { kind: 'row', separator: '→', items: [wholeChart('45', [0, 1]), decimalChart('_4.5', [1, 2])] },
+    memoryHook: HOOK,
+    after: [1],
+  },
+  {
+    n: 4, type: 'solve', difficulty: 1,
+    front: '800 ÷ 10 = ?',
+    back: '80',
+    steps: ['Move each digit one place right.', '800 → 80'],
+    after: [1],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 2,
+    front: '6,000 ÷ 100 = ?',
+    back: '60',
+    steps: ['100 has two zeros → move two places right.', '6,000 → 60'],
+    after: [2],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 3,
+    front: '52,000 ÷ 1,000 = ?',
+    back: '52',
+    steps: ['1,000 has three zeros → move three places right.', '52,000 → 52'],
+    after: [2],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: '36 ÷ 10 = ?',
+    back: '3.6',
+    steps: ['Move each digit one place right.', 'The 6 drops into the tenths place.', '36 → 3.6'],
+    after: [3],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 4,
+    front: '7 ÷ 100 = ?',
+    back: '0.07',
+    hint: 'Move the 7 two places to the right of the ones place.',
+    steps: ['Ones → tenths is 1 place, tenths → hundredths is 2 places.', 'The 7 lands in the hundredths place.', '7 ÷ 100 = 0.07'],
+    after: [7],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'True or False: To divide by 10 you “take away a zero,” so 25 ÷ 10 = 2.',
+    back: 'False. 25 ÷ 10 = 2.5.',
+    explanation: 'Taking away a zero only works when the number ends in 0. Otherwise the digits slide right and part of the number lands past the decimal point.',
+    commonMistake: 'Dropping the last digit instead of moving every digit.',
+    after: [2],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'Ana says 3 ÷ 10 is impossible because 3 is less than 10. Is she right?',
+    back: 'No. 3 ÷ 10 = 0.3 (3 tenths).',
+    explanation: 'You can always divide a smaller number by a larger one — the answer is just a part of a whole.',
+    memoryHook: 'Cut 3 pizzas for 10 friends and everyone still gets a piece.',
+    commonMistake: 'Thinking you can’t divide a small number by a big one.',
+    after: [7],
+  },
+  {
+    n: 11, type: 'real-life', difficulty: 3,
+    front: 'Ms. Lee shares $4,500 equally among 100 students. How much does each student get?',
+    back: '$45',
+    steps: ['4,500 ÷ 100', 'Move each digit two places right: 45'],
+    after: [5],
+  },
+  {
+    n: 12, type: 'challenge', difficulty: 4,
+    front: 'Machine A multiplies by 10. Machine B then divides by 100. What single machine does the same job as both together?',
+    back: 'Divide by 10.',
+    steps: ['Try 5: 5 × 10 = 50, then 50 ÷ 100 = 0.5.', '5 ÷ 10 = 0.5 too.', '× 10 then ÷ 100 leaves one place net movement to the right.'],
+    after: [5],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 5,
+    front: 'Find 37 × 100 ÷ 1,000.',
+    back: '3.7',
+    steps: ['37 × 100 = 3,700', '3,700 ÷ 1,000 = 3.7', 'Check: net movement is one place right, so 37 ÷ 10 = 3.7.'],
+    after: [6, 8],
+  },
+]);

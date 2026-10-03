@@ -1,0 +1,122 @@
+import { defineCards } from '@/content/defineCards';
+
+export const fractionsMixedImproperCards = defineCards('fractions-mixed-improper', ['fractions', 'mixed-numbers', 'improper-fractions'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'Why can the same amount be written as a mixed number or an improper fraction?',
+    back: 'They are two names for one amount. Wholes can be cut into slices, so 2 3/4 pizzas is the same as 11 quarter-slices, or 11/4.',
+    example: '2 3/4 = 11/4',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How do you change a mixed number into an improper fraction?',
+    back: 'Multiply the whole number by the denominator, add the numerator, and keep the same denominator.',
+    example: '2 3/4 → (2 × 4 + 3)/4 = 11/4',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'How do you change an improper fraction into a mixed number?',
+    back: 'Divide the numerator by the denominator. The quotient is the whole number, the remainder is the new numerator, and the denominator stays the same.',
+    example: '11/4 → 11 ÷ 4 = 2 R 3 → 2 3/4',
+    after: [1],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 2,
+    front: 'Both bars show the same amount. Write it as a mixed number and as an improper fraction.',
+    back: '2 3/4 = 11/4',
+    explanation: 'Two wholes are 8 quarters, plus 3 quarters makes 11 quarters.',
+    visual: {
+      kind: 'bar-model',
+      bars: [
+        { segments: [{ label: '', size: 4 }, { label: '', size: 4, tone: 'empty' }, { label: '', size: 3 }] },
+        { segments: Array.from({ length: 11 }, () => ({ label: '', size: 1 })) },
+      ],
+    },
+    answerVisual: {
+      kind: 'bar-model',
+      bars: [
+        { label: '2 3/4', segments: [{ label: '1', size: 4 }, { label: '1', size: 4, tone: 'empty' }, { label: '3/4', size: 3 }] },
+        { label: '11/4', segments: Array.from({ length: 11 }, () => ({ label: '1/4', size: 1 })) },
+      ],
+    },
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: 'Write 1 1/2 as an improper fraction.',
+    back: '3/2',
+    steps: ['1 × 2 + 1 = 3.', 'Keep the denominator: 3/2.'],
+    after: [2],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: 'Write 2 3/4 as an improper fraction.',
+    back: '11/4',
+    steps: ['2 × 4 + 3 = 11.', 'Keep the denominator: 11/4.'],
+    after: [5],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Write 3 2/5 as an improper fraction.',
+    back: '17/5',
+    steps: ['3 × 5 + 2 = 17.', '17/5'],
+    after: [6],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 2,
+    front: 'Write 9/4 as a mixed number.',
+    back: '2 1/4',
+    steps: ['9 ÷ 4 = 2 R 1.', '2 wholes and 1/4.'],
+    after: [3],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: 'Write 23/6 as a mixed number.',
+    back: '3 5/6',
+    steps: ['23 ÷ 6 = 3 R 5.', '6 × 3 = 18 and 23 − 18 = 5.', '3 5/6'],
+    after: [8],
+  },
+  {
+    n: 10, type: 'solve', difficulty: 3,
+    front: 'Write 40/8 as a whole number.',
+    back: '5',
+    steps: ['40 ÷ 8 = 5 with no remainder.', 'So it is exactly 5 wholes.'],
+    after: [8],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'Ben changes 3 2/5 to an improper fraction by writing (3 + 2)/5 = 5/5. What is wrong?',
+    back: 'He added the whole number and numerator. Multiply the whole number by the denominator first: 3 × 5 + 2 = 17, so 17/5.',
+    commonMistake: 'Adding the whole number to the numerator instead of multiplying by the denominator.',
+    after: [7],
+  },
+  {
+    n: 12, type: 'misconception', difficulty: 5,
+    front: 'Dev says 14/4 = 3 1/4. Check his work.',
+    back: 'He is wrong. 14 ÷ 4 = 3 with remainder 2, so 14/4 = 3 2/4 = 3 1/2.',
+    commonMistake: 'Guessing the remainder instead of calculating 14 − 3 × 4.',
+    after: [9],
+  },
+  {
+    n: 13, type: 'real-life', difficulty: 3,
+    front: 'A recipe needs 7/3 cups of flour. You only have a 1-cup measure. How many full cups and what extra amount?',
+    back: '2 full cups and 1/3 cup more.',
+    steps: ['7 ÷ 3 = 2 R 1.', '7/3 = 2 1/3.'],
+    after: [9],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'Which is greater: 17/5 or 3 1/2?',
+    back: '3 1/2',
+    steps: ['17/5 = 3 2/5.', 'Compare 2/5 and 1/2: 4/10 and 5/10.', '5/10 is greater, so 3 1/2 is greater.'],
+    after: [9],
+  },
+  {
+    n: 15, type: 'challenge', difficulty: 4,
+    front: 'Write 5 as an improper fraction with denominator 6.',
+    back: '30/6',
+    steps: ['Each whole is 6/6.', '5 × 6 = 30, so 30/6.'],
+    after: [7],
+  },
+]);

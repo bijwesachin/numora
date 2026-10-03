@@ -1,0 +1,3 @@
+# Numora is a private app. Ask all crawlers (search engines, AI crawlers) to stay out.
+User-agent: *
+Disallow: /

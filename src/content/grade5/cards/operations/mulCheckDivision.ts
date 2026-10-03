@@ -1,0 +1,92 @@
+import { defineCards } from '@/content/defineCards';
+
+export const mulCheckDivisionCards = defineCards('mul-check-division', ['multiplication', 'division', 'inverse-operations'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'How can you check a multiplication answer with division?',
+    back: 'Divide the product by one of the factors. You should get the other factor.',
+    memoryHook: 'Do and undo.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'Why does checking with division work?',
+    back: 'Multiplication and division are inverse operations, so they undo each other. If a × b = c, then c ÷ a = b and c ÷ b = a.',
+    example: '6 × 7 = 42 → 42 ÷ 7 = 6 and 42 ÷ 6 = 7',
+    after: [1],
+  },
+  {
+    n: 3, type: 'visual', difficulty: 2,
+    front: 'This rectangle has area 60 and one side 5. How long is the other side?',
+    back: '12',
+    explanation: '60 ÷ 5 = 12, which matches 12 × 5 = 60.',
+    visual: { kind: 'area-model', cols: [{ label: '?', size: 12 }], rows: [{ label: '5', size: 5 }], cells: [['60']] },
+    after: [2],
+  },
+  {
+    n: 4, type: 'solve', difficulty: 1,
+    front: 'Check 6 × 7 = 42 using division.',
+    back: '42 ÷ 7 = 6 ✓ It is correct.',
+    after: [2],
+    explanation: 'Division undoes multiplication: 42 split into groups of 7 gives back 6.',
+  },
+  {
+    n: 5, type: 'solve', difficulty: 2,
+    front: 'Check 14 × 12 = 168 using division.',
+    back: '168 ÷ 12 = 14 ✓ It is correct.',
+    steps: ['12 × 14 = 168, so 168 ÷ 12 = 14.'],
+    after: [4],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 3,
+    front: 'Check 23 × 45 = 1,035 using division.',
+    back: '1,035 ÷ 45 = 23 ✓ It is correct.',
+    steps: ['45 × 20 = 900', '45 × 3 = 135', '900 + 135 = 1,035 ✓'],
+    after: [5],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Zack says 36 × 24 = 844. Check with division. What is the correct product?',
+    back: '844 ÷ 24 is not 36, so he is wrong. 36 × 24 = 864.',
+    steps: ['24 × 36 = 24 × 30 + 24 × 6 = 720 + 144 = 864.', '864 ÷ 24 = 36 ✓'],
+    after: [5],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Is 125 × 16 = 2,000? Check by dividing.',
+    back: 'Yes. 2,000 ÷ 16 = 125 ✓',
+    steps: ['16 × 125 = 2,000 because 8 × 125 = 1,000 and 16 is two 8s.'],
+    after: [5],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'True or False: If you divide the product by one factor and don’t get the other factor, the product might still be right.',
+    back: 'False. If the check fails, the multiplication has a mistake.',
+    after: [2],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'True or False: The best way to check a multiplication is to multiply the same numbers again.',
+    back: 'False. You might repeat the same mistake. Division uses a different path to the same answer.',
+    after: [1],
+  },
+  {
+    n: 11, type: 'real-life', difficulty: 3,
+    front: 'A pack has 24 crayons. Mia says 15 packs have 350 crayons. Check by division.',
+    back: '350 ÷ 15 isn’t a whole number, so she is wrong. 15 × 24 = 360.',
+    after: [6],
+  },
+  {
+    n: 12, type: 'challenge', difficulty: 4,
+    front: 'A rectangle has area 504 square cm and length 28 cm. Find the width and check your answer.',
+    back: 'Width 18 cm. Check: 28 × 18 = 504 ✓',
+    steps: ['Width = area ÷ length = 504 ÷ 28 = 18.', 'CHECK: 28 × 18 = 280 + 224 = 504 ✓'],
+    after: [6],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'Find the missing factor: ___ × 37 = 1,665.',
+    back: '45',
+    steps: ['Undo the multiplication: 1,665 ÷ 37 = 45.', 'CHECK: 45 × 37 = 1,350 + 315 = 1,665 ✓'],
+    after: [7],
+  },
+]);

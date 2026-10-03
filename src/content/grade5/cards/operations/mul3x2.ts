@@ -1,0 +1,98 @@
+import { defineCards } from '@/content/defineCards';
+
+export const mul3x2Cards = defineCards('mul-3x2', ['multiplication', '3-digit-by-2-digit'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What is different about a 3-digit × 2-digit problem?',
+    back: 'The steps are the same, but the longer number makes more digits to multiply. You still have two lines of work: one for the ones digit and one for the tens digit.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'What are the steps for 3-digit × 2-digit?',
+    back: '1) Multiply the 3-digit number by the ones digit.\n2) Put a 0 placeholder and multiply by the tens digit.\n3) Add the two lines.',
+    example: '213 × 14: 213 × 4 = 852, then 213 × 10 = 2,130. 852 + 2,130 = 2,982.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'visual', difficulty: 2,
+    front: 'Add the six pieces of the model. What is 123 × 12?',
+    back: '1,476',
+    explanation: '1,000 + 200 + 30 + 200 + 40 + 6 = 1,476.',
+    visual: {
+      kind: 'area-model',
+      cols: [{ label: '100', size: 100 }, { label: '20', size: 20 }, { label: '3', size: 3 }],
+      rows: [{ label: '10', size: 10 }, { label: '2', size: 2 }],
+      cells: [['1,000', '200', '30'], ['200', '40', '6']],
+    },
+    after: [2],
+  },
+  {
+    n: 4, type: 'solve', difficulty: 2,
+    front: '120 × 12 = ?',
+    back: '1,440',
+    steps: ['120 × 2 = 240', '120 × 10 = 1,200', '240 + 1,200 = 1,440'],
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 3,
+    front: '213 × 14 = ?',
+    back: '2,982',
+    steps: ['213 × 4 = 852', '213 × 10 = 2,130', '852 + 2,130 = 2,982'],
+    after: [4],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 3,
+    front: '345 × 21 = ?',
+    back: '7,245',
+    steps: ['345 × 1 = 345', '345 × 20 = 6,900', '345 + 6,900 = 7,245'],
+    after: [4],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: '408 × 35 = ?',
+    back: '14,280',
+    steps: ['408 × 5 = 2,040', '408 × 30 = 12,240', '2,040 + 12,240 = 14,280', 'CHECK: 400 × 35 = 14,000, a bit more ✓'],
+    after: [5],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 4,
+    front: '756 × 48 = ?',
+    back: '36,288',
+    steps: ['756 × 8 = 6,048', '756 × 40 = 30,240', '6,048 + 30,240 = 36,288', 'CHECK: 750 × 50 = 37,500 ✓'],
+    after: [7],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'True or False: A 3-digit number times a 2-digit number always has 5 digits.',
+    back: 'False. It has 4 or 5 digits. 100 × 10 = 1,000, and 999 × 99 = 98,901.',
+    after: [2],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'Lia finds 214 × 12 as 214 × 2 = 428 plus 214 × 1 = 214, giving 642. What went wrong?',
+    back: 'The 1 in 12 is 1 ten. The second line should be 214 × 10 = 2,140. The answer is 428 + 2,140 = 2,568.',
+    commonMistake: 'No placeholder zero in the second line.',
+    after: [5],
+  },
+  {
+    n: 11, type: 'real-life', difficulty: 3,
+    front: 'A farm packs 125 eggs in each crate. How many eggs are in 24 crates?',
+    back: '3,000 eggs',
+    steps: ['125 × 4 = 500', '125 × 20 = 2,500', '500 + 2,500 = 3,000'],
+    after: [5],
+  },
+  {
+    n: 12, type: 'challenge', difficulty: 4,
+    front: 'Estimate, then solve: 312 × 28. Does your exact answer fit the estimate?',
+    back: 'Estimate: 300 × 30 = 9,000. Exact: 8,736. They are close, so it is reasonable.',
+    steps: ['312 × 8 = 2,496', '312 × 20 = 6,240', '2,496 + 6,240 = 8,736'],
+    after: [7],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'A stadium has 38 sections with 245 seats each. 1,000 seats are reserved. How many seats are NOT reserved?',
+    back: '8,310 seats',
+    steps: ['245 × 8 = 1,960', '245 × 30 = 7,350', 'Total seats: 1,960 + 7,350 = 9,310.', 'Not reserved: 9,310 − 1,000 = 8,310.'],
+    after: [7],
+  },
+]);

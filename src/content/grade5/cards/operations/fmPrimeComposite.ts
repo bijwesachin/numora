@@ -1,0 +1,97 @@
+import { defineCards } from '@/content/defineCards';
+
+export const fmPrimeCompositeCards = defineCards('fm-prime-composite', ['factors', 'prime-numbers', 'composite-numbers'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What are prime and composite numbers?',
+    back: 'A prime number has exactly two factors: 1 and itself. A composite number has more than two factors. The number 1 is neither.',
+    example: '7 is prime (1, 7). 12 is composite (1, 2, 3, 4, 6, 12).',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How can you test whether a number is prime?',
+    back: 'Check whether any number other than 1 and itself divides it evenly. Try 2, 3, 5, 7, … If one works, it is composite.',
+    memoryHook: 'Prime numbers can’t be split into smaller equal rows.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'visual', difficulty: 2,
+    front: 'The prime numbers from 1 to 30 are highlighted. How many are there, and what do you notice?',
+    back: '10 primes: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29. Apart from 2, they are all odd.',
+    visual: { kind: 'number-grid', from: 1, to: 30, cols: 10, a: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29], labelA: 'prime' },
+    after: [2],
+  },
+  {
+    n: 4, type: 'solve', difficulty: 1,
+    front: 'Is 7 prime or composite?',
+    back: 'Prime. Its only factors are 1 and 7.',
+    after: [2],
+    explanation: '7 can’t be split into equal rows other than 1 × 7.',
+  },
+  {
+    n: 5, type: 'solve', difficulty: 2,
+    front: 'Is 15 prime or composite?',
+    back: 'Composite, because 15 = 3 × 5.',
+    after: [2],
+    explanation: '15 can be split into 3 rows of 5, so it has more than two factors.',
+  },
+  {
+    n: 6, type: 'solve', difficulty: 3,
+    front: 'Is 51 prime or composite?',
+    back: 'Composite, because 51 = 3 × 17.',
+    steps: ['5 + 1 = 6, which is divisible by 3.', 'So 51 ÷ 3 = 17.'],
+    after: [5],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'List the prime numbers between 20 and 40.',
+    back: '23, 29, 31, 37',
+    steps: ['Evens and multiples of 5 are out.', '21 (3 × 7), 25, 27, 33 (3 × 11), 35, 39 (3 × 13) are composite.', 'Left: 23, 29, 31, 37.'],
+    after: [6],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Is 91 prime or composite?',
+    back: 'Composite, because 91 = 7 × 13.',
+    hint: 'It isn’t divisible by 2, 3 or 5. Try 7.',
+    after: [6],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'True or False: All odd numbers are prime.',
+    back: 'False. 9 = 3 × 3, 15 = 3 × 5 and 21 = 3 × 7 are odd and composite.',
+    after: [2],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'True or False: 2 is not prime because it is even.',
+    back: 'False. 2 has exactly two factors, 1 and 2, so it is prime — the only even prime.',
+    after: [3],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'True or False: 1 is a prime number.',
+    back: 'False. 1 has only one factor, so it is neither prime nor composite.',
+    after: [1],
+  },
+  {
+    n: 12, type: 'real-life', difficulty: 3,
+    front: 'A teacher has 17 students. Can she make equal teams with more than 1 student and fewer than 17 in each?',
+    back: 'No. 17 is prime, so it can’t be split into equal teams of any other size.',
+    after: [4],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'Find two prime numbers that add up to 24.',
+    back: 'For example 5 + 19, 7 + 17 or 11 + 13.',
+    hint: 'Both primes will be odd, so list the odd primes under 24.',
+    after: [7],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'Twin primes are two primes that differ by 2. Find the twin primes between 10 and 20.',
+    back: '11 and 13, and 17 and 19.',
+    steps: ['Primes between 10 and 20: 11, 13, 17, 19.', '13 − 11 = 2 and 19 − 17 = 2.'],
+    after: [7],
+  },
+]);

@@ -1,0 +1,112 @@
+import { defineCards } from '@/content/defineCards';
+
+const HOOK = 'Divide → Multiply → Subtract → Bring Down → Repeat';
+
+export const divLongDivisionCards = defineCards('div-long-division', ['division', 'long-division'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What is long division?',
+    back: 'A step-by-step method for dividing bigger numbers by working through the dividend one place at a time.',
+    memoryHook: HOOK,
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'What are the steps of long division?',
+    back: 'Divide → Multiply → Subtract → Bring Down → Repeat.',
+    explanation: 'Divide to find a digit of the quotient, multiply it back, subtract to see what is left, bring down the next digit, and repeat.',
+    memoryHook: HOOK,
+    after: [1],
+  },
+  {
+    n: 3, type: 'visual', difficulty: 2,
+    front: 'Follow the work for 156 ÷ 3. What is the quotient, and where did the 15 come from?',
+    back: 'The quotient is 52. 15 = 5 × 3, and it is subtracted from the first two digits of 156.',
+    steps: ['15 ÷ 3 = 5 → write 5, multiply 5 × 3 = 15.', '15 − 15 = 0 → bring down the 6.', '6 ÷ 3 = 2 → write 2, multiply 2 × 3 = 6.', '6 − 6 = 0.'],
+    visual: {
+      kind: 'long-division',
+      divisor: '3',
+      dividend: '156',
+      quotient: '52',
+      quotientEndCol: 2,
+      steps: [
+        { text: '15', endCol: 1, rule: true },
+        { text: '6', endCol: 2 },
+        { text: '6', endCol: 2, rule: true },
+        { text: '0', endCol: 2 },
+      ],
+    },
+    after: [2],
+  },
+  {
+    n: 4, type: 'solve', difficulty: 1,
+    front: '84 ÷ 4 = ?',
+    back: '21',
+    steps: ['8 ÷ 4 = 2 → 2 × 4 = 8 → 8 − 8 = 0.', 'Bring down 4: 4 ÷ 4 = 1 → 1 × 4 = 4 → 4 − 4 = 0.', 'Quotient: 21.'],
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 2,
+    front: '135 ÷ 5 = ?',
+    back: '27',
+    steps: ['13 ÷ 5 = 2 → 2 × 5 = 10 → 13 − 10 = 3.', 'Bring down 5: 35 ÷ 5 = 7 → 7 × 5 = 35 → 0.', 'Quotient: 27.'],
+    after: [3],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 3,
+    front: '756 ÷ 6 = ?',
+    back: '126',
+    steps: ['7 ÷ 6 = 1 → 1 × 6 = 6 → 7 − 6 = 1.', 'Bring down 5: 15 ÷ 6 = 2 → 2 × 6 = 12 → 15 − 12 = 3.', 'Bring down 6: 36 ÷ 6 = 6 → 6 × 6 = 36 → 0.', 'Quotient: 126.'],
+    after: [5],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: '408 ÷ 8 = ?',
+    back: '51',
+    hint: 'The first digit 4 is smaller than 8. Start with 40.',
+    steps: ['40 ÷ 8 = 5 → 5 × 8 = 40 → 0.', 'Bring down 8: 8 ÷ 8 = 1 → 1 × 8 = 8 → 0.', 'Quotient: 51.'],
+    after: [5],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: '925 ÷ 5 = ?',
+    back: '185',
+    steps: ['9 ÷ 5 = 1 → 1 × 5 = 5 → 4.', 'Bring down 2: 42 ÷ 5 = 8 → 8 × 5 = 40 → 2.', 'Bring down 5: 25 ÷ 5 = 5 → 0.', 'Quotient: 185.'],
+    after: [6],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'True or False: You always start long division by dividing the first digit of the dividend.',
+    back: 'False. If the first digit is smaller than the divisor, start with the first TWO digits.',
+    example: '252 ÷ 6: 2 is less than 6, so start with 25 ÷ 6 = 4.',
+    after: [2],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'Zoe says 612 ÷ 6 = 12. What did she skip?',
+    back: 'A zero in the quotient. 6 ÷ 6 = 1, then 1 ÷ 6 = 0 (write 0), then 12 ÷ 6 = 2. The quotient is 102.',
+    commonMistake: 'Dropping the placeholder 0 in the quotient.',
+    memoryHook: 'Every digit you bring down gets a quotient digit — even 0.',
+    after: [7],
+  },
+  {
+    n: 11, type: 'real-life', difficulty: 3,
+    front: '276 students ride 6 buses, with the same number on each bus. How many students ride each bus?',
+    back: '46 students',
+    steps: ['27 ÷ 6 = 4 → 4 × 6 = 24 → 3.', 'Bring down 6: 36 ÷ 6 = 6 → 0.', 'Quotient: 46.'],
+    after: [6],
+  },
+  {
+    n: 12, type: 'challenge', difficulty: 4,
+    front: 'Find the missing digit: 7■2 ÷ 6 = 122.',
+    back: '3 (so 732 ÷ 6 = 122)',
+    steps: ['Undo the division: 122 × 6 = 732.', 'So the missing digit is 3.'],
+    after: [6],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'Estimate how many digits 945 ÷ 5 will have, then solve it.',
+    back: '3 digits. 945 ÷ 5 = 189.',
+    steps: ['9 is greater than 5, so the first quotient digit sits over the hundreds.', '9 ÷ 5 = 1, 44 ÷ 5 = 8, 45 ÷ 5 = 9.', 'CHECK: 189 × 5 = 945 ✓'],
+    after: [8],
+  },
+]);

@@ -1,0 +1,108 @@
+import { defineCards } from '@/content/defineCards';
+
+export const fractionsOrderingCards = defineCards('fractions-ordering', ['fractions', 'ordering'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What does it mean to order fractions?',
+    back: 'To arrange them from least to greatest (or greatest to least) by their values.',
+    memoryHook: 'On a number line, farther right means greater.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'What is a good strategy for ordering fractions with different denominators?',
+    back: 'Rename them all with a common denominator, then put the numerators in order.',
+    example: '1/2, 2/3, 3/4 → 6/12, 8/12, 9/12',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'How can benchmarks help you order fractions?',
+    back: 'Sort fractions into groups first: less than 1/2, about 1/2, more than 1/2, and 1 or more. Then order inside each group.',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 1,
+    front: 'Read the number line from left to right. Order these fractions from least to greatest.',
+    back: '1/4 < 1/2 < 5/6',
+    visual: {
+      kind: 'number-line', min: 0, max: 1, partsPerWhole: 12,
+      marks: [
+        { value: { numerator: 1, denominator: 4 }, label: '1/4', position: 'above' },
+        { value: { numerator: 1, denominator: 2 }, label: '1/2', position: 'below' },
+        { value: { numerator: 5, denominator: 6 }, label: '5/6', position: 'above' },
+      ],
+    },
+    after: [1],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: 'Order from least to greatest: 1/4, 3/4, 1/2',
+    back: '1/4, 1/2, 3/4',
+    steps: ['Write with fourths: 1/4, 3/4, 2/4.', 'Order numerators: 1, 2, 3.'],
+    after: [2],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: 'Order from least to greatest: 2/3, 1/6, 5/6',
+    back: '1/6, 2/3, 5/6',
+    steps: ['Write with sixths: 2/3 = 4/6.', 'Numerators: 4, 1, 5 → order 1, 4, 5.'],
+    after: [5],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Order from least to greatest: 3/4, 2/3, 5/8',
+    back: '5/8, 2/3, 3/4',
+    steps: ['LCM of 4, 3 and 8 is 24.', '3/4 = 18/24, 2/3 = 16/24, 5/8 = 15/24.', '15 < 16 < 18'],
+    after: [6],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Order from least to greatest: 1/2, 3/5, 2/5, 7/10',
+    back: '2/5, 1/2, 3/5, 7/10',
+    steps: ['Use tenths: 1/2 = 5/10, 3/5 = 6/10, 2/5 = 4/10, 7/10.', 'Numerators: 4, 5, 6, 7.'],
+    after: [6],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 4,
+    front: 'Order from greatest to least: 5/6, 7/9, 3/4',
+    back: '5/6, 7/9, 3/4',
+    steps: ['LCM of 6, 9 and 4 is 36.', '5/6 = 30/36, 7/9 = 28/36, 3/4 = 27/36.', '30 > 28 > 27'],
+    after: [7],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'True or False: 1/4, 1/3, 1/2 is in order from greatest to least because 4 > 3 > 2.',
+    back: 'False. The greatest is 1/2 (biggest pieces). From greatest to least: 1/2, 1/3, 1/4.',
+    commonMistake: 'Ordering by denominators the wrong way around.',
+    after: [3],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'Nina says 2/3 < 3/5 < 4/7 because 2 < 3 < 4. Is the order right?',
+    back: 'No. The correct order from least to greatest is 4/7 < 3/5 < 2/3.',
+    steps: ['Use a common denominator of 105.', '4/7 = 60/105, 3/5 = 63/105, 2/3 = 70/105.'],
+    explanation: 'You can’t order fractions by numerators alone.',
+    after: [7],
+  },
+  {
+    n: 12, type: 'real-life', difficulty: 3,
+    front: 'Three jugs hold 3/4 L, 2/3 L and 5/6 L. Order them from least to greatest.',
+    back: '2/3 L, 3/4 L, 5/6 L',
+    steps: ['Use twelfths: 3/4 = 9/12, 2/3 = 8/12, 5/6 = 10/12.', '8 < 9 < 10'],
+    after: [7],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'Write three fractions between 1/2 and 1 and put them in order from least to greatest.',
+    back: 'For example 5/8, 3/4, 7/8.',
+    hint: 'Write 1/2 and 1 as eighths: 4/8 and 8/8.',
+    after: [8],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'I am greater than 1/3 and less than 1/2. My denominator is 12. Which fraction am I?',
+    back: '5/12',
+    steps: ['1/3 = 4/12 and 1/2 = 6/12.', 'The numerator must be between 4 and 6: 5.'],
+    after: [8],
+  },
+]);

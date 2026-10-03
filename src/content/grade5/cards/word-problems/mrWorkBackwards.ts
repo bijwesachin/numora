@@ -1,0 +1,87 @@
+import { defineCards } from '@/content/defineCards';
+
+export const mrWorkBackwardsCards = defineCards('mr-work-backwards', ['math-reasoning', 'work-backwards'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What does “work backwards” mean?',
+    back: 'Start from the final result and undo each step, in reverse order, using the opposite operation.',
+    memoryHook: 'Rewind the movie.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'What are the opposite (inverse) operations?',
+    back: 'Add ↔ subtract, and multiply ↔ divide. Undo the LAST step first.',
+    example: '“×3 then −4 gives 20” → undo: 20 + 4 = 24, then 24 ÷ 3 = 8',
+    after: [1],
+  },
+  {
+    n: 3, type: 'solve', difficulty: 1,
+    front: 'I think of a number, add 5, and get 12. What is my number?',
+    back: '7',
+    steps: ['Undo adding 5 by subtracting 5.', '12 − 5 = 7', 'CHECK: 7 + 5 = 12 ✓'],
+    after: [2],
+  },
+  {
+    n: 4, type: 'solve', difficulty: 2,
+    front: 'I think of a number, multiply it by 3, then subtract 4. I get 20. What is my number?',
+    back: '8',
+    steps: ['Last step was −4, so add 4: 20 + 4 = 24.', 'Before that, ×3, so divide by 3: 24 ÷ 3 = 8.', 'CHECK: 8 × 3 − 4 = 20 ✓'],
+    after: [3],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 3,
+    front: 'Kim spent $12, then earned $8, and now has $25. How much did she start with?',
+    back: '$29',
+    steps: ['Undo earning $8: 25 − 8 = 17.', 'Undo spending $12: 17 + 12 = 29.', 'CHECK: 29 − 12 + 8 = 25 ✓'],
+    after: [4],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 3,
+    front: 'A number is divided by 4, then 6 is added. The result is 15. What was the number?',
+    back: '36',
+    steps: ['Undo +6: 15 − 6 = 9.', 'Undo ÷4: 9 × 4 = 36.', 'CHECK: 36 ÷ 4 + 6 = 15 ✓'],
+    after: [4],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'A class had some students. 3 left and then 5 joined. Now there are 28. How many were there at the start?',
+    back: '26 students',
+    steps: ['Undo 5 joined: 28 − 5 = 23.', 'Undo 3 left: 23 + 3 = 26.'],
+    after: [4],
+  },
+  {
+    n: 8, type: 'misconception', difficulty: 5,
+    front: 'True or False: When you work backwards, you undo the steps in the same order as the story.',
+    back: 'False. Undo them in reverse order — the last step first.',
+    memoryHook: 'Socks on, then shoes. To undo: shoes off first, then socks.',
+    after: [2],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'Rob works backwards from “double a number, then add 3 gives 17.” He does 17 − 3 = 14, then 14 × 2 = 28. What is wrong?',
+    back: 'He undid doubling by doubling again. Undo doubling by halving: 14 ÷ 2 = 7.',
+    explanation: 'CHECK: 7 × 2 + 3 = 17 ✓',
+    after: [4],
+  },
+  {
+    n: 10, type: 'real-life', difficulty: 3,
+    front: 'Leo walks 12 minutes to school, stays 6 hours 30 minutes, and walks 12 minutes home. He arrives home at 4:00 p.m. When did he leave home in the morning?',
+    back: '9:06 a.m.',
+    steps: ['Undo the walk home: 4:00 p.m. − 12 min = 3:48 p.m.', 'Undo the school day: 3:48 p.m. − 6 h 30 min = 9:18 a.m.', 'Undo the walk to school: 9:18 − 12 min = 9:06 a.m.'],
+    after: [5],
+  },
+  {
+    n: 11, type: 'challenge', difficulty: 4,
+    front: 'I think of a number, halve it, add 9, then multiply by 2. The result is 40. What is my number?',
+    back: '22',
+    steps: ['Undo ×2: 40 ÷ 2 = 20.', 'Undo +9: 20 − 9 = 11.', 'Undo halving: 11 × 2 = 22.', 'CHECK: 22 ÷ 2 = 11, 11 + 9 = 20, 20 × 2 = 40 ✓'],
+    after: [6],
+  },
+  {
+    n: 12, type: 'challenge', difficulty: 4,
+    front: 'A store sold half of its apples in the morning, then 6 more in the afternoon. 12 apples are left. How many apples did it have at first?',
+    back: '36 apples',
+    steps: ['Undo the afternoon sale: 12 + 6 = 18.', 'Undo selling half: 18 × 2 = 36.', 'CHECK: 36 ÷ 2 = 18, 18 − 6 = 12 ✓'],
+    after: [5],
+  },
+]);
