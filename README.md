@@ -31,6 +31,28 @@ These are requests that well-behaved crawlers honor. They do **not** stop anyone
 For real privacy, put the site behind a login (Cloudflare Access, Vercel password protection, Netlify password, or an
 identity-aware proxy). Student progress lives in each browser's localStorage and is never sent anywhere.
 
+## Password protection (Vercel)
+
+`middleware.ts` puts a password in front of the **entire** site — pages, JavaScript bundle and images — using Vercel
+Routing Middleware (free on every plan). Visitors see the browser's standard sign-in box; the username can be anything and
+the password is the `APP_PASSWORD` environment variable.
+
+To turn it on:
+
+1. Vercel → your project → **Settings → Environment Variables**
+2. Add `APP_PASSWORD` with a long passphrase, for **Production** and **Preview**
+3. **Redeploy** (Deployments → ⋯ → Redeploy). Environment variables only apply to new deployments.
+
+Good to know:
+
+- **It fails closed.** If `APP_PASSWORD` is missing or empty, every page shows a "not configured" message instead of
+  opening the site.
+- To change the password, edit the variable and redeploy. Everyone is asked again.
+- There is no lockout after wrong guesses, so use a long passphrase (for example four random words).
+- `/robots.txt` stays readable so search engines see `Disallow: /`.
+- It does not run under `npm run dev`, so local development needs no password. To try it locally, use `npx vercel dev`.
+- The password is shared by everyone who has it. For per-person logins, use an identity provider instead.
+
 ## Architecture
 
 ```
