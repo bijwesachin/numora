@@ -1,0 +1,111 @@
+import { defineCards } from '@/content/defineCards';
+
+export const decSubtractCards = defineCards('dec-subtract', ['decimals', 'subtraction'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What is the main idea when subtracting decimals?',
+    back: 'Take tenths from tenths and hundredths from hundredths. Line up the decimal points, then subtract as with whole numbers.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'What are the steps for subtracting decimals?',
+    back: '1) Line up the decimal points.\n2) Fill empty places with zeros.\n3) Subtract from right to left, regrouping when needed.\n4) Bring the decimal point straight down.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'How can you check a decimal subtraction?',
+    back: 'Add the answer to the number you subtracted. You should get the number you started with.',
+    example: '5.25 + 3.25 = 8.50 ✓',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 2,
+    front: 'The whole bar is 8.5. One part is 3.25. What is the other part?',
+    back: '5.25',
+    steps: ['8.50 − 3.25 = 5.25.'],
+    visual: {
+      kind: 'bar-model',
+      bars: [
+        { label: 'whole', segments: [{ label: '8.5', size: 8.5 }] },
+        { label: 'parts', segments: [{ label: '3.25', size: 3.25, tone: 'empty' }, { label: '?', size: 5.25, tone: 'unknown' }] },
+      ],
+    },
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: '0.9 − 0.4 = ?',
+    back: '0.5',
+    after: [1],
+    explanation: '9 tenths − 4 tenths = 5 tenths.',
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: '5.6 − 2.3 = ?',
+    back: '3.3',
+    after: [2],
+    steps: ['Tenths: 6 − 3 = 3.', 'Ones: 5 − 2 = 3.', '3.3'],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: '10 − 3.45 = ?',
+    back: '6.55',
+    steps: ['10 = 10.00.', '10.00 − 3.45 = 6.55.', 'CHECK: 6.55 + 3.45 = 10.00 ✓'],
+    after: [3],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: '7.2 − 4.85 = ?',
+    back: '2.35',
+    steps: ['7.20 − 4.85 = 2.35.', 'CHECK: 2.35 + 4.85 = 7.20 ✓'],
+    after: [6],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: '12.03 − 5.6 = ?',
+    back: '6.43',
+    steps: ['5.6 = 5.60.', '12.03 − 5.60 = 6.43.'],
+    after: [6],
+  },
+  {
+    n: 10, type: 'solve', difficulty: 4,
+    front: '100 − 62.375 = ?',
+    back: '37.625',
+    steps: ['100 = 100.000.', '100.000 − 62.375 = 37.625.'],
+    after: [8],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'Sam says 5 − 0.3 = 2, because 5 − 3 = 2. What is wrong?',
+    back: 'The 3 is 3 tenths, not 3 ones. 5.0 − 0.3 = 4.7.',
+    commonMistake: 'Ignoring place value.',
+    after: [7],
+  },
+  {
+    n: 12, type: 'misconception', difficulty: 5,
+    front: 'Mia finds 6.2 − 3.5 by always subtracting the smaller digit from the larger and gets 3.3. What went wrong?',
+    back: 'You must subtract in order and regroup when the top digit is smaller. 6.2 − 3.5 = 2.7.',
+    after: [6],
+  },
+  {
+    n: 13, type: 'real-life', difficulty: 3,
+    front: 'A 2.5 L bottle has 0.75 L poured out. How much is left?',
+    back: '1.75 L',
+    after: [8],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'In a race, Ana ran 12.48 seconds and Bo ran 13.1 seconds. By how much did Ana win?',
+    back: '0.62 seconds',
+    steps: ['13.10 − 12.48 = 0.62.'],
+    after: [8],
+  },
+  {
+    n: 15, type: 'challenge', difficulty: 4,
+    front: 'Check 9.2 − 4.75 = 4.45 using addition.',
+    back: '4.45 + 4.75 = 9.20 ✓ It is correct.',
+    after: [8],
+    steps: ['4.45 + 4.75 = 9.20.', '9.20 = 9.2, which is the number we started with.'],
+  },
+]);

@@ -1,0 +1,91 @@
+import { defineCards } from '@/content/defineCards';
+
+export const exprVsEquationCards = defineCards('expr-vs-equation', ['algebra', 'expressions', 'equations'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What is the difference between an expression and an equation?',
+    back: 'An expression is a math phrase with numbers and operations but NO equal sign. An equation is a math sentence that says two expressions are equal, with an = sign.',
+    example: 'Expression: 3 + 4     Equation: 3 + 4 = 7',
+    memoryHook: 'An expression is a phrase; an equation is a complete sentence.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'What is the quickest way to tell them apart?',
+    back: 'Look for the equal sign. Equal sign → equation. No equal sign → expression.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'Can an equation be false?',
+    back: 'Yes. An equation is still an equation if it isn’t true. 6 + 2 = 9 is a false equation. An expression has a value but is never true or false.',
+    after: [2],
+  },
+  {
+    n: 4, type: 'solve', difficulty: 1,
+    front: 'Is 3 + 4 an expression or an equation?',
+    back: 'An expression (no equal sign).',
+    after: [2],
+    explanation: 'There is no equal sign, so it is a phrase, not a sentence.',
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: 'Is 3 + 4 = 7 an expression or an equation?',
+    back: 'An equation (it has an equal sign).',
+    after: [2],
+    explanation: 'The equal sign makes it a complete sentence.',
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: 'Is 2 × 6 + 1 an expression or an equation?',
+    back: 'An expression. It has a value (13) but no equal sign.',
+    after: [4],
+    explanation: 'It can be worked out to 13, but it has no equal sign.',
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Sort these: 5 × 2,  5 × 2 = 10,  10 − 3 = 7,  4 + 8.',
+    back: 'Expressions: 5 × 2 and 4 + 8.\nEquations: 5 × 2 = 10 and 10 − 3 = 7.',
+    explanation: 'Only the two with equal signs are equations.',
+    after: [5],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Is 6 + 2 = 9 an equation? Is it true or false?',
+    back: 'It is an equation, and it is false, since 6 + 2 = 8.',
+    explanation: 'Having an equal sign makes it an equation, whether it is true or not.',
+    after: [3],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'True or False: 8 + 2 = 11 is not an equation because it is wrong.',
+    back: 'False. It is an equation (it has an equal sign), but it is a false one.',
+    after: [3],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'True or False: 15 − 6 is an equation because it has an answer.',
+    back: 'False. It is an expression. Equations need an equal sign.',
+    explanation: 'Every expression has a value, but it only becomes an equation when it is set equal to something.',
+    after: [2],
+  },
+  {
+    n: 11, type: 'real-life', difficulty: 3,
+    front: 'A receipt says “3 apples at $2 each: 3 × 2” and then “Total = $6.” Which is the expression and which is the equation?',
+    back: '3 × 2 is the expression. Total = 6 is the equation.',
+    after: [7],
+  },
+  {
+    n: 12, type: 'challenge', difficulty: 4,
+    front: 'Write a true equation using the numbers 12, 4 and 3.',
+    back: 'For example 12 ÷ 4 = 3 (or 4 × 3 = 12).',
+    after: [8],
+    hint: 'An equation needs an equal sign between two expressions that are equal.',
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'Write an expression with the value 20 using the numbers 4 and 5. Then turn it into an equation.',
+    back: '4 × 5 is the expression (value 20). 4 × 5 = 20 is the equation.',
+    after: [8],
+    hint: 'An expression has no equal sign; an equation does.',
+  },
+]);

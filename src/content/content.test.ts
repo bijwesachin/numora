@@ -35,6 +35,8 @@ describe.each([
   { categoryId: 'word-problems', conceptCount: 22 },
   { categoryId: 'operations', conceptCount: 24 },
   { categoryId: 'fractions', conceptCount: 23 },
+  { categoryId: 'decimals', conceptCount: 13 },
+  { categoryId: 'algebra', conceptCount: 11 },
 ])('$categoryId content', ({ categoryId, conceptCount }) => {
   const concepts = curriculum.conceptsOfCategory(categoryId);
 

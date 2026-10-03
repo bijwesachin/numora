@@ -1,0 +1,108 @@
+import { defineCards } from '@/content/defineCards';
+import { decimalChart } from '../number-sense/charts';
+
+export const fdDecimalToFractionCards = defineCards('fd-decimal-to-fraction', ['decimals', 'fractions', 'simplifying'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'How is a decimal turned into a fraction?',
+    back: 'Read the decimal out loud. It tells you the fraction: 0.35 is “thirty-five hundredths,” which is 35/100.',
+    memoryHook: 'Say it, then write it.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'What are the steps to write a decimal as a simplified fraction?',
+    back: '1) The last digit’s place gives the denominator (10, 100, 1,000).\n2) The digits form the numerator.\n3) Simplify using the GCF.',
+    example: '0.35 = 35/100 = 7/20',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'How do you write a decimal bigger than 1 as a mixed number?',
+    back: 'Keep the whole number part, and write the decimal part as a fraction.',
+    example: '2.5 = 2 5/10 = 2 1/2',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 2,
+    front: 'Read this decimal, write it as a fraction, then simplify.',
+    back: '375/1,000 = 3/8',
+    explanation: 'The last digit is in the thousandths place, so the denominator is 1,000. GCF of 375 and 1,000 is 125.',
+    visual: decimalChart('0.375'),
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: 'Write 0.3 as a fraction.',
+    back: '3/10',
+    after: [2],
+    explanation: 'One decimal place means tenths, so 0.3 = 3/10.',
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: 'Write 0.25 as a simplified fraction.',
+    back: '1/4',
+    steps: ['0.25 = 25/100.', 'Divide by 25: 1/4.'],
+    after: [2],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Write 0.6 as a simplified fraction.',
+    back: '3/5',
+    steps: ['0.6 = 6/10.', 'Divide by 2: 3/5.'],
+    after: [6],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Write 0.08 as a simplified fraction.',
+    back: '2/25',
+    steps: ['0.08 = 8/100.', 'Divide by 4: 2/25.'],
+    after: [6],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: 'Write 3.75 as a mixed number in simplest form.',
+    back: '3 3/4',
+    steps: ['The 0.75 part is 75/100 = 3/4.', 'Keep the whole number 3: 3 3/4.'],
+    after: [3],
+  },
+  {
+    n: 10, type: 'solve', difficulty: 4,
+    front: 'Write 0.125 as a simplified fraction.',
+    back: '1/8',
+    steps: ['0.125 = 125/1,000.', 'GCF is 125: 125 ÷ 125 = 1 and 1,000 ÷ 125 = 8.'],
+    after: [8],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'True or False: 0.5 = 1/5.',
+    back: 'False. 0.5 = 5/10 = 1/2.',
+    after: [7],
+  },
+  {
+    n: 12, type: 'misconception', difficulty: 5,
+    front: 'True or False: 0.04 = 4/10.',
+    back: 'False. The 4 is in the hundredths place: 0.04 = 4/100 = 1/25.',
+    after: [8],
+  },
+  {
+    n: 13, type: 'real-life', difficulty: 3,
+    front: 'A snail crawls 0.4 meter each minute. Write that as a simplified fraction.',
+    back: '2/5 meter',
+    steps: ['0.4 = 4/10.', 'Divide by 2: 2/5.'],
+    after: [7],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'Write 0.72 in simplest form.',
+    back: '18/25',
+    steps: ['0.72 = 72/100.', 'GCF of 72 and 100 is 4.', '72 ÷ 4 = 18 and 100 ÷ 4 = 25.'],
+    after: [8],
+  },
+  {
+    n: 15, type: 'challenge', difficulty: 4,
+    front: 'Which is greater: 0.45 or 3/8?',
+    back: '0.45, because 3/8 = 0.375.',
+    steps: ['As fractions: 0.45 = 9/20 = 18/40 and 3/8 = 15/40.', '18/40 > 15/40.'],
+    after: [10],
+  },
+]);

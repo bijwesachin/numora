@@ -1,0 +1,107 @@
+import { defineCards } from '@/content/defineCards';
+import { decimalChart } from '../number-sense/charts';
+
+export const decPowersOfTenCards = defineCards('dec-powers-of-ten', ['decimals', 'powers-of-10', 'place-value'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What happens when you multiply or divide a decimal by 10, 100 or 1,000?',
+    back: 'The digits slide along the place-value chart. Multiplying slides them left (bigger); dividing slides them right (smaller). The decimal point appears to move.',
+    memoryHook: 'Place Value Elevator: the digits move, the decimal point stays put.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How many places do the digits move?',
+    back: 'The same as the number of zeros in 10, 100 or 1,000: 1, 2 or 3 places. Left for ×, right for ÷. Add zeros to fill empty places.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'Why is 2.5 × 10 equal to 25 and not 2.50?',
+    back: 'Each digit moves one place left: the 2 goes from ones to tens and the 5 from tenths to ones. Adding a zero (2.50) doesn’t change the value.',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 2,
+    front: 'Here is 3.45 on the place-value chart. Slide every digit one place left (× 10). What is the new number?',
+    back: '34.5',
+    explanation: 'Each digit moved one place to the left.',
+    visual: decimalChart('3.45', [0, 1, 2]),
+    answerVisual: { kind: 'row', separator: '→', items: [decimalChart('3.45', [0, 1, 2]), decimalChart('34.5', [0, 1, 2])] },
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: '4.7 × 10 = ?',
+    back: '47',
+    after: [2],
+    explanation: 'Each digit moves one place left: 4.7 becomes 47.',
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: '0.36 × 100 = ?',
+    back: '36',
+    after: [2],
+    explanation: 'Each digit moves two places left: 0.36 becomes 36.',
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: '5.2 × 1,000 = ?',
+    back: '5,200',
+    steps: ['Move 3 places right.', '5.2 → 5200, adding zeros to fill in.'],
+    after: [6],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: '83 ÷ 100 = ?',
+    back: '0.83',
+    after: [2],
+    explanation: 'Each digit moves two places right: 83 becomes 0.83.',
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: '4.5 ÷ 10 = ?',
+    back: '0.45',
+    after: [8],
+    explanation: 'Each digit moves one place right: 4.5 becomes 0.45.',
+  },
+  {
+    n: 10, type: 'solve', difficulty: 4,
+    front: '0.7 ÷ 100 = ?',
+    back: '0.007',
+    steps: ['Move the 7 two places right: tenths → hundredths → thousandths.', '0.007'],
+    after: [9],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'True or False: 2.5 × 10 = 2.50, because you just add a zero.',
+    back: 'False. 2.5 × 10 = 25. The digits move one place left.',
+    after: [3],
+  },
+  {
+    n: 12, type: 'misconception', difficulty: 5,
+    front: 'True or False: 3.6 ÷ 10 = 36.',
+    back: 'False. Dividing makes the number smaller: 3.6 ÷ 10 = 0.36.',
+    after: [2],
+  },
+  {
+    n: 13, type: 'real-life', difficulty: 3,
+    front: 'Pencils cost $0.35 each. How much do 100 pencils cost?',
+    back: '$35',
+    steps: ['0.35 × 100 = 35.'],
+    after: [6],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'Find 4.8 × 10 × 10 ÷ 1,000.',
+    back: '0.48',
+    steps: ['4.8 × 100 = 480.', '480 ÷ 1,000 = 0.48.'],
+    after: [7, 8],
+  },
+  {
+    n: 15, type: 'challenge', difficulty: 4,
+    front: 'Find the missing number: 0.045 × ___ = 45.',
+    back: '1,000',
+    steps: ['0.045 → 45 moves 3 places right.', '3 places means × 1,000.'],
+    after: [7],
+  },
+]);

@@ -110,6 +110,12 @@ function validateVisual(v: VisualSpec): string[] {
       return v.shadeRows >= 0 && v.shadeRows <= v.rows && v.shadeCols >= 0 && v.shadeCols <= v.cols && v.rows > 0 && v.cols > 0
         ? []
         : ['fraction area model shades more rows/columns than it has'];
+    case 'math-machine':
+      return v.pairs.length > 0 && v.pairs.length <= 8 ? [] : ['math machine needs 1–8 input/output pairs'];
+    case 'balance':
+      return v.left.length > 0 && v.right.length > 0 && v.left.length <= 3 && v.right.length <= 3
+        ? []
+        : ['balance needs 1–3 tiles on each side'];
     case 'row':
       return v.items.flatMap(validateVisual);
   }

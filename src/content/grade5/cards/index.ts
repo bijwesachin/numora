@@ -45,6 +45,30 @@ import { fmGcfCards } from './operations/fmGcf';
 import { fmMultiplesCards } from './operations/fmMultiples';
 import { fmCommonMultiplesCards } from './operations/fmCommonMultiples';
 import { fmLcmCards } from './operations/fmLcm';
+import { decPlacesCards } from './decimals/decPlaces';
+import { decReadWriteCards } from './decimals/decReadWrite';
+import { decCompareCards } from './decimals/decCompare';
+import { decRoundCards } from './decimals/decRound';
+import { decAddCards } from './decimals/decAdd';
+import { decSubtractCards } from './decimals/decSubtract';
+import { decMultiplyCards } from './decimals/decMultiply';
+import { decMultiplySmallerCards } from './decimals/decMultiplySmaller';
+import { decDivideCards } from './decimals/decDivide';
+import { decPowersOfTenCards } from './decimals/decPowersOfTen';
+import { fdBenchmarksCards } from './decimals/fdBenchmarks';
+import { fdFractionToDecimalCards } from './decimals/fdFractionToDecimal';
+import { fdDecimalToFractionCards } from './decimals/fdDecimalToFraction';
+import { exprParenthesesCards } from './algebra/exprParentheses';
+import { exprOrderOfOperationsCards } from './algebra/exprOrderOfOperations';
+import { exprEvaluateCards } from './algebra/exprEvaluate';
+import { exprWordsToMathCards } from './algebra/exprWordsToMath';
+import { exprVsEquationCards } from './algebra/exprVsEquation';
+import { algNumberPatternsCards } from './algebra/algNumberPatterns';
+import { algInputOutputCards } from './algebra/algInputOutput';
+import { algTwoRulePatternsCards } from './algebra/algTwoRulePatterns';
+import { algVariablesCards } from './algebra/algVariables';
+import { algMissingNumbersCards } from './algebra/algMissingNumbers';
+import { algEquationsCards } from './algebra/algEquations';
 import { equivalentFractionCards } from './fractions/equivalent';
 import { nsCompareDecimalsCards } from './number-sense/nsCompareDecimals';
 import { nsCompareWholeCards } from './number-sense/nsCompareWhole';
@@ -142,6 +166,32 @@ export const grade5Cards: Flashcard[] = [
   ...fmMultiplesCards,
   ...fmCommonMultiplesCards,
   ...fmLcmCards,
+  // Decimals
+  ...decPlacesCards,
+  ...decReadWriteCards,
+  ...decCompareCards,
+  ...decRoundCards,
+  ...decAddCards,
+  ...decSubtractCards,
+  ...decMultiplyCards,
+  ...decMultiplySmallerCards,
+  ...decDivideCards,
+  ...decPowersOfTenCards,
+  ...fdBenchmarksCards,
+  ...fdFractionToDecimalCards,
+  ...fdDecimalToFractionCards,
+  // Algebra
+  ...exprParenthesesCards,
+  ...exprOrderOfOperationsCards,
+  ...exprEvaluateCards,
+  ...exprWordsToMathCards,
+  ...exprVsEquationCards,
+  ...algNumberPatternsCards,
+  ...algInputOutputCards,
+  ...algTwoRulePatternsCards,
+  ...algVariablesCards,
+  ...algMissingNumbersCards,
+  ...algEquationsCards,
   // Fractions
   ...fractionPartsCards,
   ...equivalentFractionCards,

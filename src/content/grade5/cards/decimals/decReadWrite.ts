@@ -1,0 +1,101 @@
+import { defineCards } from '@/content/defineCards';
+import { decimalChart } from '../number-sense/charts';
+
+export const decReadWriteCards = defineCards('dec-read-write', ['decimals', 'reading', 'writing'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'How do you read a decimal?',
+    back: 'Say the whole-number part, say “and” for the decimal point, then read the digits after the point as a number followed by the name of the last place.',
+    example: '3.45 → “three and forty-five hundredths”',
+    memoryHook: '“And” marks the decimal point.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How do you write a decimal from words?',
+    back: '“And” becomes the decimal point. The last place name tells how many digits go after the point. Fill empty places with zeros.',
+    example: '“twelve and seven hundredths” → 12.07',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'Why is 0.06 read “six hundredths” and not “sixty”?',
+    back: 'The last digit, 6, sits in the hundredths place, so the name is hundredths.',
+    after: [1],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 1,
+    front: 'Read this decimal aloud in words.',
+    back: 'Seventy-five hundredths',
+    explanation: 'The last digit, 5, is in the hundredths place, so the number is 75 hundredths.',
+    visual: decimalChart('0.75'),
+    after: [1],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: 'Read 0.3 in words.',
+    back: 'Three tenths',
+    after: [1],
+    explanation: 'One digit after the point means tenths.',
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: 'Write “nine hundredths” as a decimal.',
+    back: '0.09',
+    steps: ['Hundredths means 2 decimal places.', '9 needs a zero before it: 0.09.'],
+    after: [2],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Read 4.206 in words.',
+    back: 'Four and two hundred six thousandths',
+    steps: ['Whole part: four.', 'After the point: 206, and the last place is thousandths.'],
+    after: [3],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Write “twelve and seven hundredths” as a decimal.',
+    back: '12.07',
+    after: [6],
+    steps: ['Whole part: 12.', '“Seven hundredths” needs 2 decimal places: 07.', '12.07'],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: 'Write “three hundred forty-two thousandths” as a decimal.',
+    back: '0.342',
+    after: [6],
+    steps: ['Thousandths means 3 decimal places.', '342 fills all three places: 0.342.'],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'True or False: 3.04 is read “three and four tenths.”',
+    back: 'False. The 4 is in the hundredths place: “three and four hundredths.”',
+    commonMistake: 'Ignoring a zero placeholder.',
+    after: [3],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'True or False: 0.250 is read “two hundred fifty hundredths.”',
+    back: 'False. The last place is thousandths: “two hundred fifty thousandths” (which equals 25 hundredths).',
+    after: [7],
+  },
+  {
+    n: 12, type: 'real-life', difficulty: 3,
+    front: 'A runner’s time was 11.07 seconds. How do you say that time?',
+    back: 'Eleven and seven hundredths seconds',
+    after: [8],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'Write “two thousand and two hundredths” as a decimal.',
+    back: '2,000.02',
+    hint: 'Only “and” marks the decimal point.',
+    after: [8],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'Write 100.001 in words.',
+    back: 'One hundred and one thousandth',
+    after: [7],
+    steps: ['The whole part is one hundred.', '“And” marks the decimal point.', 'One thousandth has 3 places: 001.'],
+  },
+]);

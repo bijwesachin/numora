@@ -160,6 +160,27 @@ export interface FractionAreaModelVisual {
   label?: string;
 }
 
+/**
+ * "Math Machine": Input → Rule → Output, with a table of input/output pairs underneath.
+ * Set `ruleHidden` to ask the student to find the rule; use "?" for unknown table cells.
+ */
+export interface MathMachineVisual {
+  kind: 'math-machine';
+  rule: string;
+  ruleHidden?: boolean;
+  pairs: { input: string; output: string }[];
+}
+
+/**
+ * A level balance scale for equations. Each string is one tile on that side; a single
+ * letter (like "x") is drawn as an unknown.
+ */
+export interface BalanceVisual {
+  kind: 'balance';
+  left: string[];
+  right: string[];
+}
+
 /** Lay several visuals side by side with an optional symbol between them. */
 export interface VisualRow {
   kind: 'row';
@@ -181,6 +202,8 @@ export type VisualSpec =
   | NumberGridVisual
   | FactorTreeVisual
   | FractionAreaModelVisual
+  | MathMachineVisual
+  | BalanceVisual
   | VisualRow;
 
 export type VisualKind = VisualSpec['kind'];

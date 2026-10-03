@@ -1,0 +1,112 @@
+import { defineCards } from '@/content/defineCards';
+
+export const decMultiplySmallerCards = defineCards('dec-multiply-smaller', ['decimals', 'multiplication', 'scaling'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'Does multiplication always make a number bigger?',
+    back: 'No. Multiplying by a number less than 1 makes the result smaller. For example 8 × 0.5 = 4, which is half of 8.',
+    memoryHook: '8 × 0.5 means “half of 8.”',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How does the size of the factor change the product?',
+    back: 'Factor less than 1 → product is smaller.\nFactor equal to 1 → product is the same.\nFactor greater than 1 → product is bigger.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'What do common decimal multipliers mean?',
+    back: '× 0.5 is half of the number.\n× 0.25 is a quarter of it.\n× 0.1 is one tenth of it.',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 1,
+    front: 'Compare the bars: 8, 8 × 0.5 and 8 × 1.5. Which products are smaller than 8, and which is larger?',
+    back: '8 × 0.5 is smaller than 8, and 8 × 1.5 is larger.',
+    visual: {
+      kind: 'bar-model',
+      bars: [
+        { label: '8', segments: [{ label: '8', size: 8 }] },
+        { label: '8 × 0.5', segments: [{ label: '', size: 4, tone: 'empty' }] },
+        { label: '8 × 1.5', segments: [{ label: '', size: 12 }] },
+      ],
+    },
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: '8 × 0.5 = ?',
+    back: '4',
+    explanation: 'Half of 8 is 4.',
+    after: [3],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: '20 × 0.1 = ?',
+    back: '2',
+    explanation: 'One tenth of 20 is 2.',
+    after: [3],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Without calculating: is 0.9 × 15 greater than, less than or equal to 15?',
+    back: 'Less than 15, because 0.9 is less than 1.',
+    after: [2],
+    explanation: 'Multiplying by a number less than 1 takes only part of 15.',
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: '6 × 1.5 = ? Is it greater or less than 6?',
+    back: '9, which is greater than 6, because 1.5 is greater than 1.',
+    steps: ['6 × 1 = 6 and 6 × 0.5 = 3.', '6 + 3 = 9.'],
+    after: [5],
+  },
+  {
+    n: 9, type: 'solve', difficulty: 3,
+    front: 'Order without finding exact products: 12 × 0.8, 12 × 1, 12 × 1.2.',
+    back: '12 × 0.8 < 12 × 1 < 12 × 1.2 (which are 9.6, 12 and 14.4).',
+    after: [7],
+    explanation: 'The order of the products matches the order of the factors: 0.8 < 1 < 1.2.',
+  },
+  {
+    n: 10, type: 'solve', difficulty: 3,
+    front: '0.25 × 40 = ?',
+    back: '10',
+    explanation: '0.25 is a quarter, and a quarter of 40 is 10.',
+    after: [5],
+  },
+  {
+    n: 11, type: 'misconception', difficulty: 5,
+    front: 'True or False: Multiplying always makes a number bigger, so 8 × 0.5 is more than 8.',
+    back: 'False. 8 × 0.5 = 4. Multiplying by less than 1 takes only part of the number.',
+    commonMistake: 'Believing multiplication always makes things bigger.',
+    after: [2],
+  },
+  {
+    n: 12, type: 'misconception', difficulty: 5,
+    front: 'True or False: 5 × 0.2 = 10.',
+    back: 'False. 5 × 0.2 = 1. It is two tenths of 5, not 2 fives.',
+    after: [6],
+  },
+  {
+    n: 13, type: 'real-life', difficulty: 3,
+    front: 'A recipe needs 2.5 cups of flour. You make 0.5 of a batch. How much flour do you need?',
+    back: '1.25 cups',
+    steps: ['0.5 of something is half of it.', 'Half of 2.5 is 1.25.'],
+    after: [5],
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'Pick a decimal to multiply 60 by so the product is between 10 and 20.',
+    back: 'For example 0.25 (product 15).',
+    hint: 'The decimal must be between 10 ÷ 60 and 20 ÷ 60, roughly between 0.17 and 0.33.',
+    after: [10],
+  },
+  {
+    n: 15, type: 'challenge', difficulty: 4,
+    front: 'Which is greater, 0.6 × 0.6 or 0.6? By how much?',
+    back: '0.6 is greater by 0.24, because 0.6 × 0.6 = 0.36.',
+    steps: ['6 × 6 = 36 with two decimal places: 0.36.', '0.6 − 0.36 = 0.24.'],
+    after: [7],
+  },
+]);

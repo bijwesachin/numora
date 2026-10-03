@@ -7,7 +7,9 @@ import { PlaceValueChart } from './PlaceValueChart';
 import { RoundingLine } from './RoundingLine';
 import { FactorTree } from './FactorTree';
 import { FractionAreaModel } from './FractionAreaModel';
+import { Balance } from './Balance';
 import { LongDivision } from './LongDivision';
+import { MathMachine } from './MathMachine';
 import { NumberGrid } from './NumberGrid';
 import { NumberLine } from './NumberLine';
 import { ShadedGrid } from './ShadedGrid';
@@ -41,6 +43,10 @@ export function VisualRenderer({ spec }: { spec: VisualSpec }) {
       return <FactorTree {...spec} />;
     case 'fraction-area-model':
       return <FractionAreaModel {...spec} />;
+    case 'math-machine':
+      return <MathMachine {...spec} />;
+    case 'balance':
+      return <Balance {...spec} />;
     case 'row':
       return (
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
