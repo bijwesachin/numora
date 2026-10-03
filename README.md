@@ -106,6 +106,8 @@ storage, or content.
 | `/concepts/:conceptId` | Concept overview: memory hook, prerequisites, learning path, reset |
 | `/concepts/:conceptId/study` | Flashcard deck in learning-path order |
 | `/review`, `/practice`, `/saved` | Due cards, prioritized weak cards, bookmarks |
+| `/search?q=…` | Search topics and cards (press <kbd>/</kbd> anywhere) |
+| `/cards/:cardId` | One card on its own, opened from search |
 
 ### Review & mastery
 
@@ -143,4 +145,4 @@ A future grade is a sibling `content/grade6/` folder merged into the `Curriculum
 
 ## Keyboard
 
-`Space`/`Enter` flip · `1–4` Again/Hard/Good/Easy · `←`/`→` previous/next · `H` hint · `S` steps · `B` bookmark
+`/` search · `Space`/`Enter` flip · `1–4` Again/Hard/Good/Easy · `←`/`→` previous/next · `H` hint · `S` steps · `B` bookmark

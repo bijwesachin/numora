@@ -116,6 +116,21 @@ function validateVisual(v: VisualSpec): string[] {
       return v.left.length > 0 && v.right.length > 0 && v.left.length <= 3 && v.right.length <= 3
         ? []
         : ['balance needs 1–3 tiles on each side'];
+    case 'integer-line': {
+      const errors: string[] = [];
+      if (!(v.max > v.min) || v.max - v.min > 30) errors.push('integer line needs min < max and a range of at most 30');
+      let at = v.start ?? 0;
+      const inRange = (n: number) => Number.isInteger(n) && n >= v.min && n <= v.max;
+      if (!inRange(at)) errors.push(`integer line start ${at} is outside ${v.min}..${v.max}`);
+      for (const j of v.jumps ?? []) {
+        at += j.by;
+        if (!inRange(at)) errors.push(`integer line jump lands at ${at}, outside ${v.min}..${v.max}`);
+      }
+      for (const m of v.marks ?? []) if (!inRange(m.value)) errors.push(`integer line mark ${m.value} is outside the range`);
+      return errors;
+    }
+    case 'counters':
+      return [v.positive, v.negative].every((n) => Number.isInteger(n) && n >= 0 && n <= 12) ? [] : ['counters need 0–12 of each color'];
     case 'row':
       return v.items.flatMap(validateVisual);
   }

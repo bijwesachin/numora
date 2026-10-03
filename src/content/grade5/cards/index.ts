@@ -71,6 +71,15 @@ import { algMissingNumbersCards } from './algebra/algMissingNumbers';
 import { algEquationsCards } from './algebra/algEquations';
 import { timesTableCards } from './times-tables/tables';
 import { timesTableStrategyCards } from './times-tables/strategies';
+import { intMeaningCards } from './integers/intMeaning';
+import { intNumberLineCards } from './integers/intNumberLine';
+import { intAbsoluteValueCards } from './integers/intAbsoluteValue';
+import { intAddSameCards } from './integers/intAddSame';
+import { intAddDifferentCards } from './integers/intAddDifferent';
+import { intSubtractCards } from './integers/intSubtract';
+import { intMultiplyCards } from './integers/intMultiply';
+import { intDivideCards } from './integers/intDivide';
+import { intMixedCards } from './integers/intMixed';
 import { equivalentFractionCards } from './fractions/equivalent';
 import { nsCompareDecimalsCards } from './number-sense/nsCompareDecimals';
 import { nsCompareWholeCards } from './number-sense/nsCompareWhole';
@@ -197,6 +206,16 @@ export const grade5Cards: Flashcard[] = [
   // Times Tables
   ...timesTableStrategyCards,
   ...timesTableCards,
+  // Integers (Grade 6–7 preview)
+  ...intMeaningCards,
+  ...intNumberLineCards,
+  ...intAbsoluteValueCards,
+  ...intAddSameCards,
+  ...intAddDifferentCards,
+  ...intSubtractCards,
+  ...intMultiplyCards,
+  ...intDivideCards,
+  ...intMixedCards,
   // Fractions
   ...fractionPartsCards,
   ...equivalentFractionCards,

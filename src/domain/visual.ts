@@ -181,6 +181,29 @@ export interface BalanceVisual {
   right: string[];
 }
 
+/**
+ * Integer number line with optional jumps: start at `start` and make each jump in turn
+ * (positive jumps go right, negative jumps go left). Used for adding and subtracting integers.
+ */
+export interface IntegerLineVisual {
+  kind: 'integer-line';
+  min: number;
+  max: number;
+  start?: number;
+  jumps?: { by: number; label?: string }[];
+  /** Highlight the landing point after the last jump. Hide it on question sides. */
+  showEnd?: boolean;
+  marks?: { value: number; label: string }[];
+}
+
+/** Two-color counters: yellow +1 chips and red −1 chips. `showPairs` circles each zero pair. */
+export interface CountersVisual {
+  kind: 'counters';
+  positive: number;
+  negative: number;
+  showPairs?: boolean;
+}
+
 /** Lay several visuals side by side with an optional symbol between them. */
 export interface VisualRow {
   kind: 'row';
@@ -204,6 +227,8 @@ export type VisualSpec =
   | FractionAreaModelVisual
   | MathMachineVisual
   | BalanceVisual
+  | IntegerLineVisual
+  | CountersVisual
   | VisualRow;
 
 export type VisualKind = VisualSpec['kind'];

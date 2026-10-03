@@ -1,14 +1,33 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 
 const NAV = [
   { to: '/', label: 'Home', icon: '🏠', end: true },
   { to: '/review', label: 'Review', icon: '🔁', end: false },
   { to: '/practice', label: 'Practice', icon: '🎯', end: false },
   { to: '/times-tables', label: 'Tables', icon: '⚡', end: false },
+  { to: '/search', label: 'Search', icon: '🔍', end: false },
   { to: '/saved', label: 'Saved', icon: '★', end: false },
 ];
 
+/** Press "/" anywhere (outside a text field) to jump to search. */
+function useSearchShortcut() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;
+      const target = e.target instanceof Element ? e.target : null;
+      if (target?.closest('input, textarea, select, [contenteditable="true"]')) return;
+      e.preventDefault();
+      navigate('/search');
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [navigate]);
+}
+
 export function AppShell() {
+  useSearchShortcut();
   return (
     <div className="min-h-dvh">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:rounded-lg focus:bg-white focus:px-3 focus:py-2">

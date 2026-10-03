@@ -279,6 +279,69 @@ const CATEGORY_DEFS: CategoryDef[] = [
     ],
   },
   {
+    id: 'integers',
+    title: 'Integers',
+    blurb: 'Negative numbers · Grade 6–7 preview',
+    icon: '🌡️',
+    color: 'blue',
+    units: [
+      {
+        id: 'integers-intro',
+        title: 'Understanding Negative Numbers',
+        concepts: [
+          ['int-meaning', 'What Negative Numbers Mean', {
+            summary: 'Numbers less than zero, like freezing temperatures or money owed.',
+            memoryHook: 'Below zero, like a thermometer on a freezing day.',
+          }],
+          ['int-number-line', 'Comparing & Ordering Integers', {
+            prerequisites: ['int-meaning'],
+            memoryHook: 'On the number line, right is always bigger.',
+          }],
+          ['int-absolute-value', 'Absolute Value', {
+            prerequisites: ['int-number-line'],
+            memoryHook: 'Absolute value is how far from 0, not which way.',
+          }],
+        ],
+      },
+      {
+        id: 'integers-add-sub',
+        title: 'Adding & Subtracting Integers',
+        concepts: [
+          ['int-add-same', 'Adding Same Signs', {
+            prerequisites: ['int-absolute-value'],
+            memoryHook: 'Same signs: add the sizes, keep the sign.',
+          }],
+          ['int-add-different', 'Adding Different Signs', {
+            prerequisites: ['int-add-same'],
+            memoryHook: 'Different signs: subtract the sizes, keep the sign of the bigger one.',
+          }],
+          ['int-subtract', 'Subtracting Integers', {
+            prerequisites: ['int-add-different'],
+            memoryHook: 'Keep, change, change: subtracting is adding the opposite.',
+          }],
+        ],
+      },
+      {
+        id: 'integers-mul-div',
+        title: 'Multiplying & Dividing Integers',
+        concepts: [
+          ['int-multiply', 'Multiplying Integers', {
+            prerequisites: ['int-add-same'],
+            memoryHook: 'Same signs → positive. Different signs → negative.',
+          }],
+          ['int-divide', 'Dividing Integers', {
+            prerequisites: ['int-multiply'],
+            memoryHook: 'Division follows the same sign rule as multiplication.',
+          }],
+          ['int-mixed', 'Mixing Integer Operations', {
+            prerequisites: ['int-subtract', 'int-divide', 'expr-order-of-operations'],
+            memoryHook: 'Count the negatives: even → positive, odd → negative.',
+          }],
+        ],
+      },
+    ],
+  },
+  {
     id: 'measurement',
     title: 'Measurement',
     blurb: 'Units, area, perimeter and volume',

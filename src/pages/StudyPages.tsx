@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { PageHeader } from '@/app/AppShell';
 import { curriculum } from '@/content';
 import { FlashcardDeck } from '@/components/flashcard/FlashcardDeck';
@@ -79,4 +79,28 @@ export function SavedPage() {
 
 function EmptyState({ message }: { message: string }) {
   return <p className="rounded-3xl bg-white p-8 text-center text-lg text-slate-600 ring-1 ring-slate-200">{message}</p>;
+}
+
+/** One card on its own, e.g. opened from a search result. */
+export function CardStudyPage() {
+  const { cardId = '' } = useParams();
+  return <CardStudy key={cardId} cardId={cardId} />;
+}
+
+function CardStudy({ cardId }: { cardId: string }) {
+  const location = curriculum.locate(cardId);
+  const cards = useFrozenCards(() => (location ? [location.card] : []));
+  if (!location) return <NotFoundPage />;
+  const { concept } = location;
+  return (
+    <div className="mx-auto max-w-2xl">
+      <PageHeader back={{ href: '/search', label: 'Search' }} title={concept.title} />
+      <FlashcardDeck cards={cards} exitTo={{ href: `/concepts/${concept.id}`, label: `Study all of ${concept.title}` }} />
+      <p className="mt-6 text-center">
+        <Link to={`/concepts/${concept.id}/study`} className="font-semibold text-indigo-700 hover:underline">
+          Study the whole “{concept.title}” deck →
+        </Link>
+      </p>
+    </div>
+  );
 }

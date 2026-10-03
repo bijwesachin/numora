@@ -8,6 +8,8 @@ import { RoundingLine } from './RoundingLine';
 import { FactorTree } from './FactorTree';
 import { FractionAreaModel } from './FractionAreaModel';
 import { Balance } from './Balance';
+import { IntegerLine } from './IntegerLine';
+import { Counters } from './Counters';
 import { LongDivision } from './LongDivision';
 import { MathMachine } from './MathMachine';
 import { NumberGrid } from './NumberGrid';
@@ -47,6 +49,10 @@ export function VisualRenderer({ spec }: { spec: VisualSpec }) {
       return <MathMachine {...spec} />;
     case 'balance':
       return <Balance {...spec} />;
+    case 'integer-line':
+      return <IntegerLine {...spec} />;
+    case 'counters':
+      return <Counters {...spec} />;
     case 'row':
       return (
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">

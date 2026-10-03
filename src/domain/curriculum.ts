@@ -37,7 +37,8 @@ export type CategoryColor =
   | 'orange'
   | 'cyan'
   | 'lime'
-  | 'fuchsia';
+  | 'fuchsia'
+  | 'blue';
 
 export interface Unit {
   id: string;

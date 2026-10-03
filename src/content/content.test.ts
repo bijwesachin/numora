@@ -10,8 +10,8 @@ describe('grade 5 content', () => {
     expect(validateCurriculum({ ...grade5Curriculum, cards: grade5Cards })).toEqual([]);
   });
 
-  it('covers all 21 curriculum units (plus Times Tables) and 100+ micro-concepts', () => {
-    expect(grade5Curriculum.units).toHaveLength(22);
+  it('covers all 21 curriculum units (plus Times Tables and 3 Integers units) and 100+ micro-concepts', () => {
+    expect(grade5Curriculum.units).toHaveLength(25);
     expect(grade5Curriculum.concepts.length).toBeGreaterThanOrEqual(100);
   });
 
@@ -38,6 +38,7 @@ describe.each([
   { categoryId: 'fractions', conceptCount: 23 },
   { categoryId: 'decimals', conceptCount: 13 },
   { categoryId: 'algebra', conceptCount: 11 },
+  { categoryId: 'integers', conceptCount: 9 },
 ])('$categoryId content', ({ categoryId, conceptCount }) => {
   const concepts = curriculum.conceptsOfCategory(categoryId);
 

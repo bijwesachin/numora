@@ -1,0 +1,90 @@
+import { defineCards } from '@/content/defineCards';
+
+export const intAbsoluteValueCards = defineCards('int-absolute-value', ['integers', 'absolute-value'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'What is absolute value?',
+    back: 'A number’s distance from 0. It is never negative. We write it with bars: |−6| = 6 and |6| = 6.',
+    memoryHook: 'Absolute value is how far from 0, not which way.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How do you find the absolute value of a number?',
+    back: 'Drop the sign. |−15| = 15, |15| = 15 and |0| = 0.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'Why will absolute value help when adding integers?',
+    back: 'It gives each number’s size without its sign. The adding rules compare sizes and then decide the sign separately.',
+    after: [2],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 1,
+    front: 'How far is −5 from 0? What is |−5|?',
+    back: '5 steps, so |−5| = 5.',
+    visual: { kind: 'integer-line', min: -7, max: 7, start: 0, jumps: [{ by: -5, label: '5 steps' }] },
+    after: [1],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: 'Find |−9|.',
+    back: '9',
+    explanation: '−9 is 9 steps from 0.',
+    after: [2],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: 'Find |12| and |0|.',
+    back: '12 and 0',
+    explanation: '12 is 12 steps from 0. Zero is 0 steps from itself.',
+    after: [2],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Which has the greater absolute value: −14 or 9?',
+    back: '−14, because |−14| = 14 and 14 > 9.',
+    after: [5],
+    explanation: 'Compare distances from 0, ignoring the signs: 14 steps versus 9 steps.',
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Order by absolute value, smallest first: −8, 3, −1, 6',
+    back: '−1, 3, 6, −8',
+    steps: ['Absolute values: 8, 3, 1, 6.', 'Smallest to largest: 1, 3, 6, 8.'],
+    after: [7],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'True or False: |−4| = −4.',
+    back: 'False. Absolute value is a distance, so it is never negative: |−4| = 4.',
+    after: [2],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'True or False: The number with the bigger absolute value is always the greater number.',
+    back: 'False. |−10| = 10 is bigger than |3| = 3, but −10 is less than 3.',
+    commonMistake: 'Mixing up size (distance from 0) with order on the number line.',
+    after: [7],
+  },
+  {
+    n: 11, type: 'real-life', difficulty: 3,
+    front: 'A submarine is at −250 m and a plane is at 250 m. Which is farther from sea level?',
+    back: 'Neither — both are 250 m away, because |−250| = |250| = 250.',
+    after: [5],
+  },
+  {
+    n: 12, type: 'challenge', difficulty: 4,
+    front: 'Which two integers have an absolute value of 7?',
+    back: '7 and −7',
+    explanation: 'Both are 7 steps from 0, one on each side.',
+    after: [6],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'Find |−6| + |4|.',
+    back: '10',
+    steps: ['|−6| = 6 and |4| = 4.', '6 + 4 = 10.'],
+    after: [7],
+  },
+]);

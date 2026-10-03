@@ -1,0 +1,97 @@
+import { defineCards } from '@/content/defineCards';
+
+export const intNumberLineCards = defineCards('int-number-line', ['integers', 'comparing', 'number-line'], [
+  {
+    n: 1, type: 'concept', difficulty: 1,
+    front: 'How does a number line help you compare integers?',
+    back: 'Numbers get bigger as you move right. Any number to the right of another is greater.',
+    memoryHook: 'Right is bigger, left is smaller.',
+  },
+  {
+    n: 2, type: 'rule', difficulty: 2,
+    front: 'How do you compare two negative numbers?',
+    back: 'The one closer to zero is greater.',
+    example: '−2 > −7, because −2 is closer to 0.',
+    after: [1],
+  },
+  {
+    n: 3, type: 'rule', difficulty: 2,
+    front: 'Is every negative number less than every positive number?',
+    back: 'Yes. Negatives are left of 0 and positives are right of 0, so −1,000 < 1.',
+    after: [1],
+  },
+  {
+    n: 4, type: 'visual', difficulty: 1,
+    front: 'Which is greater, −6 or −2? Use the number line.',
+    back: '−2, because it is farther right (closer to 0).',
+    visual: { kind: 'integer-line', min: -8, max: 8, marks: [{ value: -6, label: '−6' }, { value: -2, label: '−2' }] },
+    after: [2],
+  },
+  {
+    n: 5, type: 'solve', difficulty: 1,
+    front: 'Compare: −3 ○ 2',
+    back: '−3 < 2',
+    explanation: 'Every negative number is less than every positive number.',
+    after: [3],
+  },
+  {
+    n: 6, type: 'solve', difficulty: 2,
+    front: 'Compare: −5 ○ −9',
+    back: '−5 > −9',
+    explanation: '−5 is closer to 0, so it is greater.',
+    after: [2],
+  },
+  {
+    n: 7, type: 'solve', difficulty: 3,
+    front: 'Order from least to greatest: 3, −1, −4, 0, 2',
+    back: '−4, −1, 0, 2, 3',
+    steps: ['Negatives first, farthest from 0 first: −4, −1.', 'Then 0.', 'Then positives: 2, 3.'],
+    after: [6],
+  },
+  {
+    n: 8, type: 'solve', difficulty: 3,
+    front: 'Order from greatest to least: −12, −3, −20, −7',
+    back: '−3, −7, −12, −20',
+    explanation: 'For negatives, the one closest to 0 is greatest.',
+    after: [6],
+  },
+  {
+    n: 9, type: 'misconception', difficulty: 5,
+    front: 'True or False: −9 > −4 because 9 > 4.',
+    back: 'False. −9 is farther left, so −9 < −4.',
+    commonMistake: 'Comparing negative numbers as if they were positive.',
+    after: [2],
+  },
+  {
+    n: 10, type: 'misconception', difficulty: 5,
+    front: 'True or False: 0 is less than every negative number.',
+    back: 'False. 0 is greater than every negative number, because negatives are to its left.',
+    after: [3],
+  },
+  {
+    n: 11, type: 'real-life', difficulty: 3,
+    front: 'Temperatures: Monday −3 °, Tuesday −8 °, Wednesday 1 °, Thursday −1 °. Which day was coldest? Which was warmest?',
+    back: 'Coldest: Tuesday (−8 °). Warmest: Wednesday (1 °).',
+    after: [7],
+  },
+  {
+    n: 12, type: 'real-life', difficulty: 3,
+    front: 'In golf the lowest score wins. Ava scored −4, Ben scored 2 and Cy scored −1. Who won?',
+    back: 'Ava, because −4 is the lowest score.',
+    after: [7],
+  },
+  {
+    n: 13, type: 'challenge', difficulty: 4,
+    front: 'Name an integer that is between −5 and −2 (not including them).',
+    back: '−4 or −3',
+    after: [8],
+    explanation: 'Counting right from −5: −4, −3, then −2. Only −4 and −3 are strictly between.',
+  },
+  {
+    n: 14, type: 'challenge', difficulty: 4,
+    front: 'List all the integers greater than −3 and less than 2.',
+    back: '−2, −1, 0 and 1',
+    hint: 'Count to the right from −3 and stop before 2.',
+    after: [7],
+  },
+]);
