@@ -27,7 +27,7 @@ export function AppShell() {
                     to={item.to}
                     end={item.end}
                     className={({ isActive }) =>
-                      `flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium ${isActive ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600 hover:bg-slate-100'}`
+                      `flex items-center gap-1.5 rounded-xl px-3 py-2 pointer-coarse:min-h-11 text-sm font-medium ${isActive ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600 hover:bg-slate-100'}`
                     }
                   >
                     <span aria-hidden="true">{item.icon}</span>

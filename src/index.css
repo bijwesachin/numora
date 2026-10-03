@@ -39,6 +39,13 @@
   }
 }
 
+/* Keyboard shortcut hints are noise on touch devices. */
+@media (hover: none) and (pointer: coarse) {
+  kbd {
+    display: none;
+  }
+}
+
 /* Stacked fraction for inline math. */
 .frac {
   display: inline-flex;

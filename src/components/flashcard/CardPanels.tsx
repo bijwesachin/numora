@@ -54,7 +54,7 @@ export function HintPanel({ hint, open, onToggle }: { hint: string; open: boolea
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="rounded-full px-4 py-1.5 text-sm font-medium text-violet-700 ring-1 ring-violet-200 hover:bg-violet-50"
+        className="rounded-full px-4 py-1.5 pointer-coarse:min-h-11 pointer-coarse:px-5 text-sm font-medium text-violet-700 ring-1 ring-violet-200 hover:bg-violet-50"
       >
         {open ? 'Hide hint' : 'Need a hint?'} <kbd className="ml-1 text-xs text-violet-400">H</kbd>
       </button>

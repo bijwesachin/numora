@@ -98,14 +98,14 @@ export function Flashcard({ card, flipped, hintOpen, stepsOpen, onFlip, onToggle
             type="button"
             onClick={onToggleSteps}
             aria-expanded={stepsOpen}
-            className="mx-auto rounded-full px-4 py-1.5 text-sm font-medium text-emerald-700 ring-1 ring-emerald-200 hover:bg-emerald-50"
+            className="mx-auto rounded-full px-4 py-1.5 pointer-coarse:min-h-11 pointer-coarse:px-5 text-sm font-medium text-emerald-700 ring-1 ring-emerald-200 hover:bg-emerald-50"
           >
             {stepsOpen ? 'Hide steps' : 'Show steps'} <kbd className="ml-1 text-xs text-emerald-400">S</kbd>
           </button>
           {stepsOpen && <StepsPanel steps={card.steps} />}
         </div>
       )}
-      <button type="button" onClick={onFlip} className="mx-auto mt-auto text-sm text-slate-500 underline-offset-4 hover:underline">
+      <button type="button" onClick={onFlip} className="mx-auto mt-auto py-2 pointer-coarse:min-h-11 text-sm text-slate-500 underline-offset-4 hover:underline">
         See the question again
       </button>
     </section>

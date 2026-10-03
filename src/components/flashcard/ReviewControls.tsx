@@ -20,7 +20,11 @@ export function ReviewControls({ cardId, progress, enabled, onRate }: ReviewCont
   const current = progress ?? newCardProgress(cardId);
 
   return (
-    <div role="group" aria-label="How well did you know it?">
+    <div
+      role="group"
+      aria-label="How well did you know it?"
+      className="sticky bottom-0 z-10 -mx-1 rounded-t-3xl border-t border-slate-200 bg-paper/95 px-1 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur"
+    >
       <p className="mb-2 text-center text-sm text-slate-500">
         {enabled ? 'How well did you know it?' : 'Think of your answer, then flip the card.'}
       </p>
@@ -31,7 +35,7 @@ export function ReviewControls({ cardId, progress, enabled, onRate }: ReviewCont
             type="button"
             disabled={!enabled}
             onClick={() => onRate(b.rating)}
-            className={`flex flex-col items-center rounded-2xl px-3 py-2.5 ring-1 transition disabled:cursor-not-allowed disabled:opacity-40 ${b.className}`}
+            className={`flex min-h-14 flex-col items-center justify-center rounded-2xl px-3 py-2.5 ring-1 transition disabled:cursor-not-allowed disabled:opacity-40 ${b.className}`}
           >
             <span className="text-base font-semibold">
               {b.label} <kbd className="text-xs opacity-50">{i + 1}</kbd>

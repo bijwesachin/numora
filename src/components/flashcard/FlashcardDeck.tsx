@@ -201,7 +201,7 @@ function DeckToolbar({
 }) {
   const bookmarked = useProgressStore((s) => !!s.bookmarks[cardId]);
   const toggleBookmark = useProgressStore((s) => s.toggleBookmark);
-  const btn = 'inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 bg-white hover:bg-slate-50 disabled:opacity-40';
+  const btn = 'inline-flex items-center gap-1.5 rounded-xl px-3 py-2 pointer-coarse:min-h-11 pointer-coarse:px-4 pointer-coarse:text-base text-sm font-medium text-slate-700 ring-1 ring-slate-200 bg-white hover:bg-slate-50 disabled:opacity-40';
 
   return (
     <div className="flex flex-wrap items-center justify-between gap-2" role="toolbar" aria-label="Deck controls">
