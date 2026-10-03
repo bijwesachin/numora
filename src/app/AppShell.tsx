@@ -4,6 +4,7 @@ const NAV = [
   { to: '/', label: 'Home', icon: '🏠', end: true },
   { to: '/review', label: 'Review', icon: '🔁', end: false },
   { to: '/practice', label: 'Practice', icon: '🎯', end: false },
+  { to: '/times-tables', label: 'Tables', icon: '⚡', end: false },
   { to: '/saved', label: 'Saved', icon: '★', end: false },
 ];
 
@@ -17,7 +18,7 @@ export function AppShell() {
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
           <NavLink to="/" className="flex items-center gap-2 text-lg font-bold text-indigo-700">
             <img src="/favicon.svg" alt="" className="size-8" />
-            Numora
+            <span className="sr-only sm:not-sr-only">Numora</span>
           </NavLink>
           <nav aria-label="Main">
             <ul className="flex gap-1">

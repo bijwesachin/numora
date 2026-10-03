@@ -1,4 +1,5 @@
 import { learningStage } from '@/domain/flashcard';
+import { parseFactCardId } from '@/domain/timesTables';
 import { validateCurriculum } from '@/domain/validateCurriculum';
 import { curriculum } from '.';
 import { grade5Cards } from './grade5/cards';
@@ -9,8 +10,8 @@ describe('grade 5 content', () => {
     expect(validateCurriculum({ ...grade5Curriculum, cards: grade5Cards })).toEqual([]);
   });
 
-  it('covers all 21 curriculum units and 100+ micro-concepts', () => {
-    expect(grade5Curriculum.units).toHaveLength(21);
+  it('covers all 21 curriculum units (plus Times Tables) and 100+ micro-concepts', () => {
+    expect(grade5Curriculum.units).toHaveLength(22);
     expect(grade5Curriculum.concepts.length).toBeGreaterThanOrEqual(100);
   });
 
@@ -71,6 +72,24 @@ describe.each([
       }),
     );
     expect(outOfOrder).toEqual([]);
+  });
+});
+
+describe('times tables content', () => {
+  it('has a deck for every table 2–15 with a trick card and all 14 facts', () => {
+    for (let a = 2; a <= 15; a++) {
+      const cards = curriculum.cardsOfConcept(`tt-${a}`);
+      expect(cards, `× ${a}`).toHaveLength(15);
+      expect(cards[0]?.type).toBe('rule');
+    }
+  });
+
+  it('every fact card states the correct product', () => {
+    for (const card of grade5Cards.filter((c) => /^tt-\d+-\d{3}$/.test(c.id) && c.type === 'solve')) {
+      const fact = parseFactCardId(card.id)!;
+      expect(card.front, card.id).toBe(`${fact.a} × ${fact.b} = ?`);
+      expect(card.back, card.id).toBe(`${fact.a} × ${fact.b} = ${fact.product}`);
+    }
   });
 });
 

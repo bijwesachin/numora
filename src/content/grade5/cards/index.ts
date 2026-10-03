@@ -69,6 +69,8 @@ import { algTwoRulePatternsCards } from './algebra/algTwoRulePatterns';
 import { algVariablesCards } from './algebra/algVariables';
 import { algMissingNumbersCards } from './algebra/algMissingNumbers';
 import { algEquationsCards } from './algebra/algEquations';
+import { timesTableCards } from './times-tables/tables';
+import { timesTableStrategyCards } from './times-tables/strategies';
 import { equivalentFractionCards } from './fractions/equivalent';
 import { nsCompareDecimalsCards } from './number-sense/nsCompareDecimals';
 import { nsCompareWholeCards } from './number-sense/nsCompareWhole';
@@ -192,6 +194,9 @@ export const grade5Cards: Flashcard[] = [
   ...algVariablesCards,
   ...algMissingNumbersCards,
   ...algEquationsCards,
+  // Times Tables
+  ...timesTableStrategyCards,
+  ...timesTableCards,
   // Fractions
   ...fractionPartsCards,
   ...equivalentFractionCards,

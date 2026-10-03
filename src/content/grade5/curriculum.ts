@@ -1,4 +1,5 @@
 import type { Category, Concept, Unit } from '@/domain/curriculum';
+import { TABLES } from '@/domain/timesTables';
 
 /**
  * Grade 5 curriculum map. Pure metadata: which concepts exist, how they group, and
@@ -116,6 +117,28 @@ const CATEGORY_DEFS: CategoryDef[] = [
             prerequisites: ['fm-common-multiples'],
             memoryHook: 'LCM = the first place two skip-counters meet.',
           }],
+        ],
+      },
+    ],
+  },
+  {
+    id: 'times-tables',
+    title: 'Times Tables',
+    blurb: 'Every fact up to 15 × 15',
+    icon: '⚡',
+    color: 'fuchsia',
+    feature: { href: '/times-tables', label: 'Open the Times Table Lab' },
+    units: [
+      {
+        id: 'times-tables',
+        title: 'Times Tables 2–15',
+        concepts: [
+          ['tt-strategies', 'Times Table Tricks', {
+            summary: 'Big facts are built from small, friendly ones.',
+            memoryHook: 'Tens, doubles and halves unlock every table.',
+            prerequisites: ['mul-area-model'],
+          }],
+          ...TABLES.map((n): ConceptDef => [`tt-${n}`, `× ${n} Table`, { prerequisites: ['tt-strategies'] }]),
         ],
       },
     ],

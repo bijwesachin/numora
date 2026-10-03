@@ -36,6 +36,20 @@ export function CategoryPage() {
         title={`${category.icon} ${category.title}`}
         subtitle={category.blurb}
       />
+      {category.feature && (
+        <Link
+          to={category.feature.href}
+          className="mb-8 flex items-center justify-between gap-4 rounded-3xl bg-indigo-600 p-5 text-white shadow-sm hover:bg-indigo-700"
+        >
+          <span>
+            <span className="block text-lg font-semibold">{category.feature.label}</span>
+            <span className="text-indigo-100">Interactive chart, tricks and a speed game — all saved to your progress.</span>
+          </span>
+          <span aria-hidden="true" className="text-3xl">
+            →
+          </span>
+        </Link>
+      )}
       <div className="grid gap-8">
         {units.map(({ unit, concepts }) => (
           <section key={unit.id} aria-labelledby={`unit-${unit.id}`}>

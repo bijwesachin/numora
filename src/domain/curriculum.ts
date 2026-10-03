@@ -22,6 +22,8 @@ export interface Category {
   /** Key into the UI color palette; keeps presentation out of content. */
   color: CategoryColor;
   unitIds: string[];
+  /** Optional interactive tool for this topic, shown as a button on its page. */
+  feature?: { href: string; label: string };
 }
 
 export type CategoryColor =
@@ -34,7 +36,8 @@ export type CategoryColor =
   | 'teal'
   | 'orange'
   | 'cyan'
-  | 'lime';
+  | 'lime'
+  | 'fuchsia';
 
 export interface Unit {
   id: string;

@@ -13,6 +13,7 @@ export const CATEGORY_THEME: Record<CategoryColor, { tile: string; bar: string; 
   orange: { tile: 'bg-orange-50', bar: 'bg-orange-500', text: 'text-orange-700' },
   cyan: { tile: 'bg-cyan-50', bar: 'bg-cyan-500', text: 'text-cyan-700' },
   lime: { tile: 'bg-lime-50', bar: 'bg-lime-600', text: 'text-lime-800' },
+  fuchsia: { tile: 'bg-fuchsia-50', bar: 'bg-fuchsia-500', text: 'text-fuchsia-700' },
 };
 
 export const MASTERY_THEME: Record<MasteryLevel, string> = {
