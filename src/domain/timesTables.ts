@@ -1,5 +1,5 @@
 import type { Difficulty } from './flashcard';
-import { masteryScore } from './review/mastery';
+import { masteryLevel, masteryScore } from './review/mastery';
 import type { CardProgress, Rating } from './review/types';
 import type { VisualSpec } from './visual';
 
@@ -214,4 +214,166 @@ export function pickSprintFacts(
   const ranked = pool.sort((x, y) => y.weight - x.weight).map((x) => x.f);
   const picked = Array.from({ length: count }, (_, i) => ranked[i % ranked.length]!);
   return shuffle(picked, random);
+}
+
+// ---------------------------------------------------------------------------
+// Memorising: hooks, learning order, daily sessions
+// ---------------------------------------------------------------------------
+
+/** Memorable hooks for facts that are famously hard to remember. */
+const FACT_HOOKS: Record<string, string> = {
+  '3x4': '1, 2, 3, 4 → 12 = 3 × 4',
+  '7x8': '5, 6, 7, 8 → 56 = 7 × 8',
+  '7x7': '7 and 7 went down the line, and came back as 49.',
+  '8x8': 'I ate and I ate till I was sick on the floor: 8 × 8 is 64.',
+  '11x11': '11 × 11 = 121 reads the same forwards and backwards.',
+  '12x12': 'A dozen dozens is called a gross: 144.',
+  '13x13': '13 × 13 = 169 and 14 × 14 = 196 — the same digits, swapped!',
+  '14x14': '14 × 14 = 196 and 13 × 13 = 169 — the same digits, swapped!',
+  '15x15': 'Square a number ending in 5: 1 × 2 = 2, then write 25 → 225.',
+};
+
+export function factHook(a: number, b: number): string | undefined {
+  const lo = Math.min(a, b);
+  const hi = Math.max(a, b);
+  const named = FACT_HOOKS[`${lo}x${hi}`];
+  if (named) return named;
+  const other = a === 6 ? b : b === 6 ? a : undefined;
+  if (other !== undefined && other % 2 === 0 && other <= 8 && other >= 2) {
+    return `6 times an even number: write half of it, then the number. 6 × ${other} → ${other / 2}, ${other} → ${6 * other}`;
+  }
+  return undefined;
+}
+
+/** Every fact the student is asked to memorise: 2–15 × 2–15, both orientations. */
+export const ALL_FACTS: readonly Fact[] = TABLES.flatMap((a) => TABLES.map((b) => fact(a, b)));
+
+/**
+ * The order new facts are introduced: easiest first, one turnaround pair at a time
+ * (learning 7 × 8 also teaches 8 × 7).
+ */
+export const NEW_PAIR_ORDER: readonly Fact[] = TABLES.flatMap((a) => TABLES.filter((b) => b >= a).map((b) => fact(a, b))).sort(
+  (x, y) => factDifficulty(x.a, x.b) - factDifficulty(y.a, y.b) || Math.max(x.a, x.b) - Math.max(y.a, y.b) || x.a - y.a,
+);
+
+export interface MemoryStatus {
+  total: number;
+  memorized: number;
+  learning: number;
+  unseen: number;
+  due: number;
+}
+
+export function memoryStatus(progress: Readonly<Record<string, CardProgress>>, now: Date): MemoryStatus {
+  let memorized = 0;
+  let learning = 0;
+  let due = 0;
+  for (const f of ALL_FACTS) {
+    const p = progress[factCardId(f.a, f.b)];
+    if (!p?.lastReviewedAt) continue;
+    if (masteryLevel(p) === 'mastered') memorized++;
+    else learning++;
+    if (p.dueAt && new Date(p.dueAt).getTime() <= now.getTime()) due++;
+  }
+  return { total: ALL_FACTS.length, memorized, learning, unseen: ALL_FACTS.length - memorized - learning, due };
+}
+
+/** Facts that will be due within `days` from now (for “come back tomorrow” messages). */
+export function dueWithin(progress: Readonly<Record<string, CardProgress>>, now: Date, days: number): number {
+  const limit = now.getTime() + days * 86_400_000;
+  return ALL_FACTS.filter((f) => {
+    const due = progress[factCardId(f.a, f.b)]?.dueAt;
+    return due !== undefined && due !== null && new Date(due).getTime() <= limit;
+  }).length;
+}
+
+export interface SessionItem {
+  kind: 'learn' | 'recall';
+  fact: Fact;
+  /** Introduced in this session — its first recall is still short-term memory. */
+  isNew: boolean;
+}
+
+export const DAILY_CONFIG = {
+  maxReviews: 16,
+  /** New-fact budget per day, in "hard pair" units. Easy pairs (× 2, × 5, × 10) cost half. */
+  newPairs: 2,
+  /** Don't add new facts when this many are already due — keep the daily load manageable. */
+  newFactsOnlyIfDueBelow: 12,
+  /** On a light day, top up with not-yet-memorised facts to this many reviews. */
+  minReviews: 6,
+} as const;
+
+/**
+ * Today's memorising session: due facts first (most overdue first), then a couple of new
+ * turnaround pairs. Each new fact is shown ("learn"), recalled a few questions later, and
+ * recalled once more at the end.
+ */
+export function buildDailySession(
+  progress: Readonly<Record<string, CardProgress>>,
+  now: Date,
+  config: { maxReviews: number; newPairs: number; newFactsOnlyIfDueBelow: number; minReviews: number } = DAILY_CONFIG,
+): SessionItem[] {
+  const id = (f: Fact) => factCardId(f.a, f.b);
+  const time = (iso: string | null | undefined) => (iso ? new Date(iso).getTime() : Infinity);
+
+  const due = ALL_FACTS.filter((f) => time(progress[id(f)]?.dueAt) <= now.getTime()).sort(
+    (x, y) => time(progress[id(x)]?.dueAt) - time(progress[id(y)]?.dueAt),
+  );
+  const reviews = due.slice(0, config.maxReviews);
+  if (reviews.length < config.minReviews) {
+    const learning = ALL_FACTS.filter((f) => {
+      const p = progress[id(f)];
+      return p?.lastReviewedAt && !reviews.includes(f) && masteryLevel(p) !== 'mastered';
+    }).sort((x, y) => masteryScore(progress[id(x)]) - masteryScore(progress[id(y)]));
+    reviews.push(...learning.slice(0, config.minReviews - reviews.length));
+  }
+
+  const newFacts: Fact[] = [];
+  if (due.length < config.newFactsOnlyIfDueBelow) {
+    let budget = config.newPairs * 2;
+    for (const pair of NEW_PAIR_ORDER) {
+      const cost = factDifficulty(pair.a, pair.b) <= 2 ? 1 : 2;
+      if (cost > budget) break;
+      const both = pair.a === pair.b ? [pair] : [pair, fact(pair.b, pair.a)];
+      if (!both.every((f) => !progress[id(f)]?.lastReviewedAt)) continue;
+      newFacts.push(...both);
+      budget -= cost;
+    }
+  }
+
+  const recall = (f: Fact, isNew: boolean): SessionItem => ({ kind: 'recall', fact: f, isNew });
+  const fillers = reviews.map((f) => recall(f, false));
+  const queue: SessionItem[] = fillers.splice(0, 2);
+  const waiting: SessionItem[] = [];
+
+  for (const f of newFacts) {
+    queue.push({ kind: 'learn', fact: f, isNew: true });
+    const gap = fillers.splice(0, 2);
+    if (gap.length) queue.push(...gap);
+    else if (waiting.length) queue.push(waiting.shift()!);
+    waiting.push(recall(f, true));
+  }
+  queue.push(...fillers, ...waiting, ...newFacts.map((f) => recall(f, true)));
+  return queue;
+}
+
+/** After a miss, try the same fact again a few questions later. */
+export function requeueMiss(queue: readonly SessionItem[], position: number, gap = 3): SessionItem[] {
+  const item = queue[position];
+  if (!item) return [...queue];
+  const at = Math.min(position + 1 + gap, queue.length);
+  return [...queue.slice(0, at), { ...item, kind: 'recall' }, ...queue.slice(at)];
+}
+
+/**
+ * A fact learned minutes ago is only in short-term memory, so even a fast correct answer
+ * schedules it for tomorrow rather than days away.
+ */
+export function capNewFactRating(rating: Rating, isNew: boolean): Rating {
+  return isNew && (rating === 'good' || rating === 'easy') ? 'hard' : rating;
+}
+
+export function isTimesTableFactId(id: string): boolean {
+  return parseFactCardId(id) !== undefined;
 }

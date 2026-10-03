@@ -1,7 +1,7 @@
 import { useRef, useState, type KeyboardEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { masteryLevel } from '@/domain/review/mastery';
-import { factCardId, factStrategy, factVisual, MIN_FACTOR, tableConceptId } from '@/domain/timesTables';
+import { factCardId, factHook, factStrategy, factVisual, MIN_FACTOR, tableConceptId } from '@/domain/timesTables';
 import { useProgressStore } from '@/state/progressStore';
 import { Callout, StepsPanel, VisualExplanation } from '../flashcard/CardPanels';
 import { MASTERY_THEME } from '../theme';
@@ -167,7 +167,12 @@ export function TimesExplorer({ onSprint }: { onSprint: (table: number) => void 
         <p className="text-center text-sm text-slate-500">
           {a === b ? `${a} × ${a} is a square number.` : `Turnaround twin: ${b} × ${a} = ${a * b}`}
         </p>
-        <Callout kind="hook">
+        {factHook(a, b) && (
+          <Callout kind="hook">
+            <span className="font-semibold">{factHook(a, b)}</span>
+          </Callout>
+        )}
+        <Callout kind="rule">
           <strong>{strategy.name}.</strong> {strategy.tip}
         </Callout>
         <StepsPanel steps={strategy.steps} />

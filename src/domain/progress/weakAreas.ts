@@ -120,9 +120,11 @@ export function practiceWhatINeed(
   progress: ProgressMap,
   now: Date,
   limit = 20,
+  include: (card: Flashcard) => boolean = () => true,
 ): PrioritizedCard[] {
   const foundations = weakFoundationConceptIds(index, progress);
   return index.cards
+    .filter(include)
     .map((card) => scoreCard(card, progress, now, foundations))
     .filter((c) => c.priority >= WEAK_AREA_WEIGHTS.minPriority)
     .sort((a, b) => b.priority - a.priority || a.card.id.localeCompare(b.card.id))

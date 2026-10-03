@@ -1,32 +1,35 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { PageHeader } from '@/app/AppShell';
+import { TimesDaily } from '@/components/times/TimesDaily';
 import { TimesExplorer } from '@/components/times/TimesExplorer';
 import { TimesSprint } from '@/components/times/TimesSprint';
 
-type Tab = 'explore' | 'sprint';
+type Tab = 'daily' | 'explore' | 'sprint';
 
 const TABS: { id: Tab; label: string }[] = [
+  { id: 'daily', label: '🧠 Daily Practice' },
   { id: 'explore', label: '🔍 Explore' },
   { id: 'sprint', label: '⚡ Fact Sprint' },
 ];
 
 export function TimesTablesPage() {
   const [params, setParams] = useSearchParams();
-  const tab: Tab = params.get('tab') === 'sprint' ? 'sprint' : 'explore';
+  const requested = params.get('tab');
+  const tab: Tab = requested === 'sprint' || requested === 'explore' ? requested : 'daily';
   const [sprintTables, setSprintTables] = useState<number[]>([6, 7, 8]);
   const [sprintKey, setSprintKey] = useState(0);
 
-  const showTab = (next: Tab) => setParams(next === 'explore' ? {} : { tab: next }, { replace: true });
+  const showTab = (next: Tab) => setParams(next === 'daily' ? {} : { tab: next }, { replace: true });
 
   return (
     <div>
       <PageHeader
         back={{ href: '/topics/times-tables', label: 'Times Tables' }}
         title="⚡ Times Table Lab"
-        subtitle="Explore every fact up to 15 × 15, then put them to the test."
+        subtitle="Memorize every fact up to 15 × 15 — a few minutes a day."
       />
-      <div role="tablist" aria-label="Times Table Lab" className="mb-6 inline-flex rounded-2xl bg-slate-100 p-1">
+      <div role="tablist" aria-label="Times Table Lab" className="mb-6 inline-flex max-w-full flex-wrap rounded-2xl bg-slate-100 p-1">
         {TABS.map((t) => (
           <button
             key={t.id}
@@ -41,7 +44,9 @@ export function TimesTablesPage() {
         ))}
       </div>
       <div role="tabpanel">
-        {tab === 'explore' ? (
+        {tab === 'daily' ? (
+          <TimesDaily onExplore={() => showTab('explore')} />
+        ) : tab === 'explore' ? (
           <TimesExplorer
             onSprint={(table) => {
               setSprintTables([table]);

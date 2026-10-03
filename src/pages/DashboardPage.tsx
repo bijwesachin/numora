@@ -6,6 +6,7 @@ import { TopicCard } from '@/components/TopicCard';
 import { recommendNextConcept } from '@/domain/progress/recommend';
 import { deckStats, dueCards, weakConceptIds } from '@/domain/progress/stats';
 import { practiceWhatINeed } from '@/domain/progress/weakAreas';
+import { isTimesTableFactId, memoryStatus } from '@/domain/timesTables';
 import { useProgressStore } from '@/state/progressStore';
 
 export function DashboardPage() {
@@ -14,7 +15,8 @@ export function DashboardPage() {
   const view = useMemo(() => {
     const now = new Date();
     const overall = deckStats(curriculum.cards, progress, now);
-    const practice = practiceWhatINeed(curriculum, progress, now);
+    const notFact = (card: { id: string }) => !isTimesTableFactId(card.id);
+    const practice = practiceWhatINeed(curriculum, progress, now, 20, notFact);
     const practiceConcepts = [...new Set(practice.map((p) => p.card.conceptId))].flatMap((id) => curriculum.concept(id) ?? []);
     const next = recommendNextConcept(curriculum, progress, now);
     const nextCategory = next && curriculum.category(curriculum.unit(next.unitId)?.categoryId ?? '');
@@ -27,7 +29,7 @@ export function DashboardPage() {
         weak: weakConceptIds(curriculum, concepts.map((c) => c.id), progress).map((id) => curriculum.concept(id)!.title),
       };
     });
-    return { overall, due: dueCards(curriculum.cards, progress, now).length, practice, practiceConcepts, next, nextCategory, categories };
+    return { overall, due: dueCards(curriculum.cards.filter(notFact), progress, now).length, tables: memoryStatus(progress, now), practice, practiceConcepts, next, nextCategory, categories };
   }, [progress]);
 
   return (
@@ -45,7 +47,7 @@ export function DashboardPage() {
       </header>
 
       <div className="grid gap-4 md:grid-cols-3">
-        <DailyReview dueCount={view.due} />
+        <DailyReview dueCount={view.due} tablesDue={view.tables.due} />
         <WeakAreas cards={view.practice} concepts={view.practiceConcepts} />
         <UpNext concept={view.next} categoryTitle={view.nextCategory?.title} />
       </div>

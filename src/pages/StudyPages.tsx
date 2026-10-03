@@ -7,8 +7,12 @@ import { progressionOrder } from '@/domain/deck/ordering';
 import type { Flashcard } from '@/domain/flashcard';
 import { dueCards } from '@/domain/progress/stats';
 import { practiceWhatINeed } from '@/domain/progress/weakAreas';
+import { isTimesTableFactId } from '@/domain/timesTables';
 import { useProgressStore } from '@/state/progressStore';
 import { NotFoundPage } from './NotFoundPage';
+
+/** Times-table facts are memorised in the Times Table Lab's typed Daily Practice instead. */
+const notFact = (card: Flashcard) => !isTimesTableFactId(card.id);
 
 /**
  * Each study page picks a list of cards once (on mount) and hands it to the deck.
@@ -38,7 +42,7 @@ function ConceptStudy({ conceptId }: { conceptId: string }) {
 }
 
 export function DailyReviewPage() {
-  const cards = useFrozenCards(() => dueCards(curriculum.cards, useProgressStore.getState().cards, new Date()));
+  const cards = useFrozenCards(() => dueCards(curriculum.cards.filter(notFact), useProgressStore.getState().cards, new Date()));
   return (
     <div className="mx-auto max-w-2xl">
       <PageHeader back={{ href: '/', label: 'Home' }} title="Daily Review" subtitle="Cards that are ready to be remembered." />
@@ -48,7 +52,7 @@ export function DailyReviewPage() {
 }
 
 export function PracticePage() {
-  const cards = useFrozenCards(() => practiceWhatINeed(curriculum, useProgressStore.getState().cards, new Date()).map((p) => p.card));
+  const cards = useFrozenCards(() => practiceWhatINeed(curriculum, useProgressStore.getState().cards, new Date(), 20, notFact).map((p) => p.card));
   return (
     <div className="mx-auto max-w-2xl">
       <PageHeader back={{ href: '/', label: 'Home' }} title="Practice What I Need" subtitle="Cards you missed, found hard, or need to build on." />

@@ -53,6 +53,23 @@ Good to know:
 - It does not run under `npm run dev`, so local development needs no password. To try it locally, use `npx vercel dev`.
 - The password is shared by everyone who has it. For per-person logins, use an identity provider instead.
 
+## Times Table Lab (`/times-tables`)
+
+Built to **memorize** every fact from 2 × 2 to 15 × 15 (196 facts):
+
+- **🧠 Daily Practice** (default): a few minutes a day. Due facts first, then a few new turnaround
+  pairs (up to 4 easy or 2 hard pairs, fewer when many facts are due). New facts are shown with a trick,
+  memory hook and picture, then recalled by typing a few questions later and again at the end. Misses
+  come back in the same session. Just-learned facts are scheduled for tomorrow.
+- **🔍 Explore**: tappable 15 × 15 chart with tricks, pictures, turnaround twins, square numbers and a
+  mastery heat map.
+- **⚡ Fact Sprint**: timed rounds (typing by default) targeting the weakest facts.
+
+All three share the spaced-repetition progress of the `tt-<table>` flashcard decks, so a fact counts as
+memorized only after several fast, correct answers on different days. Logic lives in
+`src/domain/timesTables.ts`. Times-table facts are kept out of the general Daily Review because they
+have their own typed daily session.
+
 ## Architecture
 
 ```

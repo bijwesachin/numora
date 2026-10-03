@@ -1,5 +1,5 @@
 import { defineCards, type CardDraft } from '@/content/defineCards';
-import { factDifficulty, factStrategy, factVisual, MAX_FACTOR, MIN_FACTOR, TABLES, tableConceptId } from '@/domain/timesTables';
+import { factDifficulty, factHook, factStrategy, factVisual, MAX_FACTOR, MIN_FACTOR, TABLES, tableConceptId } from '@/domain/timesTables';
 
 /** One trick per table, shown as the first card of its deck. */
 const TABLE_TRICKS: Record<number, { tip: string; example: string; hook?: string }> = {
@@ -42,7 +42,7 @@ function tableDeck(a: number) {
       back: `${a} × ${b} = ${a * b}`,
       hint: strategy.tip,
       steps: strategy.steps,
-      memoryHook: strategy.isSquare ? `${a} × ${a} is a square number: ${a} rows of ${a} make a perfect square.` : `Turnaround twin: ${b} × ${a} = ${a * b}`,
+      memoryHook: factHook(a, b) ?? (strategy.isSquare ? `${a} × ${a} is a square number: ${a} rows of ${a} make a perfect square.` : `Turnaround twin: ${b} × ${a} = ${a * b}`),
       answerVisual: factVisual(a, b),
       after: [1],
     });

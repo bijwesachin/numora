@@ -4,7 +4,7 @@ import type { PrioritizedCard } from '@/domain/progress/weakAreas';
 
 const panel = 'flex flex-col gap-3 rounded-3xl p-5 ring-1';
 
-export function DailyReview({ dueCount }: { dueCount: number }) {
+export function DailyReview({ dueCount, tablesDue }: { dueCount: number; tablesDue: number }) {
   return (
     <section className={`${panel} bg-indigo-600 text-white ring-indigo-700`} aria-labelledby="daily-review">
       <h2 id="daily-review" className="text-lg font-semibold">
@@ -21,6 +21,11 @@ export function DailyReview({ dueCount }: { dueCount: number }) {
         </>
       ) : (
         <p className="text-indigo-100">All caught up! Cards come back here when it’s time to remember them.</p>
+      )}
+      {tablesDue > 0 && (
+        <Link to="/times-tables" className="rounded-2xl bg-indigo-500/60 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500">
+          ⚡ {tablesDue} times-table fact{tablesDue === 1 ? '' : 's'} to practice →
+        </Link>
       )}
     </section>
   );
