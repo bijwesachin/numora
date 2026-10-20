@@ -55,6 +55,7 @@ export const div4Digit1DigitCards = defineCards('div-4digit-1digit', ['division'
     front: '6,309 ÷ 3 = ?',
     back: '2,103',
     hint: 'Watch for places where 3 doesn’t fit. Write a 0.',
+    quiz: { answer: '2,103', wrong: ['213', '2,013', '2,130'] },
     steps: ['6 ÷ 3 = 2 → 6 → 0.', 'Bring down 3: 3 ÷ 3 = 1 → 0.', 'Bring down 0: 0 ÷ 3 = 0 → write 0.', 'Bring down 9: 9 ÷ 3 = 3.', 'Quotient: 2,103.'],
     after: [4],
   },

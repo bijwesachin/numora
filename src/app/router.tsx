@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { CategoryPage } from '@/pages/CategoryPage';
 import { ConceptPage } from '@/pages/ConceptPage';
+import { DailyQuizPage } from '@/pages/DailyQuizPage';
 import { DashboardPage } from '@/pages/DashboardPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { TimesTablesPage } from '@/pages/TimesTablesPage';
@@ -17,6 +18,7 @@ export const routes = [
       { path: '/concepts/:conceptId', element: <ConceptPage /> },
       { path: '/concepts/:conceptId/study', element: <ConceptStudyPage /> },
       { path: '/review', element: <DailyReviewPage /> },
+      { path: '/quiz', element: <DailyQuizPage /> },
       { path: '/practice', element: <PracticePage /> },
       { path: '/saved', element: <SavedPage /> },
       { path: '/times-tables', element: <TimesTablesPage /> },

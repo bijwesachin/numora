@@ -118,6 +118,7 @@ export const fractionsCompareCards = defineCards('fractions-compare', ['fraction
     front: 'Name a fraction that is greater than 1/3 but less than 1/2.',
     back: 'For example 5/12 (since 4/12 < 5/12 < 6/12).',
     hint: 'Write both with the same denominator, like twelfths.',
+    quiz: { prompt: 'Which fraction is greater than 1/3 but less than 1/2?', answer: '5/12', wrong: ['1/4', '7/12', '2/3'] },
     after: [9],
   },
 ]);

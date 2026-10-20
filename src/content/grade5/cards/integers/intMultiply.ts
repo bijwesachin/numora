@@ -143,6 +143,7 @@ export const intMultiplyCards = defineCards('int-multiply', ['integers', 'multip
     back: '4 and −3',
     steps: ['4 × (−3) = −12 ✓', '4 + (−3) = 1 ✓'],
     hint: 'The product is negative, so one number is negative and one is positive.',
+    quiz: { answer: '4 and −3', wrong: ['−4 and 3', '6 and −2', '12 and −1'] },
     after: [10],
   },
 ]);

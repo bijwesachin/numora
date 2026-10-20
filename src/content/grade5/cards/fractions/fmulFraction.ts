@@ -78,6 +78,7 @@ export const fmulFractionCards = defineCards('fmul-fraction', ['fractions', 'mul
     front: '5/8 × 4/15 = ?',
     back: '1/6',
     hint: 'Look for a number that divides one numerator and one denominator.',
+    quiz: { answer: '1/6', wrong: ['9/23', '1/3', '1/2'] },
     steps: ['5 and 15 share 5; 4 and 8 share 4.', '5/8 × 4/15 → (1/2) × (1/3) after dividing by 5 and 4.', '= 1/6. (Check: 20/120 = 1/6.)'],
     after: [10],
   },

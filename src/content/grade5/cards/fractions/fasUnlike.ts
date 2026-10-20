@@ -113,6 +113,7 @@ export const fasUnlikeCards = defineCards('fas-unlike', ['fractions', 'addition'
     front: 'Find two fractions with different denominators that add to exactly 1.',
     back: 'For example 1/2 + 2/4 = 1, or 1/3 + 4/6 = 1.',
     hint: 'Start with a pair of equal fractions that add to 1, like 1/2 + 1/2, and rename one.',
+    quiz: { prompt: 'Which two fractions with different denominators add to exactly 1?', answer: '1/3 + 4/6', wrong: ['1/2 + 1/3', '1/4 + 2/3', '2/5 + 1/2'] },
     after: [9],
   },
 ]);

@@ -65,6 +65,7 @@ export const nsOrderingCards = defineCards('ns-ordering', ['number-sense', 'orde
     front: 'Order from least to greatest: 3.2, 3, 2.99, 3.02',
     back: '2.99, 3, 3.02, 3.2',
     hint: 'Write the whole number 3 as 3.00.',
+    quiz: { answer: '2.99, 3, 3.02, 3.2', wrong: ['3, 3.2, 3.02, 2.99', '3, 2.99, 3.02, 3.2', '2.99, 3, 3.2, 3.02'] },
     steps: ['Write them with two decimals: 3.20, 3.00, 2.99, 3.02.', '2.99 < 3.00 < 3.02 < 3.20'],
     after: [7],
   },
@@ -95,6 +96,7 @@ export const nsOrderingCards = defineCards('ns-ordering', ['number-sense', 'orde
     front: 'Write three different numbers that fit between 0.6 and 0.7, in order from least to greatest.',
     back: 'For example 0.62 < 0.65 < 0.68.',
     hint: 'Think in hundredths: 0.60 up to 0.70.',
+    quiz: { prompt: 'Which list has three numbers between 0.6 and 0.7, in order from least to greatest?', answer: '0.62, 0.65, 0.68', wrong: ['0.68, 0.65, 0.62', '0.65, 0.68, 0.71', '0.6, 0.65, 0.7'] },
     after: [6],
   },
   {

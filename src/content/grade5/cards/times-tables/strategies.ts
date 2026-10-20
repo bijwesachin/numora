@@ -124,6 +124,7 @@ export const timesTableStrategyCards = defineCards('tt-strategies', ['times-tabl
     front: 'Which facts in the tables up to 15 × 15 have the answer 36?',
     back: '3 × 12, 4 × 9 and 6 × 6 (plus the turnarounds 12 × 3 and 9 × 4).',
     hint: 'List the factor pairs of 36 and keep the ones where both factors are between 2 and 15.',
+    quiz: { answer: '3 × 12, 4 × 9 and 6 × 6', wrong: ['4 × 9 and 6 × 6 only', '2 × 18, 3 × 12, 4 × 9 and 6 × 6', '3 × 12, 4 × 8 and 6 × 6'] },
     after: [8],
   },
 ]);

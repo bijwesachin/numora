@@ -63,6 +63,7 @@ export const divLongDivisionCards = defineCards('div-long-division', ['division'
     front: '408 ÷ 8 = ?',
     back: '51',
     hint: 'The first digit 4 is smaller than 8. Start with 40.',
+    quiz: { answer: '51', wrong: ['501', '5.1', '52'] },
     steps: ['40 ÷ 8 = 5 → 5 × 8 = 40 → 0.', 'Bring down 8: 8 ÷ 8 = 1 → 1 × 8 = 8 → 0.', 'Quotient: 51.'],
     after: [5],
   },

@@ -106,6 +106,7 @@ export const decCompareCards = defineCards('dec-compare', ['decimals', 'comparin
     front: 'Name a decimal between 0.74 and 0.75.',
     back: 'For example 0.745 (0.7401, 0.748 and others also work).',
     hint: 'Write both with thousandths: 0.740 and 0.750.',
+    quiz: { prompt: 'Which decimal is between 0.74 and 0.75?', answer: '0.745', wrong: ['0.7', '0.74', '0.751'] },
     after: [9],
   },
   {

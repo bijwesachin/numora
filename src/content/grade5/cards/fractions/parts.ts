@@ -37,6 +37,7 @@ export const fractionPartsCards = defineCards('fractions-parts', ['fractions', '
     front: 'What fraction of this chocolate bar is NOT shaded?',
     back: '2/5',
     hint: 'Count all the pieces first. That number goes on the bottom.',
+    quiz: { answer: '2/5', wrong: ['3/5', '2/3', '5/2'] },
     steps: ['The bar has 5 equal pieces → denominator is 5.', '3 are shaded, so 5 − 3 = 2 are not.', 'Answer: 2/5.'],
     visual: { kind: 'fraction-strip', numerator: 3, denominator: 5 },
     after: [3],
@@ -118,6 +119,7 @@ export const fractionPartsCards = defineCards('fractions-parts', ['fractions', '
     front: 'A fraction has a denominator of 8. It is more than 1/2 but less than 1. What could its numerator be?',
     back: '5, 6 or 7 (so 5/8, 6/8 or 7/8).',
     hint: 'Half of 8 is 4. The numerator must be more than that but less than 8.',
+    quiz: { answer: '5, 6 or 7', wrong: ['4, 5, 6 or 7', '1, 2 or 3', '5, 6, 7 or 8'] },
     after: [8],
   },
 ]);

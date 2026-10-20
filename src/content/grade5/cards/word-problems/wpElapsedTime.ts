@@ -87,6 +87,7 @@ export const wpElapsedTimeCards = defineCards('wp-elapsed-time', ['word-problems
     front: 'A recipe takes 1 hour 40 minutes and must be ready by 6:00 p.m. What is the latest start time?',
     back: '4:20 p.m.',
     hint: 'Work backwards from 6:00.',
+    quiz: { answer: '4:20 p.m.', wrong: ['4:40 p.m.', '5:20 p.m.', '7:40 p.m.'] },
     steps: ['6:00 − 1 hour = 5:00.', '5:00 − 40 minutes = 4:20.', 'CHECK: 4:20 + 1 h 40 min = 6:00 ✓'],
     after: [6],
   },

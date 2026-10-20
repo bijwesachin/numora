@@ -89,6 +89,7 @@ export const decReadWriteCards = defineCards('dec-read-write', ['decimals', 'rea
     front: 'Write “two thousand and two hundredths” as a decimal.',
     back: '2,000.02',
     hint: 'Only “and” marks the decimal point.',
+    quiz: { answer: '2,000.02', wrong: ['2,000.2', '2,000.002', '2,002'] },
     after: [8],
   },
   {

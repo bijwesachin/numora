@@ -46,6 +46,11 @@ export function validateCurriculum(data: CurriculumData): string[] {
       if (pre === card.id) errors.push(`Card "${card.id}" lists itself as a prerequisite`);
     }
     if (card.steps && card.steps.length === 0) errors.push(`Card "${card.id}" has an empty steps list`);
+    if (card.quiz) {
+      const { answer, wrong } = card.quiz;
+      if (wrong.length < 1 || wrong.length > 3) errors.push(`Card "${card.id}" quiz needs 1–3 wrong answers`);
+      if (new Set([answer, ...wrong]).size !== wrong.length + 1) errors.push(`Card "${card.id}" quiz choices must all differ`);
+    }
     for (const visual of [card.visual, card.answerVisual]) {
       if (visual) errors.push(...validateVisual(visual).map((e) => `Card "${card.id}": ${e}`));
     }

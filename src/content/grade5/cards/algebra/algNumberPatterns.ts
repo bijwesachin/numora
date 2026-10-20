@@ -94,6 +94,7 @@ export const algNumberPatternsCards = defineCards('alg-number-patterns', ['algeb
     front: 'Look at the pattern 1, 4, 9, 16, … What is the 8th term?',
     back: '64',
     hint: 'These are square numbers: 1 × 1, 2 × 2, 3 × 3, …',
+    quiz: { answer: '64', wrong: ['32', '49', '81'] },
     steps: ['The 8th term is 8 × 8 = 64.'],
     after: [7],
   },

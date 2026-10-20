@@ -25,6 +25,19 @@ describe('progress store', () => {
     expect(reopened.getState().bookmarks['fractions-equivalent-001']).toBe(true);
   });
 
+  it('saves daily quiz answers under the quiz’s day and reloads them', async () => {
+    const repo = new InMemoryProgressRepository();
+    const store = createProgressStore(repo);
+    await store.getState().hydrate();
+    store.getState().recordQuizAnswer('2026-10-20', 'tricks', { id: '7x9', given: '× 10 minus one group', correct: true }, T0);
+
+    const reopened = createProgressStore(repo);
+    await reopened.getState().hydrate();
+    expect(reopened.getState().quizScores['2026-10-20']?.tricks).toEqual([
+      { id: '7x9', given: '× 10 minus one group', correct: true, at: T0.toISOString() },
+    ]);
+  });
+
   it('toggling a bookmark twice removes it', async () => {
     const store = createProgressStore(new InMemoryProgressRepository());
     await store.getState().hydrate();

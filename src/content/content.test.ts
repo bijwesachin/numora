@@ -1,5 +1,5 @@
 import { learningStage } from '@/domain/flashcard';
-import { parseFactCardId } from '@/domain/timesTables';
+import { isTimesTableFactId, parseFactCardId } from '@/domain/timesTables';
 import { validateCurriculum } from '@/domain/validateCurriculum';
 import { curriculum } from '.';
 import { grade5Cards } from './grade5/cards';
@@ -62,6 +62,11 @@ describe.each([
     const cards = concepts.flatMap((c) => curriculum.cardsOfConcept(c.id)).filter((c) => c.type === 'solve' || c.type === 'challenge');
     const bare = cards.filter((c) => !(c.steps?.length || c.hint || c.explanation)).map((c) => c.id);
     expect(bare).toEqual([]);
+  });
+
+  it('gives every card with a hint a multiple-choice version for the daily hint quiz', () => {
+    const missing = curriculum.cards.filter((c) => c.hint && !c.quiz && !isTimesTableFactId(c.id)).map((c) => c.id);
+    expect(missing).toEqual([]);
   });
 
   it('introduces cards in a sensible order: every prerequisite is easier or the same level', () => {

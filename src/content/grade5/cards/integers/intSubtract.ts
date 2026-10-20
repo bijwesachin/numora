@@ -113,6 +113,7 @@ export const intSubtractCards = defineCards('int-subtract', ['integers', 'subtra
     back: '−8',
     steps: ['Try −8: −5 − (−8) = −5 + 8 = 3 ✓'],
     hint: 'Subtracting a negative makes the answer go up.',
+    quiz: { answer: '−8', wrong: ['8', '−2', '2'] },
     after: [9],
   },
   {

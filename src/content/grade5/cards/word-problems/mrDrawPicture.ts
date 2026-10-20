@@ -84,6 +84,7 @@ export const mrDrawPictureCards = defineCards('mr-draw-picture', ['math-reasonin
     front: 'Tom spends 1/2 of his money on a game and 1/4 on lunch. He has $6 left. How much money did he start with?',
     back: '$24',
     hint: 'Draw the whole as 4 equal parts.',
+    quiz: { answer: '$24', wrong: ['$12', '$18', '$8'] },
     steps: ['Game: 2 of the 4 parts. Lunch: 1 part.', 'Left: 1 part = $6.', 'Whole: 4 × 6 = $24.'],
     answerVisual: {
       kind: 'bar-model',

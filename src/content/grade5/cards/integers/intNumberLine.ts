@@ -92,6 +92,7 @@ export const intNumberLineCards = defineCards('int-number-line', ['integers', 'c
     front: 'List all the integers greater than −3 and less than 2.',
     back: '−2, −1, 0 and 1',
     hint: 'Count to the right from −3 and stop before 2.',
+    quiz: { answer: '−2, −1, 0 and 1', wrong: ['−3, −2, −1, 0, 1 and 2', '−2, −1 and 1', '−2, −1, 0, 1 and 2'] },
     after: [7],
   },
 ]);

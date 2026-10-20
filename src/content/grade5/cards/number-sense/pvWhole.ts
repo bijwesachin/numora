@@ -39,6 +39,7 @@ export const pvWholeCards = defineCards('pv-whole', ['number-sense', 'place-valu
     front: 'What is the value of the 7 in 5,274?',
     back: '70',
     hint: 'Count places from the right: ones, tens, hundreds, thousands.',
+    quiz: { answer: '70', wrong: ['7', '700', '7,000'] },
     steps: ['Digits from the right: 4 is ones, 7 is tens.', 'The 7 is in the tens place.', '7 tens = 70.'],
     answerVisual: wholeChart('5274', [2]),
     after: [3],
@@ -55,6 +56,7 @@ export const pvWholeCards = defineCards('pv-whole', ['number-sense', 'place-valu
     front: 'In 63,490,215, which digit is in the ten millions place, and what is it worth?',
     back: 'The 6 — it is worth 60,000,000.',
     hint: 'This number has 8 digits. Name the places from the left: ten millions, millions, …',
+    quiz: { answer: 'The 6 — worth 60,000,000', wrong: ['The 3 — worth 3,000,000', 'The 6 — worth 6,000,000', 'The 6 — worth 600,000,000'] },
     steps: [
       'Name the places from the right: ones 5, tens 1, hundreds 2, thousands 0, ten thousands 9, hundred thousands 4, millions 3, ten millions 6.',
       'The ten millions digit is 6.',
@@ -92,6 +94,7 @@ export const pvWholeCards = defineCards('pv-whole', ['number-sense', 'place-valu
     front: 'Use the digits 7, 0, 4, 9 and 2 once each. Make the greatest and the least 5-digit number.',
     back: 'Greatest: 97,420. Least: 20,479.',
     hint: 'A number can’t start with 0 if you want it to really have 5 digits.',
+    quiz: { answer: 'Greatest: 97,420. Least: 20,479.', wrong: ['Greatest: 97,420. Least: 02,479.', 'Greatest: 97,402. Least: 20,479.', 'Greatest: 79,420. Least: 20,794.'] },
     steps: ['Greatest: put the biggest digits in the biggest places → 9, 7, 4, 2, 0 = 97,420.', 'Least: smallest digit that can lead is 2, then 0, 4, 7, 9 → 20,479.'],
     after: [6, 7],
   },

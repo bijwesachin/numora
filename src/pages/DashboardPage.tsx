@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 import { curriculum } from '@/content';
-import { DailyReview, UpNext, WeakAreas } from '@/components/DashboardPanels';
+import { DailyQuiz, DailyReview, UpNext, WeakAreas } from '@/components/DashboardPanels';
 import { ProgressBar } from '@/components/ProgressBar';
 import { TopicCard } from '@/components/TopicCard';
+import { dayKey } from '@/domain/dailyQuiz';
 import { recommendNextConcept } from '@/domain/progress/recommend';
 import { deckStats, dueCards, weakConceptIds } from '@/domain/progress/stats';
 import { practiceWhatINeed } from '@/domain/progress/weakAreas';
@@ -11,6 +12,10 @@ import { useProgressStore } from '@/state/progressStore';
 
 export function DashboardPage() {
   const progress = useProgressStore((s) => s.cards);
+  const quizScores = useProgressStore((s) => s.quizScores);
+  const now = new Date();
+  const today = quizScores[dayKey(now)];
+  const yesterday = quizScores[dayKey(new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1))];
 
   const view = useMemo(() => {
     const now = new Date();
@@ -50,6 +55,7 @@ export function DashboardPage() {
         <DailyReview dueCount={view.due} tablesDue={view.tables.due} />
         <WeakAreas cards={view.practice} concepts={view.practiceConcepts} />
         <UpNext concept={view.next} categoryTitle={view.nextCategory?.title} />
+        <DailyQuiz today={today} yesterday={yesterday} />
       </div>
 
       <section aria-labelledby="topics">

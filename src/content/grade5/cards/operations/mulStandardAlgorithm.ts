@@ -95,6 +95,7 @@ export const mulStandardAlgorithmCards = defineCards('mul-standard-algorithm', [
     front: 'Find the missing digit: 3■ × 4 = 148.',
     back: '7 (so 37 × 4 = 148)',
     hint: 'Divide 148 by 4, or think about what ends in 8 when multiplied by 4.',
+    quiz: { answer: '7', wrong: ['2', '4', '8'] },
     steps: ['148 ÷ 4 = 37.', 'CHECK: 7 × 4 = 28 (write 8, carry 2), 3 × 4 = 12 + 2 = 14 ✓'],
     after: [7],
   },

@@ -50,6 +50,7 @@ export const pvPowersOfTenCards = defineCards('pv-powers-of-ten', ['number-sense
     front: 'Write 100,000 as a power of 10.',
     back: '10⁵',
     hint: 'Count the zeros.',
+    quiz: { answer: '10⁵', wrong: ['10⁶', '10⁴', '5¹⁰'] },
     steps: ['100,000 has five zeros.', 'So it is 10⁵.'],
     after: [5],
   },

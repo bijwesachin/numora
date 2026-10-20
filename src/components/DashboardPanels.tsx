@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import type { Concept } from '@/domain/curriculum';
+import { QUIZ_KINDS, type QuizScores } from '@/domain/quizScores';
 import type { PrioritizedCard } from '@/domain/progress/weakAreas';
+import { ScoreLine } from './quiz/QuizScores';
 
 const panel = 'flex flex-col gap-3 rounded-3xl p-5 ring-1';
 
@@ -78,6 +80,49 @@ export function UpNext({ concept, categoryTitle }: { concept: Concept | undefine
       ) : (
         <p className="text-slate-600">You’ve studied every card available. Amazing work!</p>
       )}
+    </section>
+  );
+}
+
+type DayScores = QuizScores[string] | undefined;
+
+export function DailyQuiz({ today, yesterday }: { today: DayScores; yesterday: DayScores }) {
+  return (
+    <section className={`${panel} bg-violet-50 ring-violet-200 md:col-span-3 sm:flex-row sm:items-center`} aria-labelledby="daily-quiz">
+      <div className="flex-1">
+        <h2 id="daily-quiz" className="text-lg font-semibold">
+          <span aria-hidden="true">📅 </span>Daily Quiz
+        </h2>
+        <p className="text-slate-600">10 hint questions and 10 times-table tricks — new every day.</p>
+        <dl className="mt-2 grid gap-1 text-sm sm:grid-cols-[auto_1fr] sm:gap-x-3">
+          {(
+            [
+              ['Today', today],
+              ['Yesterday', yesterday],
+            ] as const
+          ).map(([label, day]) => (
+            <div key={label} className="contents">
+              <dt className="font-semibold text-slate-700">{label}</dt>
+              <dd className="flex flex-wrap gap-x-4 text-slate-700">
+                {QUIZ_KINDS.map((kind) => (
+                  <ScoreLine key={kind} kind={kind} answers={day?.[kind]} />
+                ))}
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <Link to="/quiz?tab=scores" className="mt-1 inline-block text-sm font-semibold text-violet-700 hover:underline">
+          📊 Review all scores →
+        </Link>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        <Link to="/quiz" className="rounded-2xl bg-violet-600 px-4 py-2.5 text-center font-semibold text-white hover:bg-violet-700">
+          🔎 Hint Quiz
+        </Link>
+        <Link to="/quiz?tab=tricks" className="rounded-2xl bg-white px-4 py-2.5 text-center font-semibold text-violet-700 ring-1 ring-violet-200 hover:bg-violet-100">
+          🧠 Trick Quiz
+        </Link>
+      </div>
     </section>
   );
 }

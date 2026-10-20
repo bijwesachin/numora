@@ -96,6 +96,7 @@ export const intAddSameCards = defineCards('int-add-same', ['integers', 'additio
     front: 'How many different pairs of negative integers add up to −10? (Count −1 and −9 the same as −9 and −1.)',
     back: '5 pairs: −1 and −9, −2 and −8, −3 and −7, −4 and −6, −5 and −5.',
     hint: 'The sizes must add to 10.',
+    quiz: { answer: '5 pairs', wrong: ['4 pairs', '9 pairs', '10 pairs'] },
     after: [8],
   },
 ]);

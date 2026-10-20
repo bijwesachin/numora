@@ -62,6 +62,7 @@ export const wpFractionsCards = defineCards('wp-fractions', ['word-problems', 'f
     front: 'A board is 5 1/4 feet long. A piece 2 3/4 feet long is cut off. How long is the rest?',
     back: '2 1/2 feet',
     hint: 'You can’t take 3/4 from 1/4. Regroup one whole.',
+    quiz: { answer: '2 1/2 feet', wrong: ['3 1/2 feet', '8 feet', '2 3/4 feet'] },
     steps: ['Regroup: 5 1/4 = 4 5/4', '4 5/4 − 2 3/4 = 2 2/4', 'Simplify: 2 2/4 = 2 1/2'],
     after: [5],
   },

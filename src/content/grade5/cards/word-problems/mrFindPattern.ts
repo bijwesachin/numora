@@ -73,6 +73,7 @@ export const mrFindPatternCards = defineCards('mr-find-pattern', ['math-reasonin
     front: 'Find the next two terms: 1, 3, 6, 10, 15, …',
     back: '21 and 28',
     hint: 'Look at the differences between terms.',
+    quiz: { answer: '21 and 28', wrong: ['20 and 25', '21 and 27', '16 and 17'] },
     steps: ['Differences: 2, 3, 4, 5, …', 'Next differences are 6 and 7.', '15 + 6 = 21, 21 + 7 = 28.'],
     after: [4],
   },

@@ -72,6 +72,7 @@ export const wpMissingInfoCards = defineCards('wp-missing-info', ['word-problems
     front: 'Make this solvable: “A bakery sold 48 muffins in the morning. How many did it sell all day?” Add the missing fact and solve.',
     back: 'Missing: the number sold in the afternoon. For example, if 35 muffins were sold in the afternoon, 48 + 35 = 83 muffins.',
     hint: 'What other fact would you need to find the whole day’s total?',
+    quiz: { prompt: '“A bakery sold 48 muffins in the morning. How many did it sell all day?” Which fact would make this solvable?', answer: 'How many muffins it sold in the afternoon', wrong: ['How much each muffin cost', 'How many bakers work there', 'What time the bakery opened'] },
     after: [5, 6],
   },
   {
@@ -79,6 +80,7 @@ export const wpMissingInfoCards = defineCards('wp-missing-info', ['word-problems
     front: 'Which problem is missing information? A: 6 boxes with 4 toys each; how many toys? B: 5 boxes with the same number of toys in each; how many toys?',
     back: 'B. It never says how many toys are in each box.',
     hint: 'Can you write a multiplication sentence with all numbers known?',
+    quiz: { answer: 'B — it never says how many toys are in each box', wrong: ['A — it never says how many boxes there are', 'Both are missing information', 'Neither is missing information'] },
     after: [7],
   },
 ]);

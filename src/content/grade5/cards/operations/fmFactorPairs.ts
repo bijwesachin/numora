@@ -85,6 +85,7 @@ export const fmFactorPairsCards = defineCards('fm-factor-pairs', ['factors', 'fa
     front: 'Which number between 20 and 30 has exactly three factors?',
     back: '25 (its factors are 1, 5 and 25)',
     hint: 'A number with an odd count of factors has a pair of equal factors.',
+    quiz: { answer: '25', wrong: ['21', '24', '27'] },
     steps: ['A perfect square has an odd number of factors.', '25 = 5 × 5, so its factors are 1, 5 and 25.'],
     after: [7],
   },

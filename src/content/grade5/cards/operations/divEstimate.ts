@@ -55,6 +55,7 @@ export const divEstimateCards = defineCards('div-estimate', ['division', 'estima
     front: 'Estimate 5,127 ÷ 9.',
     back: 'About 600',
     hint: 'Which number near 5,127 is easy to divide by 9?',
+    quiz: { answer: 'About 600', wrong: ['About 60', 'About 900', 'About 6,000'] },
     steps: ['5,127 is closest to 5,400, which is 54 hundreds.', '54 ÷ 9 = 6, so 5,400 ÷ 9 = 600.'],
     after: [7],
   },

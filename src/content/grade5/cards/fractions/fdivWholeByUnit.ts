@@ -107,6 +107,7 @@ export const fdivWholeByUnitCards = defineCards('fdiv-whole-by-unit', ['fraction
     front: 'Make up a story problem for 2 ÷ 1/3 and give the answer.',
     back: 'For example: “You have 2 pizzas and cut each into thirds. How many slices?” 6 slices.',
     hint: 'Think about cutting wholes into pieces.',
+    quiz: { prompt: 'Which story problem matches 2 ÷ 1/3?', answer: '2 pizzas are each cut into thirds. How many slices? 6 slices.', wrong: ['2 pizzas are shared by 3 friends. How much does each get? 2/3 of a pizza.', 'You eat 1/3 of 2 pizzas. How much did you eat? 2/3 of a pizza.', 'You have 2 pizzas and 1/3 of a pizza. How much in all? 2 1/3 pizzas.'] },
     after: [6],
   },
 ]);

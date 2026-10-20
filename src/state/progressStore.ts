@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { type QuizAnswer, type QuizKind, type QuizScores, recordQuizAnswer } from '@/domain/quizScores';
 import { applyRating, newCardProgress } from '@/domain/review/scheduler';
 import type { CardProgress, Rating } from '@/domain/review/types';
 import { LocalStorageProgressRepository } from '@/storage/localStorageRepository';
@@ -8,10 +9,13 @@ export interface ProgressState {
   status: 'idle' | 'loading' | 'ready';
   cards: Record<string, CardProgress>;
   bookmarks: Record<string, true>;
+  quizScores: QuizScores;
   hydrate(): Promise<void>;
   rate(cardId: string, rating: Rating, now?: Date): void;
   toggleBookmark(cardId: string): void;
   resetCards(cardIds: readonly string[]): void;
+  /** `day` is the quiz's day key, fixed when the quiz opened, so an answer after midnight still counts for that quiz. */
+  recordQuizAnswer(day: string, kind: QuizKind, answer: Omit<QuizAnswer, 'at'>, now?: Date): void;
 }
 
 /**
@@ -21,11 +25,12 @@ export interface ProgressState {
 export function createProgressStore(repository: ProgressRepository) {
   return create<ProgressState>()((set, get) => {
     const persist = () => {
-      const { cards, bookmarks } = get();
+      const { cards, bookmarks, quizScores } = get();
       void repository.save({
         version: PROGRESS_SCHEMA_VERSION,
         cards,
         bookmarks: Object.keys(bookmarks),
+        quizScores,
         updatedAt: new Date().toISOString(),
       });
     };
@@ -34,6 +39,7 @@ export function createProgressStore(repository: ProgressRepository) {
       status: 'idle',
       cards: {},
       bookmarks: {},
+      quizScores: {},
 
       async hydrate() {
         if (get().status !== 'idle') return;
@@ -43,6 +49,7 @@ export function createProgressStore(repository: ProgressRepository) {
           status: 'ready',
           cards: snapshot.cards,
           bookmarks: Object.fromEntries(snapshot.bookmarks.map((id) => [id, true] as const)),
+          quizScores: snapshot.quizScores ?? {},
         });
       },
 
@@ -59,6 +66,11 @@ export function createProgressStore(repository: ProgressRepository) {
           else bookmarks[cardId] = true;
           return { bookmarks };
         });
+        persist();
+      },
+
+      recordQuizAnswer(day, kind, answer, now = new Date()) {
+        set((s) => ({ quizScores: recordQuizAnswer(s.quizScores, day, kind, { ...answer, at: now.toISOString() }) }));
         persist();
       },
 

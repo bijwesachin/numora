@@ -1,3 +1,4 @@
+import { parseQuizScores, type QuizScores } from '@/domain/quizScores';
 import type { CardProgress } from '@/domain/review/types';
 
 export const PROGRESS_SCHEMA_VERSION = 1;
@@ -7,6 +8,8 @@ export interface ProgressSnapshot {
   version: typeof PROGRESS_SCHEMA_VERSION;
   cards: Record<string, CardProgress>;
   bookmarks: string[];
+  /** Daily quiz answers by day. Optional: snapshots saved before the quiz existed don't have it. */
+  quizScores?: QuizScores;
   updatedAt: string | null;
 }
 
@@ -43,6 +46,7 @@ export function parseSnapshot(raw: unknown): ProgressSnapshot {
     version: PROGRESS_SCHEMA_VERSION,
     cards,
     bookmarks,
+    quizScores: parseQuizScores(data.quizScores),
     updatedAt: typeof data.updatedAt === 'string' ? data.updatedAt : null,
   };
 }

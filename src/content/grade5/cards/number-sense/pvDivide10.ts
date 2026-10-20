@@ -61,6 +61,7 @@ export const pvDivide10Cards = defineCards('pv-divide-10', ['number-sense', 'pla
     front: '7 ÷ 100 = ?',
     back: '0.07',
     hint: 'Move the 7 two places to the right of the ones place.',
+    quiz: { answer: '0.07', wrong: ['0.7', '0.007', '700'] },
     steps: ['Ones → tenths is 1 place, tenths → hundredths is 2 places.', 'The 7 lands in the hundredths place.', '7 ÷ 100 = 0.07'],
     after: [7],
   },

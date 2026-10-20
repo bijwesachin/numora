@@ -73,6 +73,7 @@ export const mrReasonableCards = defineCards('mr-reasonable', ['math-reasoning',
     back: '24 ÷ 6 = 4, so each table has 4 students — not 40. The answer was bigger than the total number of students, which isn’t possible.',
     after: [4],
     hint: 'Could one table hold more students than the whole class?',
+    quiz: { answer: 'Each table has 4 students, not 40, because 24 ÷ 6 = 4', wrong: ['Each table has 144 students, because 24 × 6 = 144', 'Each table has 18 students, because 24 − 6 = 18', 'There is no error'] },
   },
   {
     n: 12, type: 'challenge', difficulty: 4,

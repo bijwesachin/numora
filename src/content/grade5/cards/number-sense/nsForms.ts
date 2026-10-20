@@ -58,6 +58,7 @@ export const nsFormsCards = defineCards('ns-forms', ['number-sense', 'standard-f
     front: 'Write 200,000 + 6,000 + 40 + 9 in standard form.',
     back: '206,049',
     hint: 'Draw a place-value chart. Which places are empty?',
+    quiz: { answer: '206,049', wrong: ['260,049', '206,409', '2,649'] },
     steps: ['2 in the hundred thousands, 6 in the thousands, 4 in the tens, 9 in the ones.', 'The ten thousands and hundreds are empty → 0.', '206,049'],
     after: [2],
   },

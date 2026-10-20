@@ -79,6 +79,7 @@ export const wpRuncCards = defineCards('wp-runc', ['word-problems', 'runc'], [
     front: 'Ben has 20 apples. That is 8 more than Cy has. How many apples does Cy have? Use R-U-N-C.',
     back: '12 apples',
     hint: 'The word “more” is a trap. Who has more? So who has fewer?',
+    quiz: { answer: '12 apples', wrong: ['28 apples', '20 apples', '8 apples'] },
     steps: ['U: Ben has more than Cy, so Cy has fewer.', 'N: Ben 20; Ben has 8 more than Cy.', 'C: 20 − 8 = 12.', 'CHECK: 12 + 8 = 20 ✓'],
     after: [2, 5],
   },

@@ -20,6 +20,7 @@ const CALLOUT_STYLE = {
   mistake: { icon: '⚠️', title: 'Watch out', className: 'bg-rose-50 text-rose-950' },
   why: { icon: '🤔', title: 'Why', className: 'bg-sky-50 text-sky-950' },
   hint: { icon: '🔎', title: 'Hint', className: 'bg-violet-50 text-violet-950' },
+  answer: { icon: '✅', title: 'Answer', className: 'bg-emerald-50 text-emerald-950' },
 } as const;
 
 export type CalloutKind = keyof typeof CALLOUT_STYLE;

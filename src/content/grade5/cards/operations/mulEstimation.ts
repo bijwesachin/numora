@@ -92,6 +92,7 @@ export const mulEstimationCards = defineCards('mul-estimation', ['multiplication
     front: 'Pia estimated 61 × 39 as about 2,400, but she calculated 24,000 with the standard method. What probably went wrong?',
     back: 'She likely added an extra zero or misplaced a partial product. The exact answer is 2,379, close to 2,400.',
     hint: 'Compare the size of the two answers. How many times bigger is one?',
+    quiz: { answer: 'She added an extra zero — the exact answer is 2,379', wrong: ['Her estimate was wrong — the exact answer is 24,000', 'She should have estimated 60 × 30 instead', 'Nothing — an estimate can be 10 times too small'] },
     after: [6],
   },
 ]);

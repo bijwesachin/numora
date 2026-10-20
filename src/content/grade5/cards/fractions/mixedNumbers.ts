@@ -102,6 +102,7 @@ export const fractionsMixedNumbersCards = defineCards('fractions-mixed-numbers',
     front: 'Write a mixed number that is between 2 1/4 and 2 1/2.',
     back: 'For example 2 1/3 (since 3/12 < 4/12 < 6/12) or 2 3/8.',
     hint: 'Both have 2 wholes. Find a fraction between 1/4 and 1/2.',
+    quiz: { prompt: 'Which mixed number is between 2 1/4 and 2 1/2?', answer: '2 1/3', wrong: ['2 1/5', '2 2/3', '3 1/3'] },
     after: [8],
   },
   {

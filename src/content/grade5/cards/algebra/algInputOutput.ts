@@ -104,6 +104,7 @@ export const algInputOutputCards = defineCards('alg-input-output', ['algebra', '
     front: 'A machine uses the rule × 5, then + 5. The output is 30. What was the input?',
     back: '5',
     hint: 'Work backwards: undo the last step first.',
+    quiz: { answer: '5', wrong: ['1', '7', '35'] },
     steps: ['Undo + 5: 30 − 5 = 25.', 'Undo × 5: 25 ÷ 5 = 5.', 'CHECK: 5 × 5 + 5 = 30 ✓'],
     after: [10],
   },

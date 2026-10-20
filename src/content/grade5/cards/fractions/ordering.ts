@@ -96,6 +96,7 @@ export const fractionsOrderingCards = defineCards('fractions-ordering', ['fracti
     front: 'Write three fractions between 1/2 and 1 and put them in order from least to greatest.',
     back: 'For example 5/8, 3/4, 7/8.',
     hint: 'Write 1/2 and 1 as eighths: 4/8 and 8/8.',
+    quiz: { prompt: 'Which list has three fractions between 1/2 and 1, in order from least to greatest?', answer: '5/8, 3/4, 7/8', wrong: ['7/8, 3/4, 5/8', '1/4, 5/8, 3/4', '5/8, 3/4, 9/8'] },
     after: [8],
   },
   {

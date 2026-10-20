@@ -94,6 +94,7 @@ export const mulAreaModelCards = defineCards('mul-area-model', ['multiplication'
     front: 'An area model has pieces 600, 60, 60 and 6. What multiplication does it show?',
     back: '33 × 22 = 726',
     hint: 'The biggest piece is tens × tens. What times what gives 600?',
+    quiz: { answer: '33 × 22 = 726', wrong: ['30 × 20 = 600', '36 × 26 = 936', '600 × 66 = 39,600'] },
     steps: ['600 = 30 × 20, so the tens parts are 30 and 20.', '60 = 3 × 20 and 60 = 30 × 2, 6 = 3 × 2.', 'The factors are 30 + 3 = 33 and 20 + 2 = 22.', '600 + 60 + 60 + 6 = 726.'],
     after: [6],
   },

@@ -89,6 +89,7 @@ export const fmEvenOddCards = defineCards('fm-even-odd', ['factors', 'even-odd',
     back: 'No. An odd sum needs one even and one odd number, but then the product is even.',
     after: [9],
     hint: 'Think about which kinds of numbers (even or odd) make an odd sum, then multiply them.',
+    quiz: { answer: 'No — an odd sum needs one even number, which makes the product even', wrong: ['Yes — for example 3 and 5', 'Yes — any two odd numbers work', 'Only when both numbers are even'] },
   },
   {
     n: 14, type: 'challenge', difficulty: 4,

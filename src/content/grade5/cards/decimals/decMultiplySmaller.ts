@@ -100,6 +100,7 @@ export const decMultiplySmallerCards = defineCards('dec-multiply-smaller', ['dec
     front: 'Pick a decimal to multiply 60 by so the product is between 10 and 20.',
     back: 'For example 0.25 (product 15).',
     hint: 'The decimal must be between 10 ÷ 60 and 20 ÷ 60, roughly between 0.17 and 0.33.',
+    quiz: { prompt: 'Which decimal can you multiply 60 by to get a product between 10 and 20?', answer: '0.25', wrong: ['0.1', '0.5', '2.5'] },
     after: [10],
   },
   {

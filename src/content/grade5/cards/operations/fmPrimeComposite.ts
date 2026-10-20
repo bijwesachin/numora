@@ -54,6 +54,7 @@ export const fmPrimeCompositeCards = defineCards('fm-prime-composite', ['factors
     front: 'Is 91 prime or composite?',
     back: 'Composite, because 91 = 7 × 13.',
     hint: 'It isn’t divisible by 2, 3 or 5. Try 7.',
+    quiz: { answer: 'Composite, because 91 = 7 × 13', wrong: ['Prime, because it isn’t divisible by 2, 3 or 5', 'Composite, because 91 = 9 × 11', 'Prime, because it is odd'] },
     after: [6],
   },
   {
@@ -85,6 +86,7 @@ export const fmPrimeCompositeCards = defineCards('fm-prime-composite', ['factors
     front: 'Find two prime numbers that add up to 24.',
     back: 'For example 5 + 19, 7 + 17 or 11 + 13.',
     hint: 'Both primes will be odd, so list the odd primes under 24.',
+    quiz: { prompt: 'Which two prime numbers add up to 24?', answer: '7 + 17', wrong: ['9 + 15', '1 + 23', '3 + 21'] },
     after: [7],
   },
   {

@@ -80,6 +80,7 @@ export const exprVsEquationCards = defineCards('expr-vs-equation', ['algebra', '
     back: 'For example 12 ÷ 4 = 3 (or 4 × 3 = 12).',
     after: [8],
     hint: 'An equation needs an equal sign between two expressions that are equal.',
+    quiz: { prompt: 'Which is a true equation using the numbers 12, 4 and 3?', answer: '12 ÷ 4 = 3', wrong: ['12 − 4 = 3', '12 ÷ 4 × 3', '4 + 3 = 12'] },
   },
   {
     n: 13, type: 'challenge', difficulty: 4,
@@ -87,5 +88,6 @@ export const exprVsEquationCards = defineCards('expr-vs-equation', ['algebra', '
     back: '4 × 5 is the expression (value 20). 4 × 5 = 20 is the equation.',
     after: [8],
     hint: 'An expression has no equal sign; an equation does.',
+    quiz: { prompt: 'Using 4 and 5 to make 20, which shows an expression and then an equation?', answer: 'Expression: 4 × 5. Equation: 4 × 5 = 20.', wrong: ['Expression: 4 × 5 = 20. Equation: 4 × 5.', 'Expression: 4 + 5. Equation: 4 + 5 = 20.', 'Expression: 20. Equation: 4 × 5.'] },
   },
 ]);

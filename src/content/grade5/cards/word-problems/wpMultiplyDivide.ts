@@ -94,6 +94,7 @@ export const wpMultiplyDivideCards = defineCards('wp-multiply-divide', ['word-pr
     front: '85 students are going on a trip. Each bus holds 30 students. How many buses are needed?',
     back: '3 buses',
     hint: 'What happens to the leftover students?',
+    quiz: { answer: '3 buses', wrong: ['2 buses', '2 R25 buses', '4 buses'] },
     steps: ['85 ÷ 30 = 2 with 25 left over.', 'The 25 leftover students still need a bus.', 'Round UP: 3 buses.'],
     explanation: 'Always think about what the remainder means in the story.',
     after: [8],

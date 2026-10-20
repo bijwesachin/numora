@@ -98,6 +98,7 @@ export const fmulScalingCards = defineCards('fmul-scaling', ['fractions', 'multi
     front: 'Find a fraction to multiply 40 by so that the product is between 10 and 20.',
     back: 'For example 2/5 (product 16) or 1/3 (product 13 1/3).',
     hint: 'The fraction must be between 1/4 and 1/2.',
+    quiz: { prompt: 'Which fraction can you multiply 40 by to get a product between 10 and 20?', answer: '2/5', wrong: ['1/5', '3/4', '5/2'] },
     steps: ['10 ÷ 40 = 1/4 and 20 ÷ 40 = 1/2.', 'Choose a fraction between 1/4 and 1/2, such as 2/5.'],
     after: [8],
   },

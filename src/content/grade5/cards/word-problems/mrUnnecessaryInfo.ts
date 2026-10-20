@@ -73,5 +73,6 @@ export const mrUnnecessaryInfoCards = defineCards('mr-unnecessary-info', ['math-
     back: 'For example: “Sam, who is 10 years old, has 5 boxes with 12 crayons in each box. The boxes are red.” The answer is still 5 × 12 = 60 crayons.',
     after: [6],
     hint: 'Keep the numbers the question needs (5 and 12) and change only the extras.',
+    quiz: { prompt: '“Sam, who is 10 years old, has 5 boxes with 12 crayons in each box. The boxes are red.” How many crayons does Sam have?', answer: '60 crayons', wrong: ['17 crayons', '70 crayons', 'You can’t tell because of the extra facts'] },
   },
 ]);

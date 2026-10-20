@@ -22,6 +22,14 @@ export interface CardImage {
   alt: string;
 }
 
+export interface QuizChoices {
+  /** Replaces the front when it asks for something open-ended, e.g. "Write a decimal …" → "Which decimal …". */
+  prompt?: string;
+  answer: string;
+  /** One to three believable wrong answers, ideally real mistakes. */
+  wrong: string[];
+}
+
 export interface Flashcard {
   /** Deterministic, human-readable and stable forever: `<concept-id>-<nnn>`. Progress is keyed on it. */
   id: string;
@@ -42,6 +50,8 @@ export interface Flashcard {
   memoryHook?: string;
   commonMistake?: string;
   hint?: string;
+  /** Multiple-choice version for the daily hint quiz. Every card with a hint has one. */
+  quiz?: QuizChoices;
   /** Step-by-step solution shown behind "Show Steps". */
   steps?: string[];
 

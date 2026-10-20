@@ -48,6 +48,7 @@ export const mrEstimateFirstCards = defineCards('mr-estimate-first', ['math-reas
     front: 'Estimate 4,185 ÷ 9 using a nearby number that divides easily.',
     back: 'About 500',
     hint: 'Which number near 4,185 is easy to divide by 9?',
+    quiz: { answer: 'About 500', wrong: ['About 50', 'About 900', 'About 5,000'] },
     steps: ['4,185 is close to 4,500.', '4,500 ÷ 9 = 500'],
     after: [2],
   },

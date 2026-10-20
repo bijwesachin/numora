@@ -101,6 +101,7 @@ export const fmPrimeFactorizationCards = defineCards('fm-prime-factorization', [
     front: 'What is the smallest number whose prime factorization has three different primes?',
     back: '30 (2 × 3 × 5)',
     hint: 'Use the three smallest primes.',
+    quiz: { answer: '30 (2 × 3 × 5)', wrong: ['8 (2 × 2 × 2)', '60 (2 × 2 × 3 × 5)', '105 (3 × 5 × 7)'] },
     after: [6],
   },
 ]);

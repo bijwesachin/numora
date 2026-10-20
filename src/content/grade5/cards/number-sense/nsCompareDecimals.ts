@@ -101,6 +101,7 @@ export const nsCompareDecimalsCards = defineCards('ns-compare-decimals', ['numbe
     front: 'Write a decimal that is between 0.3 and 0.4.',
     back: 'Many answers work, for example 0.35 (or 0.31, 0.38, 0.305 …).',
     hint: 'Write 0.3 as 0.30 and 0.4 as 0.40. What is between 30 and 40 hundredths?',
+    quiz: { prompt: 'Which decimal is between 0.3 and 0.4?', answer: '0.35', wrong: ['0.4', '0.29', '3.5'] },
     explanation: 'There are always more decimals between two decimals.',
     after: [6, 8],
   },
