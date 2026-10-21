@@ -3,16 +3,18 @@
  * empty ("resets every morning"); older days are kept for {@link KEEP_DAYS} days.
  */
 
-export type QuizKind = 'hints' | 'tricks';
+export type QuizKind = 'hints' | 'tricks' | 'tables';
 
-export const QUIZ_KINDS: readonly QuizKind[] = ['hints', 'tricks'];
+export const QUIZ_KINDS: readonly QuizKind[] = ['hints', 'tricks', 'tables'];
 
 export interface QuizAnswer {
-  /** Card id for the hint quiz, `"7x9"` for the trick quiz. */
+  /** Card id for the hint quiz, `"7x9"` for the trick quiz, `"fill:7x3"` / `"mixed:7x3"` for the table quiz. */
   id: string;
   given: string;
   correct: boolean;
   usedHint?: boolean;
+  /** Milliseconds taken to answer (table quiz). */
+  ms?: number;
   at: string;
 }
 
@@ -83,6 +85,7 @@ function isQuizAnswer(v: unknown): v is QuizAnswer {
     typeof a.given === 'string' &&
     typeof a.correct === 'boolean' &&
     (a.usedHint === undefined || typeof a.usedHint === 'boolean') &&
+    (a.ms === undefined || typeof a.ms === 'number') &&
     typeof a.at === 'string'
   );
 }

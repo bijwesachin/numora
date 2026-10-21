@@ -67,4 +67,35 @@ describe('Daily Quiz', () => {
     renderAt('/');
     expect(screen.getByRole('region', { name: /Daily Quiz/ })).toHaveTextContent(/Today.*2 of 10 answered/);
   });
+
+  it('learns a table: fill in the hidden answers, then answer it shuffled', async () => {
+    const user = userEvent.setup();
+    renderAt('/quiz?tab=tables');
+    expect(screen.getByRole('heading', { name: /Learning the 2 table/ })).toBeInTheDocument();
+    const type = async (n: number) => {
+      for (const d of String(n)) await user.click(within(screen.getByRole('group', { name: 'Number pad' })).getByRole('button', { name: d }));
+      await user.click(screen.getByRole('button', { name: 'Check answer' }));
+    };
+    const hiddenRow = () => {
+      const row = within(screen.getByRole('region', { name: '2 table' })).getByLabelText('Your answer').closest('li')!;
+      return Number(/2 × (\d+)/.exec(row.textContent!)![1]);
+    };
+
+    await type(2 * hiddenRow() + 1);
+    expect(screen.getByRole('status')).toHaveTextContent(/2 × \d+ = \d+/);
+    await user.click(screen.getByRole('button', { name: /Next/ }));
+    for (let i = 0; i < 2; i++) {
+      await type(2 * hiddenRow());
+      expect(await screen.findByText('Question ' + (i + 3) + ' of 13')).toBeInTheDocument();
+    }
+
+    await user.click(screen.getByRole('button', { name: 'Start' }));
+    for (let i = 0; i < 10; i++) {
+      const b = Number(/2 × (\d+)/.exec(screen.getByRole('region', { name: 'Question' }).textContent!)![1]);
+      await type(2 * b);
+      if (i < 9) expect(await screen.findByText(`Question ${i + 5} of 13`)).toBeInTheDocument();
+    }
+    expect(await screen.findByRole('heading', { name: '12 / 13 answers right' })).toBeInTheDocument();
+    expect(screen.getByText(/try this level again/)).toBeInTheDocument();
+  }, 20_000); // each right answer pauses before moving on
 });

@@ -4,7 +4,7 @@ import type { Rating } from './review/types';
 import { ALL_FACTS, type Fact, factStrategy, isTimesTableFactId } from './timesTables';
 
 /**
- * Two 10-question daily quizzes. Both are seeded by the local calendar date, so everyone gets
+ * Three 10-question daily quizzes. Both are seeded by the local calendar date, so everyone gets
  * the same questions all day and a fresh set tomorrow.
  */
 
@@ -16,13 +16,13 @@ export function dayKey(now: Date): string {
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 }
 
-function daySeed(now: Date, salt: string): number {
+export function daySeed(now: Date, salt: string): number {
   let h = 2166136261;
   for (const ch of `${dayKey(now)}:${salt}`) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
   return h >>> 0;
 }
 
-function shuffle<T>(items: readonly T[], random: () => number): T[] {
+export function shuffle<T>(items: readonly T[], random: () => number): T[] {
   const out = [...items];
   for (let i = out.length - 1; i > 0; i--) {
     const j = Math.floor(random() * (i + 1));
@@ -95,3 +95,4 @@ export function dailyTrickQuiz(now: Date, count = DAILY_QUIZ_LENGTH): TrickQuest
     return { fact: f, answer, choices: shuffle([answer, ...wrong], random) };
   });
 }
+

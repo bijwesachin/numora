@@ -93,7 +93,7 @@ export function DailyQuiz({ today, yesterday }: { today: DayScores; yesterday: D
         <h2 id="daily-quiz" className="text-lg font-semibold">
           <span aria-hidden="true">📅 </span>Daily Quiz
         </h2>
-        <p className="text-slate-600">10 hint questions and 10 times-table tricks — new every day.</p>
+        <p className="text-slate-600">10 hint questions, 10 times-table tricks and a table to learn by heart — new every day.</p>
         <dl className="mt-2 grid gap-1 text-sm sm:grid-cols-[auto_1fr] sm:gap-x-3">
           {(
             [
@@ -121,6 +121,9 @@ export function DailyQuiz({ today, yesterday }: { today: DayScores; yesterday: D
         </Link>
         <Link to="/quiz?tab=tricks" className="rounded-2xl bg-white px-4 py-2.5 text-center font-semibold text-violet-700 ring-1 ring-violet-200 hover:bg-violet-100">
           🧠 Trick Quiz
+        </Link>
+        <Link to="/quiz?tab=tables" className="rounded-2xl bg-white px-4 py-2.5 text-center font-semibold text-violet-700 ring-1 ring-violet-200 hover:bg-violet-100">
+          📚 Learn a Table
         </Link>
       </div>
     </section>

@@ -1,10 +1,11 @@
 import { curriculum } from '@/content';
 import { DAILY_QUIZ_LENGTH, dayKey } from '@/domain/dailyQuiz';
 import { type QuizAnswer, type QuizKind, QUIZ_KINDS, type QuizScores, scoredDays, scoreOf } from '@/domain/quizScores';
+import { parseTableAnswerId, tableOf } from '@/domain/tableDrill';
 import { factStrategy } from '@/domain/timesTables';
 import { MathText } from '../MathText';
 
-export const QUIZ_LABEL: Record<QuizKind, string> = { hints: '🔎 Hint Quiz', tricks: '🧠 Trick Quiz' };
+export const QUIZ_LABEL: Record<QuizKind, string> = { hints: '🔎 Hint Quiz', tricks: '🧠 Trick Quiz', tables: '📚 Learn a Table' };
 
 /** "Today", "Yesterday" or e.g. "Sat, Oct 17" for a `YYYY-MM-DD` key. */
 export function dayLabel(day: string, now: Date): string {
@@ -17,6 +18,11 @@ export function dayLabel(day: string, now: Date): string {
 
 /** The question and right answer behind a saved answer, for review. */
 function describe(kind: QuizKind, id: string): { question: string; answer: string } {
+  if (kind === 'tables') {
+    const q = parseTableAnswerId(id);
+    if (!q) return { question: id, answer: '' };
+    return { question: `${q.part === 'fill' ? '🫥 Fill in' : '🔀 Shuffled'}: ${q.table} × ${q.b} = ?`, answer: String(q.table * q.b) };
+  }
   if (kind === 'tricks') {
     const [a, b] = id.split('x').map(Number);
     return { question: `Which trick works for ${a} × ${b}?`, answer: factStrategy(a!, b!).name };
@@ -30,7 +36,8 @@ export function ScoreLine({ kind, answers }: { kind: QuizKind; answers: readonly
   const { answered, correct, hintsUsed } = scoreOf(answers);
   return (
     <span>
-      {QUIZ_LABEL[kind]}:{' '}
+      {QUIZ_LABEL[kind]}
+      {kind === 'tables' && tableOf(answers) !== undefined && ` (${tableOf(answers)} table)`}:{' '}
       {answered === 0 ? (
         <span className="text-slate-500">not started</span>
       ) : (
@@ -38,7 +45,7 @@ export function ScoreLine({ kind, answers }: { kind: QuizKind; answers: readonly
           <span className="font-semibold tabular-nums">
             {correct} / {answered}
           </span>
-          {answered < DAILY_QUIZ_LENGTH && <span className="text-slate-500"> ({answered} of {DAILY_QUIZ_LENGTH} answered)</span>}
+          {kind !== 'tables' && answered < DAILY_QUIZ_LENGTH && <span className="text-slate-500"> ({answered} of {DAILY_QUIZ_LENGTH} answered)</span>}
           {hintsUsed > 0 && <span className="text-slate-500"> · {hintsUsed} hint{hintsUsed === 1 ? '' : 's'}</span>}
         </>
       )}
@@ -75,7 +82,7 @@ export function QuizScoresView({ scores, now }: { scores: QuizScores; now: Date 
                         <div className="grid gap-0.5">
                           <MathText text={question} />
                           <span className="text-sm text-slate-600">
-                            Picked: <MathText text={a.given} compact />
+                            {kind === 'tables' ? 'Typed' : 'Picked'}: <MathText text={a.given} compact />
                             {!a.correct && (
                               <>
                                 {' '}· Answer: <MathText text={answer} compact />
